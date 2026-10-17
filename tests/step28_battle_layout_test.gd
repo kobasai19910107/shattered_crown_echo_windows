@@ -73,6 +73,7 @@ func _run() -> void:
     _check(view.card_buttons.size() == 5, "exactly five reusable card slots")
     _check(view.card_buttons.all(func(card): return card.get_script().resource_path.ends_with("step28_battle_card.gd")), "all hand slots use STEP28 card component")
     _check(view.end_turn_button.name == "EndTurn", "end-turn action remains present")
+    _check(view.detail_button.name == "SelectedCardDetails", "touch card detail action exists")
     _check(view.b01_visual_slot == 0 and view.actors.size() == 1, "R1-B01 articulated actor remains connected")
     _check(is_equal_approx(view.actors[0].scale.x, view.actors[0].scale.y), "boss uses uniform scale")
     _check(is_equal_approx(view.hero.scale.x, view.hero.scale.y), "player uses uniform scale")
@@ -106,6 +107,7 @@ func _run() -> void:
     view._refresh_hud()
     await process_frame
     _check(view.card_buttons.filter(func(card): return card.visible).size() == 5, "first hand page displays five cards")
+    _check(view.detail_button.disabled, "card detail action requires a selected card")
     _check(not view.hand_next.disabled, "six-card hand enables next page")
     view._switch_page(1)
     await process_frame
@@ -129,6 +131,19 @@ func _run() -> void:
     var first_base_position: Vector2 = first_card.get("base_position")
     _check(first_card.position.y < first_base_position.y, "selected card is lifted")
     _check(view.enemy_buttons[0].get_theme_stylebox("normal").border_width_left == 3, "valid enemy target is highlighted")
+    _check(not view.detail_button.disabled, "selected card enables touch details")
+    var mana_before_details: int = view.battle.current_mana
+    var uses_before_details: int = int(view.battle.playtest_stats.get("cards_used", 0))
+    view.detail_button.pressed.emit()
+    await process_frame
+    _check(view.detail_dialog.visible and view.detail_dialog.dialog_text.contains(full_text),
+        "touch details dialog displays complete card effect")
+    _check(view.battle.current_mana == mana_before_details
+        and int(view.battle.playtest_stats.get("cards_used", 0)) == uses_before_details,
+        "opening card details does not use Mana or play a card")
+    view.detail_dialog.hide()
+    await process_frame
+    _check(view.selected_index == 0, "closing card details preserves target selection")
     var uses_before_click := int(view.battle.playtest_stats.get("cards_used", 0))
     await _mouse_click(view.enemy_buttons[0].get_global_rect().get_center())
     _check(int(view.battle.playtest_stats.get("cards_used", 0)) == uses_before_click + 1, "real mouse click on enemy confirms target")
