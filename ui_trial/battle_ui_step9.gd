@@ -49,6 +49,8 @@ var hud_panel: PanelContainer
 var bottom_panel: PanelContainer
 var use_button: Button
 var clear_button: Button
+var detail_button: Button
+var detail_dialog: AcceptDialog
 var end_turn_button: Button
 var _acting_target: int = -1
 var _current_animation: String = ""
@@ -284,6 +286,17 @@ func _make_cards() -> void:
     clear_button.name = "ClearCardSelection"
     end_turn_button = _button(card_layer,"ターン終了",Vector2(995,603),Vector2(247,70),_end_turn,true)
     end_turn_button.name = "EndTurn"
+    # A touch-accessible alternative to hover-only card tooltips.
+    detail_button = _button(card_layer, "詳細", Vector2(1124,509),
+        Vector2(118,31), _show_selected_card_details)
+    detail_button.name = "SelectedCardDetails"
+    detail_dialog = AcceptDialog.new()
+    detail_dialog.name = "SelectedCardDetailsDialog"
+    detail_dialog.title = "カード詳細"
+    detail_dialog.ok_button_text = "閉じる"
+    detail_dialog.dialog_autowrap = true
+    detail_dialog.get_label().add_theme_font_size_override("font_size", 17)
+    stage.add_child(detail_dialog)
     selection_label = _label(card_layer,"カード選択 → 敵指定 / 自分向けは再タップ",12,DIM,Vector2(158,698),Vector2(1080,20))
     status = _label(card_layer,"",13,Color("f1ce99"),Vector2(28,472),Vector2(1220,28))
     status.text = "実際のBattle Coreを使用する独立試作です。"
@@ -527,6 +540,7 @@ func _refresh_hud() -> void:
     card_page = mini(card_page,max_page)
     hand_prev.disabled = busy or card_page<=0
     hand_next.disabled = busy or card_page>=max_page
+    detail_button.disabled = busy or selected_index<0 or selected_index>=battle.hand.size()
     for i in range(VISIBLE_CARDS):
         var idx: int = card_page*VISIBLE_CARDS+i
         var btn: Button = card_buttons[i]
@@ -608,6 +622,25 @@ func _clear_selection() -> void:
     selected_index=-1
     selection_label.text="カード選択 → 敵指定 / 自分向けは再タップ"
     _refresh_hud()
+
+func _show_selected_card_details() -> void:
+    if battle == null or busy or selected_index<0 or selected_index>=battle.hand.size():
+        return
+    var card: Dictionary = battle.hand[selected_index]
+    detail_dialog.dialog_text = "%s\n%s / %s / %s\n\n%s" % [
+        str(card.get("display_name", card.get("id", "?"))),
+        battle.get_cost_preview_text(selected_index),
+        str(card.get("attribute", "")),
+        str(card.get("weapon", "")),
+        str(card.get("text", ""))
+    ]
+    var viewport_size: Vector2 = get_viewport_rect().size
+    var dialog_size := Vector2i(
+        maxi(1, mini(740, int(viewport_size.x) - 24)),
+        maxi(1, mini(430, int(viewport_size.y) - 24))
+    )
+    detail_dialog.popup_centered_clamped(dialog_size)
+
 
 func _use_selected() -> void:
     if busy or battle.combat_over or selected_index<0:return

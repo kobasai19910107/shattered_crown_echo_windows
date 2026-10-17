@@ -1,0 +1,51 @@
+name: STEP28 battle UI regression (PR)
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "ui_trial/**"
+      - "tests/step28_battle_layout_test.gd"
+      - ".github/workflows/step28-battle-ui-qa.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  battle-ui:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    container:
+      image: barichello/godot-ci:4.7.2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Import project in Godot 4.7.2
+        shell: bash
+        run: |
+          set -euo pipefail
+          export HOME=/root
+          godot --headless --path . --import
+      - name: Japanese font glyph smoke test
+        shell: bash
+        run: |
+          set -euo pipefail
+          export HOME=/root
+          godot --headless --path . --script res://tests/japanese_font_smoke.gd
+      - name: STEP22 Battle Core presentation smoke test
+        shell: bash
+        run: |
+          set -euo pipefail
+          export HOME=/root
+          godot --headless --path . --script res://ui_trial/tests/step22_battle_smoke.gd
+      - name: STEP27 30-animation and layout regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          export HOME=/root
+          godot --headless --path . --script res://tests/step27_godot_qa_runner.gd
+      - name: STEP28 UI and card detail interaction regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          export HOME=/root
+          godot --headless --path . --script res://tests/step28_battle_layout_test.gd
