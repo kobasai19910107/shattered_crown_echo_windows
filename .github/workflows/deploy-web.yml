@@ -28,6 +28,7 @@ jobs:
         run: |
           set -euo pipefail
           export HOME=/root
+          godot --headless --path . --script res://tests/japanese_font_smoke.gd
           timeout 20s godot --headless --path . --quit-after 100 || status=$?
           if [ "${status:-0}" = "124" ]; then echo "Timed out during startup"; exit 1; fi
           test "${status:-0}" = "0"
@@ -38,7 +39,9 @@ jobs:
           export HOME=/root
           test -s "$HOME/.local/share/godot/export_templates/4.7.2.stable/web_nothreads_release.zip"
           mkdir -p build/web
-          godot --headless --path . --export-release Web build/web/index.html
+          build_name="game-${GITHUB_SHA:0:12}"
+          godot --headless --path . --export-release Web "build/web/${build_name}.html"
+          mv "build/web/${build_name}.html" build/web/index.html
           test -s build/web/index.html
           test -n "$(find build/web -name '*.wasm' -print -quit)"
           touch build/web/.nojekyll
