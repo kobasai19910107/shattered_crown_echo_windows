@@ -20,6 +20,7 @@ renderer/rendering_method.mobile="gl_compatibility"
 textures/default_filters/use_nearest_mipmap_filter=false
 
 [gui]
+theme/custom_font="res://assets/fonts/NotoSansJP-Variable.ttf"
 theme/default_font_multichannel_signed_distance_field=true
 
 ; Web migration: no EOS GDExtension/autoload. Windows source ZIP unchanged.
