@@ -253,7 +253,10 @@ func _make_cards() -> void:
     card_layer = Control.new()
     card_layer.name = "BottomHandAndStatus"
     card_layer.size = STAGE
-    card_layer.mouse_filter = Control.MOUSE_FILTER_PASS
+    # This control spans the whole stage so its children can use logical
+    # coordinates. It must not consume clicks in the battlefield above the
+    # hand; the enemy target buttons live on the layer underneath it.
+    card_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
     card_layer.z_index = 25  # Keep buttons visible above large enemies.
     stage.add_child(card_layer)
     bottom_panel = _panel(card_layer,Vector2(0,505),Vector2(1280,215),INK,Color("a0805f"))

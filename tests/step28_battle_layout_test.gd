@@ -27,6 +27,36 @@ func _until_idle(view) -> void:
         await process_frame
     _check(not view.busy, "battle presentation returns to idle")
 
+func _mouse_click(global_position: Vector2) -> void:
+    var press := InputEventMouseButton.new()
+    press.button_index = MOUSE_BUTTON_LEFT
+    press.pressed = true
+    press.position = global_position
+    press.global_position = global_position
+    Input.parse_input_event(press)
+    await process_frame
+    var release := InputEventMouseButton.new()
+    release.button_index = MOUSE_BUTTON_LEFT
+    release.pressed = false
+    release.position = global_position
+    release.global_position = global_position
+    Input.parse_input_event(release)
+    await process_frame
+
+func _screen_tap(global_position: Vector2) -> void:
+    var press := InputEventScreenTouch.new()
+    press.index = 0
+    press.pressed = true
+    press.position = global_position
+    Input.parse_input_event(press)
+    await process_frame
+    var release := InputEventScreenTouch.new()
+    release.index = 0
+    release.pressed = false
+    release.position = global_position
+    Input.parse_input_event(release)
+    await process_frame
+
 func _run() -> void:
     var packed := load(LAB_PATH) as PackedScene
     _check(packed != null, "STEP21 lab scene loads")
@@ -99,9 +129,21 @@ func _run() -> void:
     var first_base_position: Vector2 = first_card.get("base_position")
     _check(first_card.position.y < first_base_position.y, "selected card is lifted")
     _check(view.enemy_buttons[0].get_theme_stylebox("normal").border_width_left == 3, "valid enemy target is highlighted")
-    view._clear_selection()
+    var uses_before_click := int(view.battle.playtest_stats.get("cards_used", 0))
+    await _mouse_click(view.enemy_buttons[0].get_global_rect().get_center())
+    _check(int(view.battle.playtest_stats.get("cards_used", 0)) == uses_before_click + 1, "real mouse click on enemy confirms target")
+    await _until_idle(view)
+    _check(is_equal_approx(first_card.position.y, first_base_position.y), "used card returns selection to rest position")
+
+    view.battle.hand = view.battle.database.create_deck_from_ids(["C001"])
+    view.battle.current_mana = 30
+    view._refresh_hud()
+    view._card_pressed(0)
     await process_frame
-    _check(is_equal_approx(first_card.position.y, first_base_position.y), "cleared card returns to rest position")
+    var uses_before_touch := int(view.battle.playtest_stats.get("cards_used", 0))
+    await _screen_tap(view.enemy_buttons[0].get_global_rect().get_center())
+    _check(int(view.battle.playtest_stats.get("cards_used", 0)) == uses_before_touch + 1, "real screen touch on enemy confirms target")
+    await _until_idle(view)
 
     view.speed = 3.0
     view.battle.hand = view.battle.database.create_deck_from_ids(["C001"])
