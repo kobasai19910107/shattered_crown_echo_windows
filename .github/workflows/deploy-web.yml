@@ -18,11 +18,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Godot import
-        run: godot --headless --path . --import
+        shell: bash
+        run: |
+          set -euo pipefail
+          export HOME=/root
+          godot --headless --path . --import
       - name: Main-scene smoke test (20 seconds)
         shell: bash
         run: |
           set -euo pipefail
+          export HOME=/root
           timeout 20s godot --headless --path . --quit-after 100 || status=$?
           if [ "${status:-0}" = "124" ]; then echo "Timed out during startup"; exit 1; fi
           test "${status:-0}" = "0"
@@ -30,6 +35,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          export HOME=/root
+          test -s "$HOME/.local/share/godot/export_templates/4.7.2.stable/web_nothreads_release.zip"
           mkdir -p build/web
           godot --headless --path . --export-release Web build/web/index.html
           test -s build/web/index.html
