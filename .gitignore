@@ -1,6 +1,8 @@
 # Original Windows project is a separate source of truth.
 .godot/
 build/
+*.import
+*.gd.uid
 *.log
 *.pdb
 *.dll
@@ -18,3 +20,4 @@ eos_client.cfg
 *.key
 *.secrets
 user_data/
+STEP27_QA_RESULTS.json

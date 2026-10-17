@@ -4,6 +4,7 @@ extends Control
 const HERO_SCRIPT = preload("res://ui_trial/actors/actor3h.gd")
 const ENEMY_SCRIPT = preload("res://ui_trial/actors/region1_unique_enemy_visual.gd")
 const FX_SCRIPT = preload("res://ui_trial/vfx/attribute_fx.gd")
+const STEP28_CARD_SCRIPT = preload("res://ui_trial/step28_battle_card.gd")
 const BG = preload("res://ui_trial/assets/battle_background.webp")
 const PORTRAIT = preload("res://ui_trial/assets/cutin_temp.webp")
 const STAGE := Vector2(1280.0, 720.0)
@@ -43,6 +44,12 @@ var cutin_title: Label
 var cutin_subtitle: Label
 var damage_text: Label
 var field_layer: Control
+var debug_toolbar: Control
+var hud_panel: PanelContainer
+var bottom_panel: PanelContainer
+var use_button: Button
+var clear_button: Button
+var end_turn_button: Button
 var _acting_target: int = -1
 var _current_animation: String = ""
 var _last_attribute: String = "物理"
@@ -205,16 +212,22 @@ func _make_field() -> void:
     field_layer.size = STAGE
     field_layer.mouse_filter = Control.MOUSE_FILTER_PASS
     stage.add_child(field_layer)
-    # Toolbar stays just below the HUD; only world actors move with the
-    # additional battle-field height.
-    _panel(stage,Vector2(25,100),Vector2(520,35),Color(0.025,0.039,0.070,0.79),Color("656074"))
-    _label(stage,"STEP 9 ・ Region1固有スプライト / 実戦闘連動",16,DIM,Vector2(36,107),Vector2(490,28))
-    _panel(stage,Vector2(525,101),Vector2(235,36),Color(0.025,0.039,0.070,0.75),Color("656074"))
-    _label(stage,"戦闘プリセット切替",16,GOLD,Vector2(545,108),Vector2(216,27))
+    # Development controls remain available in dedicated trial scenes. The
+    # campaign binding hides this whole layer so production combat has no
+    # STEP labels, Battle Core labels, or preset switches.
+    debug_toolbar = Control.new()
+    debug_toolbar.name = "DebugToolbar"
+    debug_toolbar.position = Vector2(25, 88)
+    debug_toolbar.size = Vector2(1230, 38)
+    stage.add_child(debug_toolbar)
+    _panel(debug_toolbar,Vector2(0,0),Vector2(520,35),Color(0.025,0.039,0.070,0.79),Color("656074"))
+    _label(debug_toolbar,"STEP 9 ・ Region1固有スプライト / 実戦闘連動",16,DIM,Vector2(11,7),Vector2(490,28))
+    _panel(debug_toolbar,Vector2(500,1),Vector2(235,36),Color(0.025,0.039,0.070,0.75),Color("656074"))
+    _label(debug_toolbar,"戦闘プリセット切替",16,GOLD,Vector2(520,8),Vector2(216,27))
     for i in range(3):
         var mode: String = ["mob","elite","boss"][i]
         var name: String = ["モブ","エリート","ボス"][i]
-        mode_buttons[mode] = _button(stage,name,Vector2(771+109*i,100),Vector2(103,37),_set_tier.bind(mode))
+        mode_buttons[mode] = _button(debug_toolbar,name,Vector2(746+109*i,0),Vector2(103,37),_set_tier.bind(mode))
     fx = Node2D.new()
     fx.set_script(FX_SCRIPT)
     fx.z_index = 8
@@ -223,15 +236,18 @@ func _make_field() -> void:
     damage_text.visible = false
 
 func _make_hud() -> void:
-    _panel(stage,Vector2(0,0),Vector2(1280,96),Color(0.015,0.024,0.044,0.93),Color("8c6d53"))
-    _label(stage,"SHATTERED CROWN ECHO",28,WHITE,Vector2(26,9),Vector2(450,38))
-    _label(stage,"P1  / Battle Core",17,GOLD,Vector2(30,51),Vector2(290,28))
-    hero_hp_fill = _bar(stage,Vector2(200,60),Vector2(195,15),Color("b74351"))
-    hero_status = _label(stage,"",15,WHITE,Vector2(202,38),Vector2(408,25))
-    enemy_main_label = _label(stage,"",17,WHITE,Vector2(633,6),Vector2(510,30))
-    enemy_hp_fill = _bar(stage,Vector2(630,40),Vector2(550,15),Color("bd4b55"))
-    intent_label = _label(stage,"",15,Color("ffd3ac"),Vector2(634,64),Vector2(390,25))
-    turn_label = _label(stage,"",16,WHITE,Vector2(1186,65),Vector2(90,26))
+    hud_panel = _panel(stage,Vector2(0,0),Vector2(1280,80),Color(0.012,0.021,0.040,0.96),Color("9b7958"))
+    hud_panel.name = "Step28TopHUD"
+    _label(stage,"P1",19,GOLD,Vector2(22,9),Vector2(48,26))
+    hero_status = _label(stage,"",14,WHITE,Vector2(76,8),Vector2(355,27))
+    hero_hp_fill = _bar(stage,Vector2(76,41),Vector2(350,16),Color("b74351"))
+    _label(stage,"PLAYER",11,DIM,Vector2(22,43),Vector2(52,20))
+    enemy_main_label = _label(stage,"",16,WHITE,Vector2(480,7),Vector2(570,27))
+    enemy_hp_fill = _bar(stage,Vector2(480,40),Vector2(570,16),Color("bd4b55"))
+    intent_label = _label(stage,"",13,Color("ffd3ac"),Vector2(480,58),Vector2(620,20))
+    turn_label = _label(stage,"",17,GOLD,Vector2(1110,10),Vector2(150,28))
+    turn_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+    _label(stage,"INTENT",10,DIM,Vector2(430,59),Vector2(48,18))
 
 func _make_cards() -> void:
     card_layer = Control.new()
@@ -240,25 +256,33 @@ func _make_cards() -> void:
     card_layer.mouse_filter = Control.MOUSE_FILTER_PASS
     card_layer.z_index = 25  # Keep buttons visible above large enemies.
     stage.add_child(card_layer)
-    _panel(card_layer,Vector2(0,509),Vector2(1280,211),INK,Color("947356"))
-    pile_info = _label(card_layer,"実デッキ / 実手札",13,DIM,Vector2(22,514),Vector2(325,25))
-    trait_info = _label(card_layer,"",13,DIM,Vector2(450,515),Vector2(550,26))
-    _panel(card_layer,Vector2(26,559),Vector2(113,120),Color("0e2546"),Color("6bc1f4"))
-    mana_label = _label(card_layer,"Mana",23,Color("b3e9ff"),Vector2(41,575),Vector2(97,80))
+    bottom_panel = _panel(card_layer,Vector2(0,505),Vector2(1280,215),INK,Color("a0805f"))
+    bottom_panel.name = "Step28BottomUI"
+    pile_info = _label(card_layer,"山札 0 / 捨て札 0",13,DIM,Vector2(18,512),Vector2(300,25))
+    trait_info = _label(card_layer,"",12,DIM,Vector2(395,512),Vector2(575,26))
+    _panel(card_layer,Vector2(18,548),Vector2(126,126),Color("0b203d"),Color("6bc1f4"))
+    mana_label = _label(card_layer,"Mana",22,Color("b3e9ff"),Vector2(31,568),Vector2(100,76))
     mana_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
     for i in range(VISIBLE_CARDS):
-        var bx := 164.0 + 166.0*i
-        var btn := _button(card_layer,"",Vector2(bx,548),Vector2(156,145),_card_pressed.bind(i),false)
-        btn.add_theme_font_size_override("font_size",15)
-        btn.clip_text = true
+        var bx := 158.0 + 164.0*i
+        var btn: Button = STEP28_CARD_SCRIPT.new()
+        btn.call("set_base_position", Vector2(bx, 548))
+        btn.size = Vector2(154, 146)
+        card_layer.add_child(btn)
+        btn.pressed.connect(_card_pressed.bind(i))
         card_buttons.append(btn)
-    hand_prev = _button(card_layer,"◀ 手札",Vector2(175,513),Vector2(96,32),_switch_page.bind(-1))
-    hand_next = _button(card_layer,"手札 ▶",Vector2(283,513),Vector2(96,32),_switch_page.bind(1))
-    _button(card_layer,"使用",Vector2(1005,552),Vector2(112,43),_use_selected)
-    _button(card_layer,"解除",Vector2(1127,552),Vector2(110,43),_clear_selection)
-    _button(card_layer,"ターン終了",Vector2(1004,604),Vector2(232,65),_end_turn,true)
-    selection_label = _label(card_layer,"カード選択 → 敵指定 / 自分向けは再タップ",14,DIM,Vector2(163,689),Vector2(1020,25))
-    status = _label(card_layer,"",14,Color("f1ce99"),Vector2(34,465),Vector2(1200,33))
+    hand_prev = _button(card_layer,"◀",Vector2(300,509),Vector2(40,31),_switch_page.bind(-1))
+    hand_prev.name = "PreviousHandPage"
+    hand_next = _button(card_layer,"▶",Vector2(345,509),Vector2(40,31),_switch_page.bind(1))
+    hand_next.name = "NextHandPage"
+    use_button = _button(card_layer,"使用",Vector2(995,548),Vector2(118,43),_use_selected)
+    use_button.name = "UseSelectedCard"
+    clear_button = _button(card_layer,"解除",Vector2(1124,548),Vector2(118,43),_clear_selection)
+    clear_button.name = "ClearCardSelection"
+    end_turn_button = _button(card_layer,"ターン終了",Vector2(995,603),Vector2(247,70),_end_turn,true)
+    end_turn_button.name = "EndTurn"
+    selection_label = _label(card_layer,"カード選択 → 敵指定 / 自分向けは再タップ",12,DIM,Vector2(158,698),Vector2(1080,20))
+    status = _label(card_layer,"",13,Color("f1ce99"),Vector2(28,472),Vector2(1220,28))
     status.text = "実際のBattle Coreを使用する独立試作です。"
 
 func _make_cutin() -> void:
@@ -360,7 +384,7 @@ func _set_tier(next_tier: String) -> void:
     event_log.clear() # ignore initial draw notifications; no gameplay mutation
     _rebuild_enemy_visuals()
     _refresh_hud()
-    status.text = ("本編ランのBattle Coreと同期中。演出のみを変更します。" if campaign_mode
+    status.text = ("カードを選択してください。敵対象カードは敵をタップして確定します。" if campaign_mode
         else "実戦闘データ: %s / seed=20261016 / 本編進行への保存なし" % str(PRESETS[tier]))
 
 func _rebuild_enemy_visuals() -> void:
@@ -428,13 +452,17 @@ func bind_campaign_battle(source_battle: BattleController, kind: String,
     campaign_changed = on_changed
     campaign_old_ui = on_old_ui
     campaign_route_ui = on_route_ui
+    if is_instance_valid(debug_toolbar):
+        debug_toolbar.hide()
     for button in mode_buttons.values():
         (button as Button).visible = false
     if campaign_buttons.is_empty():
-        campaign_buttons.append(_button(stage, "従来UIに戻す", Vector2(768,100),
-            Vector2(210,37), _return_to_old_ui))
-        campaign_buttons.append(_button(stage, "進行画面", Vector2(985,100),
-            Vector2(190,37), _return_to_route_ui))
+        campaign_buttons.append(_button(stage, "従来UI", Vector2(1088,43),
+            Vector2(82,30), _return_to_old_ui))
+        campaign_buttons.append(_button(stage, "進行", Vector2(1175,43),
+            Vector2(82,30), _return_to_route_ui))
+        for nav_button in campaign_buttons:
+            nav_button.add_theme_font_size_override("font_size", 12)
     for button in campaign_buttons:
         button.visible = true
     _set_tier({"battle":"mob", "elite":"elite", "boss":"boss"}.get(kind, "mob"))
@@ -467,7 +495,7 @@ func _refresh_hud() -> void:
     if identity_changed:_rebuild_enemy_visuals()
     var max_hp: int = maxi(1,battle.player_max_hp)
     hero_status.text = "HP %d/%d  Block %d" % [battle.player_hp,max_hp,battle.player_block]
-    hero_hp_fill.size.x = 191.0*clampf(float(battle.player_hp)/float(max_hp),0.0,1.0)
+    hero_hp_fill.size.x = 346.0*clampf(float(battle.player_hp)/float(max_hp),0.0,1.0)
     var total_hp: int = 0
     var total_max_hp: int = 0
     var alive_names: Array[String] = []
@@ -480,12 +508,12 @@ func _refresh_hud() -> void:
             alive_names.append(str(e.get("name","Enemy")))
             intents.append(str(i+1)+":"+battle.get_enemy_intent_display_label(i))
     enemy_main_label.text = " / ".join(alive_names) + "  HP %d/%d" % [total_hp,total_max_hp]
-    enemy_hp_fill.size.x = 546.0*clampf(float(total_hp)/float(maxi(1,total_max_hp)),0.0,1.0)
+    enemy_hp_fill.size.x = 566.0*clampf(float(total_hp)/float(maxi(1,total_max_hp)),0.0,1.0)
     intent_label.text = "Intent: " + (" | ".join(intents) if not intents.is_empty() else "戦闘終了")
     intent_label.tooltip_text = intent_label.text
     turn_label.text = "TURN %d" % battle.turn_number
     mana_label.text = "Mana\n%d / %d" % [battle.current_mana,BattleController.BASE_MANA]
-    pile_info.text = "山札 %d / 捨て札 %d / 手札 %d" % [battle.draw_pile.size(),battle.discard_pile.size(),battle.hand.size()]
+    pile_info.text = "山札 %d  •  捨て札 %d  •  手札 %d" % [battle.draw_pile.size(),battle.discard_pile.size(),battle.hand.size()]
     var active: Array[String] = []
     for t in battle.weapon_traits:
         if bool(battle.weapon_traits[t]):active.append(str(t)+" ON")
@@ -502,13 +530,8 @@ func _refresh_hud() -> void:
         if idx < battle.hand.size():
             var card: Dictionary = battle.hand[idx]
             btn.visible = true
-            var title: String = _card_title(card)
-            var role: String = str(card.get("role", ""))
-            var effect: String = str(card.get("text", ""))
-            btn.text = "◆ %s  %s\n%s / %s\n────────\n%s" % [battle.get_cost_preview_text(idx),title,str(card.get("attribute","")),role,effect.substr(0,48)]
-            btn.tooltip_text = "%s\n%s" % [str(card.get("display_name",title)),effect]
-            btn.disabled = busy or battle.combat_over or (not battle.is_hand_selection_active() and not battle.can_use_card(idx))
-            btn.modulate = Color("ffe5ba") if idx==selected_index else Color.WHITE
+            var unavailable: bool = busy or battle.combat_over or (not battle.is_hand_selection_active() and not battle.can_use_card(idx))
+            btn.call("configure_card", card, battle.get_cost_preview_text(idx), idx==selected_index, unavailable)
         else:
             btn.text = ""
             btn.visible = false
@@ -531,10 +554,23 @@ func _refresh_hud() -> void:
         if i<shown_phase_cache.size() and int(e.get("phase_index",0))<shown_phase_cache[i]:
             shown_phase_cache[i]=int(e.get("phase_index",0))
         enemy_buttons[i].disabled = busy or not battle.is_enemy_target_valid(i)
+        var target_active: bool = selected_index >= 0 and selected_index < battle.hand.size() \
+            and battle.get_effective_target_type(selected_index) == "enemy" \
+            and battle.is_enemy_target_valid(i)
+        _set_enemy_target_highlight(enemy_buttons[i], target_active)
     if battle.combat_over:
         status.text = ("勝利。進行画面へ移ります。" if battle.victory else "敗北。進行画面へ移ります。") if campaign_mode else ("勝利！" if battle.victory else "敗北。上の敵種別で再開できます。")
     elif battle.is_hand_selection_active():
         status.text = battle.get_hand_selection_prompt()
+
+func _set_enemy_target_highlight(button: Button, active: bool) -> void:
+    var target_style := StyleBoxFlat.new()
+    target_style.bg_color = Color(0.82, 0.56, 0.18, 0.10) if active else Color.TRANSPARENT
+    target_style.border_color = Color(1.0, 0.76, 0.34, 0.92) if active else Color.TRANSPARENT
+    target_style.set_border_width_all(3 if active else 0)
+    target_style.set_corner_radius_all(16)
+    button.add_theme_stylebox_override("normal", target_style)
+    button.add_theme_stylebox_override("hover", target_style)
 
 func _card_pressed(slot: int) -> void:
     if busy or battle.combat_over:return
@@ -611,7 +647,7 @@ func _perform_card(index: int,target_index: int) -> void:
             _last_damage+=int(ev.get("hp_loss",0))
     hero.set_weapon(weapon)
     _refresh_hud()
-    status.text="Battle Core解決済み: %s / 演出を再生中" % _card_title(card)
+    status.text="使用: %s / 演出を再生中" % _card_title(card)
     # STEP24: normal cards use the 3-head actor motion and attribute FX only.
     # The full portrait cut-in is reserved for the officially tagged Finisher.
     # Battle Core has already resolved the card; this changes visuals only.
