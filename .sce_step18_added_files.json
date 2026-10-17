@@ -1,0 +1,19 @@
+{
+  "ui_trial/actors/boss_b01_rig_step18.gd": "789aa68030410e107b1b0acfc08d26375b87ce235655356b92334138c1f84054",
+  "ui_trial/assets/step18_b01/fore_far_clean.png": "1028b938af33a270285399d886b2fe2b56677cffe87545e7b0129ddf8a4b13d0",
+  "ui_trial/assets/step18_b01/fore_near_clean.png": "59e49cb873d9a369e230618491937572ac58ebb776c235b9cbca7ece11517fc7",
+  "ui_trial/assets/step18_b01/hind_far_clean.png": "fa9afee30db0dd1b3d7b3d679ba676badd73a90574989775dee68faa318a17d8",
+  "ui_trial/assets/step18_b01/hind_near_clean.png": "37d6b97a471f7b905c5ea9a536e8d9df6bbf296760c91c65e1c5d76ec2133048",
+  "ui_trial/assets/step18_b01/hip_far.png": "5d643a64e2be094f7333ce9a39184b6c326613f09a0e07c39760e7eb0aeafd12",
+  "ui_trial/assets/step18_b01/hip_near.png": "83196eb4b220f403ba549d25dd91f0f0712876c6c99651a321ec348318e596ee",
+  "ui_trial/assets/step18_b01/horn_clean.png": "f7b52cde96beb381caa725061bfed2d7b28e3854a529883ecc95abca55f3f7bf",
+  "ui_trial/assets/step18_b01/jaw_clean.png": "37bc5b9b49cc1fb6dfc2908fdf26eb085547729701bf014517adb06815a799c0",
+  "ui_trial/assets/step18_b01/jaw_hinge.png": "34ee5cbb770f235327c35272c817b143b3a27e0abb1d204047b31817429152a6",
+  "ui_trial/assets/step18_b01/neck_under.png": "952cc505dbdca8a7c5d16433e1d868326201a9453c96903d1e2ac0ff604c92ca",
+  "ui_trial/assets/step18_b01/registration.json": "8cce3980336709640850b95705ae16ae34d37a7e0c14a93a2dda3803fcd60c0a",
+  "ui_trial/assets/step18_b01/shoulder_far.png": "ed68eac3e601fc0fa3840ca4ae1c9f2d9e5f4632ecedf774649ca76ce2308312",
+  "ui_trial/assets/step18_b01/shoulder_near.png": "41484c97ab577c5256e87b02785fd85608773668bec953879cc4419eb3c1843b",
+  "ui_trial/assets/step18_b01/tail_hinge.png": "ef67b9af7019d133f7c3e13bf1bb153d5cec858481cb44791f9f62e8cf307363",
+  "ui_trial/boss_lab_step18.gd": "bacd2d3fc3e9ae3a275a09d71e1cf034a55a138b7ad39ec9682db956d78d5f81",
+  "ui_trial/boss_lab_step18.tscn": "69ba8782d28acddd0daec06a7e6eb333bf5da481bde3ca42a12994fd5cfad37e"
+}

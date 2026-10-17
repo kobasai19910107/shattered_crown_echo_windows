@@ -1,0 +1,150 @@
+extends Node2D
+## 3-heads-tall modular preview actor. VISUAL ONLY; it never changes BattleController.
+signal impact_frame
+
+var torso: Node2D
+var head_pivot: Node2D
+var front_arm: Node2D
+var rear_arm: Node2D
+var cape_pivot: Node2D
+var weapon_pivot: Node2D
+var _elapsed: float = 0.0
+var _busy: bool = false
+var _rest_position: Vector2
+
+func _ready() -> void:
+    _rest_position = position
+    cape_pivot = Node2D.new()
+    cape_pivot.position = Vector2(-15, -206)
+    add_child(cape_pivot)
+    _part(cape_pivot, "cape", Vector2(-13, 85))
+
+    var hair_back := Node2D.new()
+    hair_back.position = Vector2(0, -286)
+    add_child(hair_back)
+    _part(hair_back, "back_hair", Vector2(0, 12))
+
+    var legs := Node2D.new()
+    legs.position = Vector2(0, -70)
+    add_child(legs)
+    _part(legs, "legs", Vector2(0, 0))
+
+    rear_arm = Node2D.new()
+    rear_arm.position = Vector2(-40, -213)
+    rear_arm.rotation_degrees = 10.0
+    add_child(rear_arm)
+    _part(rear_arm, "arm", Vector2(-5, 43))
+
+    torso = Node2D.new()
+    torso.position = Vector2(0, -175)
+    add_child(torso)
+    _part(torso, "torso", Vector2.ZERO)
+
+    head_pivot = Node2D.new()
+    head_pivot.position = Vector2(0, -276)
+    add_child(head_pivot)
+    _part(head_pivot, "head", Vector2.ZERO)
+    _part(head_pivot, "bangs", Vector2(0, -44))
+
+    front_arm = Node2D.new()
+    front_arm.position = Vector2(40, -211)
+    front_arm.rotation_degrees = -14.0
+    add_child(front_arm)
+    _part(front_arm, "arm", Vector2(2, 44))
+    weapon_pivot = Node2D.new()
+    weapon_pivot.position = Vector2(12, 91)
+    weapon_pivot.rotation_degrees = 86.0
+    front_arm.add_child(weapon_pivot)
+    _part(weapon_pivot, "sword", Vector2(0, -70))
+
+func _part(parent: Node2D, part_name: String, offset: Vector2) -> void:
+    var sprite := Sprite2D.new()
+    sprite.texture = load("res://ui_trial/assets/%s.png" % part_name)
+    # PNG files use 2x source pixels for crisp rendering.
+    sprite.scale = Vector2(0.5, 0.5)
+    sprite.position = offset
+    sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+    parent.add_child(sprite)
+
+func _process(delta: float) -> void:
+    _elapsed += delta
+    if _busy:
+        return
+    var bob := sin(_elapsed * 2.8)
+    torso.position.y = -175.0 + bob * 1.7
+    head_pivot.rotation_degrees = sin(_elapsed * 1.7) * 2.0
+    cape_pivot.rotation_degrees = sin(_elapsed * 1.9) * 5.0
+    front_arm.rotation_degrees = -14.0 + sin(_elapsed * 2.3) * 2.0
+    rear_arm.rotation_degrees = 10.0 - sin(_elapsed * 2.3) * 2.0
+
+func play_attack(finisher: bool = false, speed: float = 1.0) -> void:
+    if _busy:
+        return
+    _busy = true
+    var factor: float = 1.0 / maxf(0.2, speed)
+    var original: Vector2 = _rest_position
+    var windup := create_tween()
+    windup.set_parallel(true)
+    windup.tween_property(self, "position", original + Vector2(-14, 0), 0.13 * factor)
+    windup.tween_property(front_arm, "rotation_degrees", -105.0, 0.13 * factor)
+    windup.tween_property(weapon_pivot, "rotation_degrees", 18.0, 0.13 * factor)
+    await windup.finished
+
+    var strike := create_tween()
+    strike.set_parallel(true)
+    strike.tween_property(self, "position", original + Vector2(98 if finisher else 78, 0), 0.17 * factor)
+    strike.tween_property(front_arm, "rotation_degrees", 95.0, 0.17 * factor)
+    strike.tween_property(weapon_pivot, "rotation_degrees", 123.0, 0.17 * factor)
+    await strike.finished
+    impact_frame.emit()
+
+    var recover := create_tween()
+    recover.set_parallel(true)
+    recover.tween_property(self, "position", original, 0.20 * factor)
+    recover.tween_property(front_arm, "rotation_degrees", -14.0, 0.20 * factor)
+    recover.tween_property(weapon_pivot, "rotation_degrees", 86.0, 0.20 * factor)
+    await recover.finished
+    _busy = false
+
+func set_rest_position(next_position: Vector2) -> void:
+    if _busy:
+        return
+    _rest_position = next_position
+    position = next_position
+
+func play_cast(speed: float = 1.0) -> void:
+    if _busy:
+        return
+    _busy = true
+    var factor := 1.0 / maxf(0.3, speed)
+    var prepare := create_tween()
+    prepare.set_parallel(true)
+    prepare.tween_property(front_arm, "rotation_degrees", -85.0, 0.15 * factor)
+    prepare.tween_property(weapon_pivot, "rotation_degrees", 12.0, 0.15 * factor)
+    prepare.tween_property(head_pivot, "rotation_degrees", -9.0, 0.15 * factor)
+    await prepare.finished
+    var end := create_tween()
+    end.set_parallel(true)
+    end.tween_property(front_arm, "rotation_degrees", -14.0, 0.18 * factor)
+    end.tween_property(weapon_pivot, "rotation_degrees", 86.0, 0.18 * factor)
+    end.tween_property(head_pivot, "rotation_degrees", 0.0, 0.18 * factor)
+    await end.finished
+    _busy = false
+
+func play_hit(speed: float = 1.0) -> void:
+    if _busy:
+        return
+    _busy = true
+    var factor := 1.0 / maxf(0.3, speed)
+    var normal := _rest_position
+    var hit := create_tween()
+    hit.set_parallel(true)
+    hit.tween_property(self, "position", normal + Vector2(-14, -6), 0.10 * factor)
+    hit.tween_property(self, "modulate", Color(1.0, 0.5, 0.5), 0.10 * factor)
+    await hit.finished
+    var end := create_tween()
+    end.set_parallel(true)
+    end.tween_property(self, "position", normal, 0.17 * factor)
+    end.tween_property(self, "modulate", Color.WHITE, 0.17 * factor)
+    await end.finished
+    _busy = false

@@ -1,0 +1,956 @@
+{
+  "enemies": [
+    {
+      "enemy_id": "R4-B01",
+      "enemy_name": "R4-B01（凍結Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R4",
+      "region_name": "氷海",
+      "role_name": "凍結Boss",
+      "role_description": "Frostを蓄積し、Frozen成立後に大技を放つ。",
+      "primary_attributes": [
+        "Ice"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 176,
+      "attack_min": 11,
+      "attack_max": 15,
+      "defend_amount": 18,
+      "buff_amount": 2,
+      "signature_action_name": "絶対零度",
+      "signature_action_description": "Frostを蓄積し、Frozen成立後に大技を放つ。",
+      "signature_action_key": "status_scaling",
+      "signature_damage": 12,
+      "signature_hits": 1,
+      "signature_player_status": "Frost",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "Frozen",
+      "signature_bonus_damage": 8,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "frost",
+        "frost",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [
+        "frost",
+        "frost",
+        "signature",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "frost",
+        "frost",
+        "signature",
+        "attack",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Ice"
+      ],
+      "resistance_values": [
+        30
+      ],
+      "status_resistances": [
+        "Frost"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R4-B02",
+      "enemy_name": "R4-B02（蓄電Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R4",
+      "region_name": "氷海",
+      "role_name": "蓄電Boss",
+      "role_description": "Chargeを複数回行い、強力なLightning攻撃へ繋げる。",
+      "primary_attributes": [
+        "Lightning",
+        "Earth"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 188,
+      "attack_min": 11,
+      "attack_max": 15,
+      "defend_amount": 18,
+      "buff_amount": 2,
+      "signature_action_name": "超蓄電",
+      "signature_action_description": "Chargeを複数回行い、強力なLightning攻撃へ繋げる。",
+      "signature_action_key": "charge_strike",
+      "signature_damage": 20,
+      "signature_hits": 1,
+      "signature_player_status": "Shock",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "charge",
+        "charge",
+        "signature",
+        "barrier"
+      ],
+      "ai_pattern_stage_2": [
+        "charge",
+        "charge",
+        "signature",
+        "barrier",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "charge",
+        "charge",
+        "signature",
+        "barrier",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Lightning",
+        "Earth"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [
+        "Shock"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R4-B03",
+      "enemy_name": "R4-B03（切替Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R4",
+      "region_name": "氷海",
+      "role_name": "切替Boss",
+      "role_description": "IceとLightningをPhaseごとに切り替える。",
+      "primary_attributes": [
+        "Ice",
+        "Lightning"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 200,
+      "attack_min": 11,
+      "attack_max": 15,
+      "defend_amount": 18,
+      "buff_amount": 2,
+      "signature_action_name": "天候転換",
+      "signature_action_description": "IceとLightningをPhaseごとに切り替える。",
+      "signature_action_key": "frost_shock_combo",
+      "signature_damage": 11,
+      "signature_hits": 1,
+      "signature_player_status": "Shock",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "shock",
+        "attack",
+        "frost",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [
+        "shock",
+        "attack",
+        "frost",
+        "signature",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "shock",
+        "attack",
+        "frost",
+        "signature",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Ice",
+        "Lightning"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [
+        "Frost",
+        "Shock"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R4-B04",
+      "enemy_name": "R4-B04（地域総合Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R4",
+      "region_name": "氷海",
+      "role_name": "地域総合Boss",
+      "role_description": "Frost・Frozen・Shock・Chargeを複合運用する。",
+      "primary_attributes": [
+        "Ice",
+        "Lightning"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 212,
+      "attack_min": 11,
+      "attack_max": 15,
+      "defend_amount": 18,
+      "buff_amount": 2,
+      "signature_action_name": "氷雷大嵐",
+      "signature_action_description": "Frost・Frozen・Shock・Chargeを複合運用する。",
+      "signature_action_key": "region_master",
+      "signature_damage": 14,
+      "signature_hits": 1,
+      "signature_player_status": "Frost",
+      "signature_player_status_value": 2,
+      "signature_self_status": "Strength",
+      "signature_self_status_value": 1,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "frost",
+        "shock",
+        "charge",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [
+        "frost",
+        "shock",
+        "charge",
+        "signature",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "frost",
+        "shock",
+        "charge",
+        "signature",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Ice",
+        "Lightning"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [
+        "Frost",
+        "Shock"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R4-E01",
+      "enemy_name": "R4-E01（氷巨人型）",
+      "enemy_rank": "Elite",
+      "region_id": "R4",
+      "region_name": "氷海",
+      "role_name": "氷巨人型",
+      "role_description": "Frostを与え、Frozen相手には重撃が強化。",
+      "primary_attributes": [
+        "Ice",
+        "Physical"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 98,
+      "attack_min": 10,
+      "attack_max": 13,
+      "defend_amount": 15,
+      "buff_amount": 2,
+      "signature_action_name": "凍結打撃",
+      "signature_action_description": "Frostを与え、Frozen相手には重撃が強化。",
+      "signature_action_key": "status_scaling",
+      "signature_damage": 10,
+      "signature_hits": 1,
+      "signature_player_status": "Frost",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "Frozen",
+      "signature_bonus_damage": 7,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "frost",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Ice",
+        "Physical"
+      ],
+      "resistance_values": [
+        20,
+        20
+      ],
+      "status_resistances": [
+        "Frost"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R4-E02",
+      "enemy_name": "R4-E02（雷獣型）",
+      "enemy_rank": "Elite",
+      "region_id": "R4",
+      "region_name": "氷海",
+      "role_name": "雷獣型",
+      "role_description": "Shockを付与しながら多段攻撃。",
+      "primary_attributes": [
+        "Lightning",
+        "Wind"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 104,
+      "attack_min": 10,
+      "attack_max": 13,
+      "defend_amount": 15,
+      "buff_amount": 2,
+      "signature_action_name": "雷走連撃",
+      "signature_action_description": "Shockを付与しながら多段攻撃。",
+      "signature_action_key": "status_scaling",
+      "signature_damage": 9,
+      "signature_hits": 3,
+      "signature_player_status": "Shock",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "Shock",
+      "signature_bonus_damage": 4,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "shock",
+        "attackx3",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Lightning",
+        "Wind"
+      ],
+      "resistance_values": [
+        20,
+        20
+      ],
+      "status_resistances": [
+        "Shock"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R4-E03",
+      "enemy_name": "R4-E03（相互作用型）",
+      "enemy_rank": "Elite",
+      "region_id": "R4",
+      "region_name": "氷海",
+      "role_name": "相互作用型",
+      "role_description": "FrostとShockのどちらかがあればもう一方を重ねる。",
+      "primary_attributes": [
+        "Ice",
+        "Lightning"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 110,
+      "attack_min": 10,
+      "attack_max": 13,
+      "defend_amount": 15,
+      "buff_amount": 2,
+      "signature_action_name": "氷雷反応",
+      "signature_action_description": "FrostとShockのどちらかがあればもう一方を重ねる。",
+      "signature_action_key": "frost_shock_combo",
+      "signature_damage": 8,
+      "signature_hits": 1,
+      "signature_player_status": "Frost",
+      "signature_player_status_value": 1,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "frost",
+        "shock",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Ice",
+        "Lightning"
+      ],
+      "resistance_values": [
+        20,
+        20
+      ],
+      "status_resistances": [
+        "Frost",
+        "Shock"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R4-N01",
+      "enemy_name": "R4-N01（Frost型）",
+      "enemy_rank": "Normal",
+      "region_id": "R4",
+      "region_name": "氷海",
+      "role_name": "Frost型",
+      "role_description": "Frostを蓄積する。",
+      "primary_attributes": [
+        "Ice"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 50,
+      "attack_min": 9,
+      "attack_max": 11,
+      "defend_amount": 8,
+      "buff_amount": 1,
+      "signature_action_name": "冷気爪",
+      "signature_action_description": "Frostを蓄積する。",
+      "signature_action_key": "plain",
+      "signature_damage": 5,
+      "signature_hits": 1,
+      "signature_player_status": "Frost",
+      "signature_player_status_value": 1,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "frost",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Ice"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [
+        "Frost"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R4-N02",
+      "enemy_name": "R4-N02（Frozen型）",
+      "enemy_rank": "Normal",
+      "region_id": "R4",
+      "region_name": "氷海",
+      "role_name": "Frozen型",
+      "role_description": "Frostを追加し、閾値到達でFrozenへ移行させる。",
+      "primary_attributes": [
+        "Ice"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 52,
+      "attack_min": 8,
+      "attack_max": 10,
+      "defend_amount": 8,
+      "buff_amount": 1,
+      "signature_action_name": "凍結凝縮",
+      "signature_action_description": "Frostを追加し、閾値到達でFrozenへ移行させる。",
+      "signature_action_key": "plain",
+      "signature_damage": 5,
+      "signature_hits": 1,
+      "signature_player_status": "Frost",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "frost",
+        "frost",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Ice"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [
+        "Frost"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R4-N03",
+      "enemy_name": "R4-N03（Shock型）",
+      "enemy_rank": "Normal",
+      "region_id": "R4",
+      "region_name": "氷海",
+      "role_name": "Shock型",
+      "role_description": "Shockを付与する。",
+      "primary_attributes": [
+        "Lightning"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 54,
+      "attack_min": 9,
+      "attack_max": 11,
+      "defend_amount": 8,
+      "buff_amount": 1,
+      "signature_action_name": "放電",
+      "signature_action_description": "Shockを付与する。",
+      "signature_action_key": "plain",
+      "signature_damage": 5,
+      "signature_hits": 1,
+      "signature_player_status": "Shock",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "shock",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Lightning"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [
+        "Shock"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R4-N04",
+      "enemy_name": "R4-N04（Shock利用型）",
+      "enemy_rank": "Normal",
+      "region_id": "R4",
+      "region_name": "氷海",
+      "role_name": "Shock利用型",
+      "role_description": "Shock中の相手へ追加攻撃。",
+      "primary_attributes": [
+        "Lightning"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 56,
+      "attack_min": 8,
+      "attack_max": 10,
+      "defend_amount": 8,
+      "buff_amount": 1,
+      "signature_action_name": "感電追撃",
+      "signature_action_description": "Shock中の相手へ追加攻撃。",
+      "signature_action_key": "status_scaling",
+      "signature_damage": 6,
+      "signature_hits": 1,
+      "signature_player_status": "Shock",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "Shock",
+      "signature_bonus_damage": 4,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "shock",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Lightning"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [
+        "Shock"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R4-N05",
+      "enemy_name": "R4-N05（防御型）",
+      "enemy_rank": "Normal",
+      "region_id": "R4",
+      "region_name": "氷海",
+      "role_name": "防御型",
+      "role_description": "大量Block。壊されず残るとFrostを付与する。",
+      "primary_attributes": [
+        "Ice"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 58,
+      "attack_min": 9,
+      "attack_max": 11,
+      "defend_amount": 8,
+      "buff_amount": 1,
+      "signature_action_name": "氷壁",
+      "signature_action_description": "大量Block。壊されず残るとFrostを付与する。",
+      "signature_action_key": "block_scaling",
+      "signature_damage": 5,
+      "signature_hits": 1,
+      "signature_player_status": "Frost",
+      "signature_player_status_value": 1,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 8,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "defend",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Ice"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [
+        "Frost"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R4-N06",
+      "enemy_name": "R4-N06（Charge型）",
+      "enemy_rank": "Normal",
+      "region_id": "R4",
+      "region_name": "氷海",
+      "role_name": "Charge型",
+      "role_description": "Charge後に高威力Lightning攻撃。",
+      "primary_attributes": [
+        "Lightning"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 60,
+      "attack_min": 8,
+      "attack_max": 10,
+      "defend_amount": 8,
+      "buff_amount": 1,
+      "signature_action_name": "蓄電砲",
+      "signature_action_description": "Charge後に高威力Lightning攻撃。",
+      "signature_action_key": "charge_strike",
+      "signature_damage": 15,
+      "signature_hits": 1,
+      "signature_player_status": "Shock",
+      "signature_player_status_value": 1,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "charge",
+        "signature",
+        "defend"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Lightning"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [
+        "Shock"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R4-N07",
+      "enemy_name": "R4-N07（支援型）",
+      "enemy_rank": "Normal",
+      "region_id": "R4",
+      "region_name": "氷海",
+      "role_name": "支援型",
+      "role_description": "味方のFrost/Shock戦術を強化する。",
+      "primary_attributes": [
+        "Ice",
+        "Lightning"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 62,
+      "attack_min": 9,
+      "attack_max": 11,
+      "defend_amount": 8,
+      "buff_amount": 1,
+      "signature_action_name": "氷雷共鳴",
+      "signature_action_description": "味方のFrost/Shock戦術を強化する。",
+      "signature_action_key": "ally_buff",
+      "signature_damage": 0,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "Strength",
+      "signature_self_status_value": 1,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "frost",
+        "shock",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Ice",
+        "Lightning"
+      ],
+      "resistance_values": [
+        10,
+        10
+      ],
+      "status_resistances": [
+        "Frost",
+        "Shock"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    }
+  ],
+  "profile": "campaign_stage1_approved",
+  "schema_version": 1
+}

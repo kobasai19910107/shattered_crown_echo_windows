@@ -1,0 +1,16 @@
+{
+  "step": "5",
+  "created": {
+    "ui_trial/battle_ui_step5.gd": "87a745ec31a230b11793d814d307ed83e592292373dff21cdb19d719ace74d4f",
+    "ui_trial/battle_ui_step5.tscn": "9930b8d9af51f6994058f77591810ce942ecc359d251fce0887c8378d05a082e",
+    "ui_trial/actors/enemy_tier.gd": "8e5b2da7a0b5dc9b90eb17742644dbae17117557cebd2d479aea4ceb9ea48fb4",
+    "ui_trial/assets/elite_cape.png": "bec8bdee7a69dc0fd50d0edd498b48d280d1bed8eee99d7309db978d69bbf07f",
+    "ui_trial/assets/elite_core.png": "6706c1efec6ce06ba3fd2f78f021349530fc5bb40660b7d030e0649b4d1357d0",
+    "ui_trial/assets/elite_head.png": "67e940eb5c8e38037ce6c1174f89a725553c2665d4f27a26112ea9d0049b4d63",
+    "ui_trial/assets/elite_blade.png": "b6d0adb2e24e3ca8c6ed68d052133144e1b36ab8cde6e350525e766e61212f74",
+    "ui_trial/assets/boss_tail.png": "a38d648798b408ab759bd8eec0bff48c2dff2fe9e55a6ba2834284c880668eb2",
+    "ui_trial/assets/boss_wing.png": "3e6beba8c465978279258cfa15e6e663a7690f61a40931b5cf0f17aa377ad595",
+    "ui_trial/assets/boss_core.png": "bf11bdbbdfc76835775c030409d923c3be2adcb25546619f1b28b668b3d098d2",
+    "ui_trial/assets/boss_head.png": "465387075bb1d112be23a94c7113eb65f9c8705895688229947e21b157fd9532"
+  }
+}

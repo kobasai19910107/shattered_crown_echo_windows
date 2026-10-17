@@ -1,0 +1,53 @@
+{
+  "step": "STEP27",
+  "status": "STATIC_VERIFIED__RUNTIME_PENDING",
+  "source_zip": "shattered_crown_echo_STEP26_FULL_HEIGHT_GODOT_FIXED_v2(1).zip",
+  "godot_version_required": "4.7.2 stable",
+  "source_files": 681,
+  "source_file_changes": [],
+  "resource_references_scanned": 180,
+  "resource_references_missing": [],
+  "step15_through_20_fix": {
+    "STEP15": {
+      "invalid_control_to_local": false,
+      "affine_transform_fix": true
+    },
+    "STEP16": {
+      "invalid_control_to_local": false,
+      "affine_transform_fix": true
+    },
+    "STEP17": {
+      "invalid_control_to_local": false,
+      "affine_transform_fix": true
+    },
+    "STEP18": {
+      "invalid_control_to_local": false,
+      "affine_transform_fix": true
+    },
+    "STEP19": {
+      "invalid_control_to_local": false,
+      "affine_transform_fix": true
+    },
+    "STEP20": {
+      "invalid_control_to_local": false,
+      "affine_transform_fix": true
+    }
+  },
+  "step19_anatomy_parts": 13,
+  "step19_missing_pngs": [],
+  "expected_layout_1280x900": {
+    "background_height": 900,
+    "hand_offset_y": 180,
+    "field_offset_y": 90,
+    "cutin_offset_y": 90
+  },
+  "expected_layout_1280x720": {
+    "background_height": 720,
+    "hand_offset_y": 0,
+    "field_offset_y": 0,
+    "cutin_offset_y": 0
+  },
+  "godot_runtime_executed": false,
+  "thirty_godot_tweens_executed": false,
+  "notes": "Source ZIP has no changed existing files; new qa runner and docs only. Numeric geometry calculated from code; GUI appearance is not certified."
+}

@@ -1,0 +1,52 @@
+name: Web export validation and Pages deployment (candidate)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: sce-web-deploy
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    container:
+      image: barichello/godot-ci:4.7.2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Godot import
+        run: godot --headless --path . --import
+      - name: Main-scene smoke test (20 seconds)
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 20s godot --headless --path . --quit-after 100 || status=$?
+          if [ "${status:-0}" = "124" ]; then echo "Timed out during startup"; exit 1; fi
+          test "${status:-0}" = "0"
+      - name: Export Web (single-threaded, no native extensions)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/web
+          godot --headless --path . --export-release Web build/web/index.html
+          test -s build/web/index.html
+          test -n "$(find build/web -name '*.wasm' -print -quit)"
+          touch build/web/.nojekyll
+      - name: Upload web artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: build/web
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - name: Deploy site
+        id: deployment
+        uses: actions/deploy-pages@v4

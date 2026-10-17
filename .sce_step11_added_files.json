@@ -1,0 +1,21 @@
+{
+  "ui_trial/battle_ui_step11.gd": "830ec3f16b7d1c2281fbd94b85733198bc41da7305368c0a4f041ff20824b4b7",
+  "ui_trial/boss_lab_step11.gd": "96c04c0ac9069a5af211fd9d512d411fba0581dd99693f551e989d0288e1c15d",
+  "ui_trial/boss_lab_step11.tscn": "a3660c23d9b5ad47a3290515a783c7d4b65daea7b99b81c14e8883131f60c41a",
+  "ui_trial/battle_ui_step11.tscn": "a29fb96e527eb74369bb56902d18b5a725aa6f643f45fe5df6ff6976357f1b87",
+  "ui_trial/actors/boss_b01_rig.gd": "560d12080aa3e42de9f009c472414176cf02fb6323e0ead42122617357bf946c",
+  "ui_trial/assets/step11_b01/horn_near.png": "ea9b9dc00140de68eb2633a9d68b1203e8ac2a2c0112a4607bcb28eb245026fe",
+  "ui_trial/assets/step11_b01/tail.png": "eacadc2fe4df4884dbf23cd1309014d990019681e5e018c270f296e7d83c0168",
+  "ui_trial/assets/step11_b01/torso.png": "3016e24358ca3d03fa6ebdce70082ea8931c3da9e5b14b9d71a3d47cf87a7dc2",
+  "ui_trial/assets/step11_b01/fore_far.png": "2ef4f51d5d0a9695524f92804bd2541e296f7d6b948f547af316622c6151d0ce",
+  "ui_trial/assets/step11_b01/rig.json": "8e537231c90e3a808674c85f13131954236513ca22bf5702c7279d43da1094e2",
+  "ui_trial/assets/step11_b01/neck.png": "10f0685fa3c7bb75fc769f21a92f71352fb1edd3fb2b1eaeeb5b84819be807bb",
+  "ui_trial/assets/step11_b01/jaw.png": "80108169502d385ff13b067eb1b64cb89dc6b6f2a6ab1e122df72c4a045199a7",
+  "ui_trial/assets/step11_b01/spines_back.png": "8ec0bd1c8d032d8d4f46a6d1f858c1069f800d69c949a33ac7b1483b6ae4d84d",
+  "ui_trial/assets/step11_b01/crimson_aura.png": "97f91e87930de5c960a2feb10c6de102f0e6eb3365db069e5b098b83589cdf3a",
+  "ui_trial/assets/step11_b01/fore_near.png": "f1691d2af81b629c9ea779cc253a5ff0fdc35f88256588c0889d5778364038e6",
+  "ui_trial/assets/step11_b01/head.png": "3eee8700e7b93962e616864c0ce54e5a9c9461537835f788d5a94d9aa4181afa",
+  "ui_trial/assets/step11_b01/hind_far.png": "48c767a242cbe36d5818380fdcc33305553c4acd99fb0f1342fa84f6a18b243d",
+  "ui_trial/assets/step11_b01/hind_near.png": "da36330ae96879a7e0ffc65913ef68fdd442d9ea63390e5671d43c285d7f000a",
+  "ui_trial/assets/step11_b01/horn_far.png": "61d296d9c778b81652ff294d82da756b0d19cc072c84fcebc551d8f435b11d28"
+}

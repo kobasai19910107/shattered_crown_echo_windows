@@ -1,0 +1,1065 @@
+{
+  "enemies": [
+    {
+      "enemy_id": "R6-B01",
+      "enemy_name": "R6-B01（属性吸収Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R6",
+      "region_name": "虚空",
+      "role_name": "属性吸収Boss",
+      "role_description": "最も多く受けた属性への適応を想定し、その属性で反撃する。",
+      "primary_attributes": [
+        "Physical",
+        "Fire",
+        "Ice",
+        "Lightning",
+        "Poison",
+        "Holy",
+        "Dark",
+        "Wind",
+        "Earth",
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 212,
+      "attack_min": 13,
+      "attack_max": 17,
+      "defend_amount": 22,
+      "buff_amount": 2,
+      "signature_action_name": "属性捕食",
+      "signature_action_description": "最も多く受けた属性への適応を想定し、その属性で反撃する。",
+      "signature_action_key": "adaptive",
+      "signature_damage": 14,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "StatusResist",
+      "signature_self_status_value": 2,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "resist",
+        "attack",
+        "signature",
+        "barrier"
+      ],
+      "ai_pattern_stage_2": [
+        "resist",
+        "attack",
+        "signature",
+        "barrier",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "resist",
+        "attack",
+        "signature",
+        "barrier",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Physical",
+        "Fire"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [
+        "Poison",
+        "Burn",
+        "Frost",
+        "Shock",
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R6-B02",
+      "enemy_name": "R6-B02（属性切替Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R6",
+      "region_name": "虚空",
+      "role_name": "属性切替Boss",
+      "role_description": "Region1～5の属性ペアを順番に切り替える。",
+      "primary_attributes": [
+        "Physical",
+        "Earth",
+        "Poison",
+        "Dark",
+        "Fire",
+        "Wind",
+        "Ice",
+        "Lightning",
+        "Holy",
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 224,
+      "attack_min": 13,
+      "attack_max": 17,
+      "defend_amount": 22,
+      "buff_amount": 2,
+      "signature_action_name": "五相転換",
+      "signature_action_description": "Region1～5の属性ペアを順番に切り替える。",
+      "signature_action_key": "attribute_shift",
+      "signature_damage": 14,
+      "signature_hits": 1,
+      "signature_player_status": "Burn",
+      "signature_player_status_value": 1,
+      "signature_self_status": "Strength",
+      "signature_self_status_value": 1,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "defend",
+        "signature",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [
+        "defend",
+        "signature",
+        "attack",
+        "signature",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "defend",
+        "signature",
+        "attack",
+        "signature",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Physical",
+        "Earth"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [
+        "Poison",
+        "Burn",
+        "Frost",
+        "Shock",
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R6-B03",
+      "enemy_name": "R6-B03（多Phase Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R6",
+      "region_name": "虚空",
+      "role_name": "多Phase Boss",
+      "role_description": "HP80/60/40/20%を想定した属性・AI切替型Boss。",
+      "primary_attributes": [
+        "Physical",
+        "Dark",
+        "Fire",
+        "Ice",
+        "Holy",
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 236,
+      "attack_min": 13,
+      "attack_max": 17,
+      "defend_amount": 22,
+      "buff_amount": 2,
+      "signature_action_name": "虚空多相",
+      "signature_action_description": "HP80/60/40/20%を想定した属性・AI切替型Boss。",
+      "signature_action_key": "phase_shift",
+      "signature_damage": 15,
+      "signature_hits": 1,
+      "signature_player_status": "Vulnerable",
+      "signature_player_status_value": 1,
+      "signature_self_status": "Strength",
+      "signature_self_status_value": 1,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "attack",
+        "signature",
+        "barrier",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [
+        "attack",
+        "signature",
+        "barrier",
+        "signature",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "attack",
+        "signature",
+        "barrier",
+        "signature",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Physical",
+        "Dark"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [
+        "Burn",
+        "Frost",
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R6-B04",
+      "enemy_name": "R6-B04（最終Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R6",
+      "region_name": "虚空",
+      "role_name": "最終Boss",
+      "role_description": "森→廃墟→火山→氷海→神殿→虚空の6Phaseを想定する最終Boss。",
+      "primary_attributes": [
+        "Physical",
+        "Fire",
+        "Ice",
+        "Lightning",
+        "Poison",
+        "Holy",
+        "Dark",
+        "Wind",
+        "Earth",
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 248,
+      "attack_min": 13,
+      "attack_max": 17,
+      "defend_amount": 22,
+      "buff_amount": 2,
+      "signature_action_name": "十属性輪廻",
+      "signature_action_description": "森→廃墟→火山→氷海→神殿→虚空の6Phaseを想定する最終Boss。",
+      "signature_action_key": "final_cycle",
+      "signature_damage": 16,
+      "signature_hits": 1,
+      "signature_player_status": "Poison",
+      "signature_player_status_value": 1,
+      "signature_self_status": "Strength",
+      "signature_self_status_value": 2,
+      "signature_block": 14,
+      "signature_heal": 8,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "buff",
+        "signature",
+        "barrier",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [
+        "buff",
+        "signature",
+        "barrier",
+        "signature",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "buff",
+        "signature",
+        "barrier",
+        "signature",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Physical",
+        "Fire"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [
+        "Poison",
+        "Burn",
+        "Frost",
+        "Shock",
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R6-E01",
+      "enemy_name": "R6-E01（属性融合型）",
+      "enemy_rank": "Elite",
+      "region_id": "R6",
+      "region_name": "虚空",
+      "role_name": "属性融合型",
+      "role_description": "2属性の代表Statusを連続使用し、複合条件で攻撃を強化。",
+      "primary_attributes": [
+        "Fire",
+        "Ice",
+        "Lightning",
+        "Poison"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 118,
+      "attack_min": 12,
+      "attack_max": 15,
+      "defend_amount": 19,
+      "buff_amount": 2,
+      "signature_action_name": "二重属性融合",
+      "signature_action_description": "2属性の代表Statusを連続使用し、複合条件で攻撃を強化。",
+      "signature_action_key": "dual_status",
+      "signature_damage": 10,
+      "signature_hits": 1,
+      "signature_player_status": "Burn",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "burn",
+        "shock",
+        "signature",
+        "frost"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Fire",
+        "Ice"
+      ],
+      "resistance_values": [
+        20,
+        20
+      ],
+      "status_resistances": [
+        "Poison",
+        "Burn",
+        "Frost",
+        "Shock"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R6-E02",
+      "enemy_name": "R6-E02（適応耐性型）",
+      "enemy_rank": "Elite",
+      "region_id": "R6",
+      "region_name": "虚空",
+      "role_name": "適応耐性型",
+      "role_description": "最後に受けた属性へ適応するための耐性スロットを持つ。",
+      "primary_attributes": [
+        "Physical",
+        "Fire",
+        "Ice",
+        "Lightning",
+        "Poison",
+        "Holy",
+        "Dark",
+        "Wind",
+        "Earth",
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 124,
+      "attack_min": 12,
+      "attack_max": 15,
+      "defend_amount": 19,
+      "buff_amount": 2,
+      "signature_action_name": "適応装甲",
+      "signature_action_description": "最後に受けた属性へ適応するための耐性スロットを持つ。",
+      "signature_action_key": "adaptive",
+      "signature_damage": 10,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "StatusResist",
+      "signature_self_status_value": 1,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "resist",
+        "attack",
+        "signature",
+        "barrier"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Physical",
+        "Fire"
+      ],
+      "resistance_values": [
+        20,
+        20
+      ],
+      "status_resistances": [
+        "Poison",
+        "Burn",
+        "Frost",
+        "Shock",
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R6-E03",
+      "enemy_name": "R6-E03（Phase型）",
+      "enemy_rank": "Elite",
+      "region_id": "R6",
+      "region_name": "虚空",
+      "role_name": "Phase型",
+      "role_description": "HP帯で属性ペアとAIセットが変化する。",
+      "primary_attributes": [
+        "Physical",
+        "Dark",
+        "Fire",
+        "Ice",
+        "Holy",
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 130,
+      "attack_min": 12,
+      "attack_max": 15,
+      "defend_amount": 19,
+      "buff_amount": 2,
+      "signature_action_name": "虚空変異",
+      "signature_action_description": "HP帯で属性ペアとAIセットが変化する。",
+      "signature_action_key": "phase_shift",
+      "signature_damage": 11,
+      "signature_hits": 1,
+      "signature_player_status": "Vulnerable",
+      "signature_player_status_value": 1,
+      "signature_self_status": "Strength",
+      "signature_self_status_value": 1,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "attack",
+        "weak",
+        "signature",
+        "attackx2"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Physical",
+        "Dark"
+      ],
+      "resistance_values": [
+        20,
+        20
+      ],
+      "status_resistances": [
+        "Burn",
+        "Frost",
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R6-N01",
+      "enemy_name": "R6-N01（属性切替型）",
+      "enemy_rank": "Normal",
+      "region_id": "R6",
+      "region_name": "虚空",
+      "role_name": "属性切替型",
+      "role_description": "FireとIceの行動を交互に切り替える。",
+      "primary_attributes": [
+        "Fire",
+        "Ice"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 62,
+      "attack_min": 11,
+      "attack_max": 13,
+      "defend_amount": 10,
+      "buff_amount": 1,
+      "signature_action_name": "相転移",
+      "signature_action_description": "FireとIceの行動を交互に切り替える。",
+      "signature_action_key": "attribute_shift",
+      "signature_damage": 7,
+      "signature_hits": 1,
+      "signature_player_status": "Burn",
+      "signature_player_status_value": 1,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "burn",
+        "frost",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Fire",
+        "Ice"
+      ],
+      "resistance_values": [
+        10,
+        10
+      ],
+      "status_resistances": [
+        "Burn",
+        "Frost"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R6-N02",
+      "enemy_name": "R6-N02（異常複合型）",
+      "enemy_rank": "Normal",
+      "region_id": "R6",
+      "region_name": "虚空",
+      "role_name": "異常複合型",
+      "role_description": "Shock→Poisonを重ね、両方あると追加ダメージ。",
+      "primary_attributes": [
+        "Lightning",
+        "Poison"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 64,
+      "attack_min": 10,
+      "attack_max": 12,
+      "defend_amount": 10,
+      "buff_amount": 1,
+      "signature_action_name": "毒雷",
+      "signature_action_description": "Shock→Poisonを重ね、両方あると追加ダメージ。",
+      "signature_action_key": "dual_status",
+      "signature_damage": 7,
+      "signature_hits": 1,
+      "signature_player_status": "Poison",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "Shock",
+      "signature_bonus_damage": 5,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "shock",
+        "poison",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Lightning",
+        "Poison"
+      ],
+      "resistance_values": [
+        10,
+        10
+      ],
+      "status_resistances": [
+        "Poison",
+        "Shock"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R6-N03",
+      "enemy_name": "R6-N03（極性型）",
+      "enemy_rank": "Normal",
+      "region_id": "R6",
+      "region_name": "虚空",
+      "role_name": "極性型",
+      "role_description": "Holy時は防御・回復、Dark時はWeak/Vulnerable。",
+      "primary_attributes": [
+        "Holy",
+        "Dark"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 66,
+      "attack_min": 11,
+      "attack_max": 13,
+      "defend_amount": 10,
+      "buff_amount": 1,
+      "signature_action_name": "光闇反転",
+      "signature_action_description": "Holy時は防御・回復、Dark時はWeak/Vulnerable。",
+      "signature_action_key": "polarity",
+      "signature_damage": 6,
+      "signature_hits": 1,
+      "signature_player_status": "Weak",
+      "signature_player_status_value": 1,
+      "signature_self_status": "Regen",
+      "signature_self_status_value": 1,
+      "signature_block": 0,
+      "signature_heal": 5,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "barrier",
+        "weak",
+        "heal",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Holy",
+        "Dark"
+      ],
+      "resistance_values": [
+        10,
+        10
+      ],
+      "status_resistances": [
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R6-N04",
+      "enemy_name": "R6-N04（構え切替型）",
+      "enemy_rank": "Normal",
+      "region_id": "R6",
+      "region_name": "虚空",
+      "role_name": "構え切替型",
+      "role_description": "Earth時はBlock/Thorns、Wind時は多段攻撃。",
+      "primary_attributes": [
+        "Earth",
+        "Wind"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 68,
+      "attack_min": 10,
+      "attack_max": 12,
+      "defend_amount": 10,
+      "buff_amount": 1,
+      "signature_action_name": "剛柔転換",
+      "signature_action_description": "Earth時はBlock/Thorns、Wind時は多段攻撃。",
+      "signature_action_key": "stance_shift",
+      "signature_damage": 8,
+      "signature_hits": 3,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "Thorns",
+      "signature_self_status_value": 2,
+      "signature_block": 8,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "barrier",
+        "attackx3",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Earth",
+        "Wind"
+      ],
+      "resistance_values": [
+        10,
+        10
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R6-N05",
+      "enemy_name": "R6-N05（模倣型）",
+      "enemy_rank": "Normal",
+      "region_id": "R6",
+      "region_name": "虚空",
+      "role_name": "模倣型",
+      "role_description": "プレイヤーの直前カードTypeに応じてPhysical/Arcane行動を選ぶ。",
+      "primary_attributes": [
+        "Physical",
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 70,
+      "attack_min": 11,
+      "attack_max": 13,
+      "defend_amount": 10,
+      "buff_amount": 1,
+      "signature_action_name": "戦闘解析",
+      "signature_action_description": "プレイヤーの直前カードTypeに応じてPhysical/Arcane行動を選ぶ。",
+      "signature_action_key": "copy_type",
+      "signature_damage": 8,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "defend",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Physical",
+        "Arcane"
+      ],
+      "resistance_values": [
+        10,
+        10
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R6-N06",
+      "enemy_name": "R6-N06（変異型）",
+      "enemy_rank": "Normal",
+      "region_id": "R6",
+      "region_name": "虚空",
+      "role_name": "変異型",
+      "role_description": "HP帯によってBurn・Poison・Dark弱体へ行動が変化。",
+      "primary_attributes": [
+        "Fire",
+        "Poison",
+        "Dark"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 72,
+      "attack_min": 10,
+      "attack_max": 12,
+      "defend_amount": 10,
+      "buff_amount": 1,
+      "signature_action_name": "三相変異",
+      "signature_action_description": "HP帯によってBurn・Poison・Dark弱体へ行動が変化。",
+      "signature_action_key": "phase_shift",
+      "signature_damage": 8,
+      "signature_hits": 1,
+      "signature_player_status": "Poison",
+      "signature_player_status_value": 2,
+      "signature_self_status": "Strength",
+      "signature_self_status_value": 1,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "burn",
+        "poison",
+        "weak",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Fire",
+        "Poison"
+      ],
+      "resistance_values": [
+        10,
+        10
+      ],
+      "status_resistances": [
+        "Poison",
+        "Burn",
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R6-N07",
+      "enemy_name": "R6-N07（虚空支援型）",
+      "enemy_rank": "Normal",
+      "region_id": "R6",
+      "region_name": "虚空",
+      "role_name": "虚空支援型",
+      "role_description": "生存中の敵をStrength/Blockで強化する。",
+      "primary_attributes": [
+        "Physical",
+        "Fire",
+        "Ice",
+        "Lightning",
+        "Poison",
+        "Holy",
+        "Dark",
+        "Wind",
+        "Earth",
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 74,
+      "attack_min": 11,
+      "attack_max": 13,
+      "defend_amount": 10,
+      "buff_amount": 1,
+      "signature_action_name": "虚空共鳴",
+      "signature_action_description": "生存中の敵をStrength/Blockで強化する。",
+      "signature_action_key": "ally_buff",
+      "signature_damage": 0,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "Strength",
+      "signature_self_status_value": 2,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "signature",
+        "barrier",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Physical",
+        "Fire"
+      ],
+      "resistance_values": [
+        10,
+        10
+      ],
+      "status_resistances": [
+        "Poison",
+        "Burn",
+        "Frost",
+        "Shock",
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    }
+  ],
+  "profile": "campaign_stage1_approved",
+  "schema_version": 1
+}

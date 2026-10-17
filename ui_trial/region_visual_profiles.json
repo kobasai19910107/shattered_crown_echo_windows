@@ -1,0 +1,680 @@
+{
+  "schema": "visual-only-1",
+  "ids": {
+    "R1-N01": {
+      "region": 1,
+      "tier": "mob",
+      "role": "基本攻撃型",
+      "variant": 1,
+      "color": "#a2bac1",
+      "preview_theme_name": "灰の城塞"
+    },
+    "R1-N02": {
+      "region": 1,
+      "tier": "mob",
+      "role": "防御型",
+      "variant": 2,
+      "color": "#a2bac1",
+      "preview_theme_name": "灰の城塞"
+    },
+    "R1-N03": {
+      "region": 1,
+      "tier": "mob",
+      "role": "重撃型",
+      "variant": 3,
+      "color": "#a2bac1",
+      "preview_theme_name": "灰の城塞"
+    },
+    "R1-N04": {
+      "region": 1,
+      "tier": "mob",
+      "role": "成長型",
+      "variant": 4,
+      "color": "#a2bac1",
+      "preview_theme_name": "灰の城塞"
+    },
+    "R1-N05": {
+      "region": 1,
+      "tier": "mob",
+      "role": "連撃型",
+      "variant": 5,
+      "color": "#a2bac1",
+      "preview_theme_name": "灰の城塞"
+    },
+    "R1-N06": {
+      "region": 1,
+      "tier": "mob",
+      "role": "Thorns型",
+      "variant": 6,
+      "color": "#a2bac1",
+      "preview_theme_name": "灰の城塞"
+    },
+    "R1-N07": {
+      "region": 1,
+      "tier": "mob",
+      "role": "支援型",
+      "variant": 7,
+      "color": "#a2bac1",
+      "preview_theme_name": "灰の城塞"
+    },
+    "R1-E01": {
+      "region": 1,
+      "tier": "elite",
+      "role": "要塞型",
+      "variant": 1,
+      "color": "#a2bac1",
+      "preview_theme_name": "灰の城塞"
+    },
+    "R1-E02": {
+      "region": 1,
+      "tier": "elite",
+      "role": "狂戦士型",
+      "variant": 2,
+      "color": "#a2bac1",
+      "preview_theme_name": "灰の城塞"
+    },
+    "R1-E03": {
+      "region": 1,
+      "tier": "elite",
+      "role": "反撃型",
+      "variant": 3,
+      "color": "#a2bac1",
+      "preview_theme_name": "灰の城塞"
+    },
+    "R1-B01": {
+      "region": 1,
+      "tier": "boss",
+      "role": "突進Boss",
+      "variant": 1,
+      "color": "#a2bac1",
+      "preview_theme_name": "灰の城塞"
+    },
+    "R1-B02": {
+      "region": 1,
+      "tier": "boss",
+      "role": "防御Boss",
+      "variant": 2,
+      "color": "#a2bac1",
+      "preview_theme_name": "灰の城塞"
+    },
+    "R1-B03": {
+      "region": 1,
+      "tier": "boss",
+      "role": "要塞Boss",
+      "variant": 3,
+      "color": "#a2bac1",
+      "preview_theme_name": "灰の城塞"
+    },
+    "R1-B04": {
+      "region": 1,
+      "tier": "boss",
+      "role": "地域総合Boss",
+      "variant": 4,
+      "color": "#a2bac1",
+      "preview_theme_name": "灰の城塞"
+    },
+    "R2-N01": {
+      "region": 2,
+      "tier": "mob",
+      "role": "毒蓄積型",
+      "variant": 1,
+      "color": "#5aaf83",
+      "preview_theme_name": "毒蝕の沼"
+    },
+    "R2-N02": {
+      "region": 2,
+      "tier": "mob",
+      "role": "軽量連撃型",
+      "variant": 2,
+      "color": "#5aaf83",
+      "preview_theme_name": "毒蝕の沼"
+    },
+    "R2-N03": {
+      "region": 2,
+      "tier": "mob",
+      "role": "Weak型",
+      "variant": 3,
+      "color": "#5aaf83",
+      "preview_theme_name": "毒蝕の沼"
+    },
+    "R2-N04": {
+      "region": 2,
+      "tier": "mob",
+      "role": "Vulnerable型",
+      "variant": 4,
+      "color": "#5aaf83",
+      "preview_theme_name": "毒蝕の沼"
+    },
+    "R2-N05": {
+      "region": 2,
+      "tier": "mob",
+      "role": "腐食型",
+      "variant": 5,
+      "color": "#5aaf83",
+      "preview_theme_name": "毒蝕の沼"
+    },
+    "R2-N06": {
+      "region": 2,
+      "tier": "mob",
+      "role": "吸収型",
+      "variant": 6,
+      "color": "#5aaf83",
+      "preview_theme_name": "毒蝕の沼"
+    },
+    "R2-N07": {
+      "region": 2,
+      "tier": "mob",
+      "role": "召喚支援型",
+      "variant": 7,
+      "color": "#5aaf83",
+      "preview_theme_name": "毒蝕の沼"
+    },
+    "R2-E01": {
+      "region": 2,
+      "tier": "elite",
+      "role": "疫病型",
+      "variant": 1,
+      "color": "#5aaf83",
+      "preview_theme_name": "毒蝕の沼"
+    },
+    "R2-E02": {
+      "region": 2,
+      "tier": "elite",
+      "role": "呪術型",
+      "variant": 2,
+      "color": "#5aaf83",
+      "preview_theme_name": "毒蝕の沼"
+    },
+    "R2-E03": {
+      "region": 2,
+      "tier": "elite",
+      "role": "死霊術型",
+      "variant": 3,
+      "color": "#5aaf83",
+      "preview_theme_name": "毒蝕の沼"
+    },
+    "R2-B01": {
+      "region": 2,
+      "tier": "boss",
+      "role": "毒Boss",
+      "variant": 1,
+      "color": "#5aaf83",
+      "preview_theme_name": "毒蝕の沼"
+    },
+    "R2-B02": {
+      "region": 2,
+      "tier": "boss",
+      "role": "蓄勢連撃Boss",
+      "variant": 2,
+      "color": "#5aaf83",
+      "preview_theme_name": "毒蝕の沼"
+    },
+    "R2-B03": {
+      "region": 2,
+      "tier": "boss",
+      "role": "召喚Boss",
+      "variant": 3,
+      "color": "#5aaf83",
+      "preview_theme_name": "毒蝕の沼"
+    },
+    "R2-B04": {
+      "region": 2,
+      "tier": "boss",
+      "role": "地域総合Boss",
+      "variant": 4,
+      "color": "#5aaf83",
+      "preview_theme_name": "毒蝕の沼"
+    },
+    "R3-N01": {
+      "region": 3,
+      "tier": "mob",
+      "role": "Burn型",
+      "variant": 1,
+      "color": "#e66a4e",
+      "preview_theme_name": "業火の城跡"
+    },
+    "R3-N02": {
+      "region": 3,
+      "tier": "mob",
+      "role": "連撃型",
+      "variant": 2,
+      "color": "#e66a4e",
+      "preview_theme_name": "業火の城跡"
+    },
+    "R3-N03": {
+      "region": 3,
+      "tier": "mob",
+      "role": "回避型",
+      "variant": 3,
+      "color": "#e66a4e",
+      "preview_theme_name": "業火の城跡"
+    },
+    "R3-N04": {
+      "region": 3,
+      "tier": "mob",
+      "role": "Burn爆破型",
+      "variant": 4,
+      "color": "#e66a4e",
+      "preview_theme_name": "業火の城跡"
+    },
+    "R3-N05": {
+      "region": 3,
+      "tier": "mob",
+      "role": "標的型",
+      "variant": 5,
+      "color": "#e66a4e",
+      "preview_theme_name": "業火の城跡"
+    },
+    "R3-N06": {
+      "region": 3,
+      "tier": "mob",
+      "role": "自爆型",
+      "variant": 6,
+      "color": "#e66a4e",
+      "preview_theme_name": "業火の城跡"
+    },
+    "R3-N07": {
+      "region": 3,
+      "tier": "mob",
+      "role": "加速支援型",
+      "variant": 7,
+      "color": "#e66a4e",
+      "preview_theme_name": "業火の城跡"
+    },
+    "R3-E01": {
+      "region": 3,
+      "tier": "elite",
+      "role": "炎騎士型",
+      "variant": 1,
+      "color": "#e66a4e",
+      "preview_theme_name": "業火の城跡"
+    },
+    "R3-E02": {
+      "region": 3,
+      "tier": "elite",
+      "role": "疾走型",
+      "variant": 2,
+      "color": "#e66a4e",
+      "preview_theme_name": "業火の城跡"
+    },
+    "R3-E03": {
+      "region": 3,
+      "tier": "elite",
+      "role": "複合型",
+      "variant": 3,
+      "color": "#e66a4e",
+      "preview_theme_name": "業火の城跡"
+    },
+    "R3-B01": {
+      "region": 3,
+      "tier": "boss",
+      "role": "炎鎧Boss",
+      "variant": 1,
+      "color": "#e66a4e",
+      "preview_theme_name": "業火の城跡"
+    },
+    "R3-B02": {
+      "region": 3,
+      "tier": "boss",
+      "role": "高速Boss",
+      "variant": 2,
+      "color": "#e66a4e",
+      "preview_theme_name": "業火の城跡"
+    },
+    "R3-B03": {
+      "region": 3,
+      "tier": "boss",
+      "role": "復活Boss",
+      "variant": 3,
+      "color": "#e66a4e",
+      "phases": 2,
+      "preview_theme_name": "業火の城跡"
+    },
+    "R3-B04": {
+      "region": 3,
+      "tier": "boss",
+      "role": "地域総合Boss",
+      "variant": 4,
+      "color": "#e66a4e",
+      "preview_theme_name": "業火の城跡"
+    },
+    "R4-N01": {
+      "region": 4,
+      "tier": "mob",
+      "role": "Frost型",
+      "variant": 1,
+      "color": "#6bcbf7",
+      "preview_theme_name": "凍雷の峰"
+    },
+    "R4-N02": {
+      "region": 4,
+      "tier": "mob",
+      "role": "Frozen型",
+      "variant": 2,
+      "color": "#6bcbf7",
+      "preview_theme_name": "凍雷の峰"
+    },
+    "R4-N03": {
+      "region": 4,
+      "tier": "mob",
+      "role": "Shock型",
+      "variant": 3,
+      "color": "#6bcbf7",
+      "preview_theme_name": "凍雷の峰"
+    },
+    "R4-N04": {
+      "region": 4,
+      "tier": "mob",
+      "role": "Shock利用型",
+      "variant": 4,
+      "color": "#6bcbf7",
+      "preview_theme_name": "凍雷の峰"
+    },
+    "R4-N05": {
+      "region": 4,
+      "tier": "mob",
+      "role": "防御型",
+      "variant": 5,
+      "color": "#6bcbf7",
+      "preview_theme_name": "凍雷の峰"
+    },
+    "R4-N06": {
+      "region": 4,
+      "tier": "mob",
+      "role": "Charge型",
+      "variant": 6,
+      "color": "#6bcbf7",
+      "preview_theme_name": "凍雷の峰"
+    },
+    "R4-N07": {
+      "region": 4,
+      "tier": "mob",
+      "role": "支援型",
+      "variant": 7,
+      "color": "#6bcbf7",
+      "preview_theme_name": "凍雷の峰"
+    },
+    "R4-E01": {
+      "region": 4,
+      "tier": "elite",
+      "role": "氷巨人型",
+      "variant": 1,
+      "color": "#6bcbf7",
+      "preview_theme_name": "凍雷の峰"
+    },
+    "R4-E02": {
+      "region": 4,
+      "tier": "elite",
+      "role": "雷獣型",
+      "variant": 2,
+      "color": "#6bcbf7",
+      "preview_theme_name": "凍雷の峰"
+    },
+    "R4-E03": {
+      "region": 4,
+      "tier": "elite",
+      "role": "相互作用型",
+      "variant": 3,
+      "color": "#6bcbf7",
+      "preview_theme_name": "凍雷の峰"
+    },
+    "R4-B01": {
+      "region": 4,
+      "tier": "boss",
+      "role": "凍結Boss",
+      "variant": 1,
+      "color": "#6bcbf7",
+      "preview_theme_name": "凍雷の峰"
+    },
+    "R4-B02": {
+      "region": 4,
+      "tier": "boss",
+      "role": "蓄電Boss",
+      "variant": 2,
+      "color": "#6bcbf7",
+      "preview_theme_name": "凍雷の峰"
+    },
+    "R4-B03": {
+      "region": 4,
+      "tier": "boss",
+      "role": "切替Boss",
+      "variant": 3,
+      "color": "#6bcbf7",
+      "preview_theme_name": "凍雷の峰"
+    },
+    "R4-B04": {
+      "region": 4,
+      "tier": "boss",
+      "role": "地域総合Boss",
+      "variant": 4,
+      "color": "#6bcbf7",
+      "preview_theme_name": "凍雷の峰"
+    },
+    "R5-N01": {
+      "region": 5,
+      "tier": "mob",
+      "role": "回復型",
+      "variant": 1,
+      "color": "#edce8e",
+      "preview_theme_name": "聖光の神殿"
+    },
+    "R5-N02": {
+      "region": 5,
+      "tier": "mob",
+      "role": "Cleanse型",
+      "variant": 2,
+      "color": "#edce8e",
+      "preview_theme_name": "聖光の神殿"
+    },
+    "R5-N03": {
+      "region": 5,
+      "tier": "mob",
+      "role": "防壁型",
+      "variant": 3,
+      "color": "#edce8e",
+      "preview_theme_name": "聖光の神殿"
+    },
+    "R5-N04": {
+      "region": 5,
+      "tier": "mob",
+      "role": "Mana妨害型",
+      "variant": 4,
+      "color": "#edce8e",
+      "preview_theme_name": "聖光の神殿"
+    },
+    "R5-N05": {
+      "region": 5,
+      "tier": "mob",
+      "role": "魔術攻撃型",
+      "variant": 5,
+      "color": "#edce8e",
+      "preview_theme_name": "聖光の神殿"
+    },
+    "R5-N06": {
+      "region": 5,
+      "tier": "mob",
+      "role": "模倣型",
+      "variant": 6,
+      "color": "#edce8e",
+      "preview_theme_name": "聖光の神殿"
+    },
+    "R5-N07": {
+      "region": 5,
+      "tier": "mob",
+      "role": "支援型",
+      "variant": 7,
+      "color": "#edce8e",
+      "preview_theme_name": "聖光の神殿"
+    },
+    "R5-E01": {
+      "region": 5,
+      "tier": "elite",
+      "role": "聖騎士型",
+      "variant": 1,
+      "color": "#edce8e",
+      "preview_theme_name": "聖光の神殿"
+    },
+    "R5-E02": {
+      "region": 5,
+      "tier": "elite",
+      "role": "Mana支配型",
+      "variant": 2,
+      "color": "#edce8e",
+      "preview_theme_name": "聖光の神殿"
+    },
+    "R5-E03": {
+      "region": 5,
+      "tier": "elite",
+      "role": "神殿守護型",
+      "variant": 3,
+      "color": "#edce8e",
+      "preview_theme_name": "聖光の神殿"
+    },
+    "R5-B01": {
+      "region": 5,
+      "tier": "boss",
+      "role": "回復Boss",
+      "variant": 1,
+      "color": "#edce8e",
+      "preview_theme_name": "聖光の神殿"
+    },
+    "R5-B02": {
+      "region": 5,
+      "tier": "boss",
+      "role": "Mana Boss",
+      "variant": 2,
+      "color": "#edce8e",
+      "preview_theme_name": "聖光の神殿"
+    },
+    "R5-B03": {
+      "region": 5,
+      "tier": "boss",
+      "role": "Barrier Boss",
+      "variant": 3,
+      "color": "#edce8e",
+      "preview_theme_name": "聖光の神殿"
+    },
+    "R5-B04": {
+      "region": 5,
+      "tier": "boss",
+      "role": "地域総合Boss",
+      "variant": 4,
+      "color": "#edce8e",
+      "preview_theme_name": "聖光の神殿"
+    },
+    "R6-N01": {
+      "region": 6,
+      "tier": "mob",
+      "role": "属性切替型",
+      "variant": 1,
+      "color": "#a78bfa",
+      "preview_theme_name": "虚空の王座"
+    },
+    "R6-N02": {
+      "region": 6,
+      "tier": "mob",
+      "role": "異常複合型",
+      "variant": 2,
+      "color": "#a78bfa",
+      "preview_theme_name": "虚空の王座"
+    },
+    "R6-N03": {
+      "region": 6,
+      "tier": "mob",
+      "role": "極性型",
+      "variant": 3,
+      "color": "#a78bfa",
+      "preview_theme_name": "虚空の王座"
+    },
+    "R6-N04": {
+      "region": 6,
+      "tier": "mob",
+      "role": "構え切替型",
+      "variant": 4,
+      "color": "#a78bfa",
+      "preview_theme_name": "虚空の王座"
+    },
+    "R6-N05": {
+      "region": 6,
+      "tier": "mob",
+      "role": "模倣型",
+      "variant": 5,
+      "color": "#a78bfa",
+      "preview_theme_name": "虚空の王座"
+    },
+    "R6-N06": {
+      "region": 6,
+      "tier": "mob",
+      "role": "変異型",
+      "variant": 6,
+      "color": "#a78bfa",
+      "preview_theme_name": "虚空の王座"
+    },
+    "R6-N07": {
+      "region": 6,
+      "tier": "mob",
+      "role": "虚空支援型",
+      "variant": 7,
+      "color": "#a78bfa",
+      "preview_theme_name": "虚空の王座"
+    },
+    "R6-E01": {
+      "region": 6,
+      "tier": "elite",
+      "role": "属性融合型",
+      "variant": 1,
+      "color": "#a78bfa",
+      "preview_theme_name": "虚空の王座"
+    },
+    "R6-E02": {
+      "region": 6,
+      "tier": "elite",
+      "role": "適応耐性型",
+      "variant": 2,
+      "color": "#a78bfa",
+      "preview_theme_name": "虚空の王座"
+    },
+    "R6-E03": {
+      "region": 6,
+      "tier": "elite",
+      "role": "Phase型",
+      "variant": 3,
+      "color": "#a78bfa",
+      "preview_theme_name": "虚空の王座"
+    },
+    "R6-B01": {
+      "region": 6,
+      "tier": "boss",
+      "role": "属性吸収Boss",
+      "variant": 1,
+      "color": "#a78bfa",
+      "preview_theme_name": "虚空の王座"
+    },
+    "R6-B02": {
+      "region": 6,
+      "tier": "boss",
+      "role": "属性切替Boss",
+      "variant": 2,
+      "color": "#a78bfa",
+      "preview_theme_name": "虚空の王座"
+    },
+    "R6-B03": {
+      "region": 6,
+      "tier": "boss",
+      "role": "多Phase Boss",
+      "variant": 3,
+      "color": "#a78bfa",
+      "phases": 5,
+      "preview_theme_name": "虚空の王座"
+    },
+    "R6-B04": {
+      "region": 6,
+      "tier": "boss",
+      "role": "最終Boss",
+      "variant": 4,
+      "color": "#a78bfa",
+      "phases": 6,
+      "preview_theme_name": "虚空の王座"
+    }
+  }
+}

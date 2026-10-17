@@ -1,0 +1,940 @@
+{
+  "enemies": [
+    {
+      "enemy_id": "R3-B01",
+      "enemy_name": "R3-B01（炎鎧Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R3",
+      "region_name": "火山",
+      "role_name": "炎鎧Boss",
+      "role_description": "高BlockとBurn反撃。防御を崩した隙が攻撃機会。",
+      "primary_attributes": [
+        "Fire",
+        "Physical"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 158,
+      "attack_min": 10,
+      "attack_max": 14,
+      "defend_amount": 16,
+      "buff_amount": 2,
+      "signature_action_name": "灼熱装甲",
+      "signature_action_description": "高BlockとBurn反撃。防御を崩した隙が攻撃機会。",
+      "signature_action_key": "plain",
+      "signature_damage": 11,
+      "signature_hits": 1,
+      "signature_player_status": "Burn",
+      "signature_player_status_value": 2,
+      "signature_self_status": "Thorns",
+      "signature_self_status_value": 2,
+      "signature_block": 14,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "barrier",
+        "burn",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [
+        "barrier",
+        "burn",
+        "signature",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "barrier",
+        "burn",
+        "signature",
+        "attack",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Fire",
+        "Physical"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [
+        "Burn"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R3-B02",
+      "enemy_name": "R3-B02（高速Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R3",
+      "region_name": "火山",
+      "role_name": "高速Boss",
+      "role_description": "周期的にHit数が増え、Markedを付与する。",
+      "primary_attributes": [
+        "Wind"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 170,
+      "attack_min": 10,
+      "attack_max": 14,
+      "defend_amount": 16,
+      "buff_amount": 2,
+      "signature_action_name": "暴風連舞",
+      "signature_action_description": "周期的にHit数が増え、Markedを付与する。",
+      "signature_action_key": "status_scaling",
+      "signature_damage": 11,
+      "signature_hits": 4,
+      "signature_player_status": "Marked",
+      "signature_player_status_value": 1,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "Marked",
+      "signature_bonus_damage": 4,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "marked",
+        "attackx3",
+        "signature",
+        "attackx4"
+      ],
+      "ai_pattern_stage_2": [
+        "marked",
+        "attackx3",
+        "signature",
+        "attackx4",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "marked",
+        "attackx3",
+        "signature",
+        "attackx4",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Wind"
+      ],
+      "resistance_values": [
+        30
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R3-B03",
+      "enemy_name": "R3-B03（復活Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R3",
+      "region_name": "火山",
+      "role_name": "復活Boss",
+      "role_description": "致命傷後の再起を想定したPhase型Boss。",
+      "primary_attributes": [
+        "Fire",
+        "Wind"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 182,
+      "attack_min": 10,
+      "attack_max": 14,
+      "defend_amount": 16,
+      "buff_amount": 2,
+      "signature_action_name": "転生",
+      "signature_action_description": "致命傷後の再起を想定したPhase型Boss。",
+      "signature_action_key": "rebirth",
+      "signature_damage": 10,
+      "signature_hits": 1,
+      "signature_player_status": "Burn",
+      "signature_player_status_value": 2,
+      "signature_self_status": "Regen",
+      "signature_self_status_value": 2,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "burn",
+        "attackx2",
+        "signature",
+        "defend"
+      ],
+      "ai_pattern_stage_2": [
+        "burn",
+        "attackx2",
+        "signature",
+        "defend",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "burn",
+        "attackx2",
+        "signature",
+        "defend",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Fire",
+        "Wind"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [
+        "Burn"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R3-B04",
+      "enemy_name": "R3-B04（地域総合Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R3",
+      "region_name": "火山",
+      "role_name": "地域総合Boss",
+      "role_description": "Burn→Marked→連撃を一連のコンボとして使用する。",
+      "primary_attributes": [
+        "Fire",
+        "Wind"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 194,
+      "attack_min": 10,
+      "attack_max": 14,
+      "defend_amount": 16,
+      "buff_amount": 2,
+      "signature_action_name": "灰燼暴風",
+      "signature_action_description": "Burn→Marked→連撃を一連のコンボとして使用する。",
+      "signature_action_key": "burn_mark_combo",
+      "signature_damage": 11,
+      "signature_hits": 3,
+      "signature_player_status": "Burn",
+      "signature_player_status_value": 2,
+      "signature_self_status": "Strength",
+      "signature_self_status_value": 1,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "burn",
+        "marked",
+        "signature",
+        "attackx3"
+      ],
+      "ai_pattern_stage_2": [
+        "burn",
+        "marked",
+        "signature",
+        "attackx3",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "burn",
+        "marked",
+        "signature",
+        "attackx3",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Fire",
+        "Wind"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [
+        "Burn"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R3-E01",
+      "enemy_name": "R3-E01（炎騎士型）",
+      "enemy_rank": "Elite",
+      "region_id": "R3",
+      "region_name": "火山",
+      "role_name": "炎騎士型",
+      "role_description": "Blockを得ながらBurnを付与する反撃姿勢。",
+      "primary_attributes": [
+        "Fire",
+        "Physical"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 88,
+      "attack_min": 9,
+      "attack_max": 12,
+      "defend_amount": 13,
+      "buff_amount": 2,
+      "signature_action_name": "炎鎧",
+      "signature_action_description": "Blockを得ながらBurnを付与する反撃姿勢。",
+      "signature_action_key": "plain",
+      "signature_damage": 8,
+      "signature_hits": 1,
+      "signature_player_status": "Burn",
+      "signature_player_status_value": 2,
+      "signature_self_status": "Thorns",
+      "signature_self_status_value": 2,
+      "signature_block": 8,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "barrier",
+        "burn",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Fire",
+        "Physical"
+      ],
+      "resistance_values": [
+        20,
+        20
+      ],
+      "status_resistances": [
+        "Burn"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R3-E02",
+      "enemy_name": "R3-E02（疾走型）",
+      "enemy_rank": "Elite",
+      "region_id": "R3",
+      "region_name": "火山",
+      "role_name": "疾走型",
+      "role_description": "多段攻撃。戦闘が進むほどHit数が増える。",
+      "primary_attributes": [
+        "Wind"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 94,
+      "attack_min": 9,
+      "attack_max": 12,
+      "defend_amount": 13,
+      "buff_amount": 2,
+      "signature_action_name": "旋風連牙",
+      "signature_action_description": "多段攻撃。戦闘が進むほどHit数が増える。",
+      "signature_action_key": "escalating_hits",
+      "signature_damage": 10,
+      "signature_hits": 4,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "attackx3",
+        "defend",
+        "signature",
+        "attackx4"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Wind"
+      ],
+      "resistance_values": [
+        20
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R3-E03",
+      "enemy_name": "R3-E03（複合型）",
+      "enemy_rank": "Elite",
+      "region_id": "R3",
+      "region_name": "火山",
+      "role_name": "複合型",
+      "role_description": "Burnを与え、Burn中なら多段攻撃が強化される。",
+      "primary_attributes": [
+        "Fire",
+        "Wind"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 100,
+      "attack_min": 9,
+      "attack_max": 12,
+      "defend_amount": 13,
+      "buff_amount": 2,
+      "signature_action_name": "火炎旋風",
+      "signature_action_description": "Burnを与え、Burn中なら多段攻撃が強化される。",
+      "signature_action_key": "status_scaling",
+      "signature_damage": 9,
+      "signature_hits": 3,
+      "signature_player_status": "Burn",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "Burn",
+      "signature_bonus_damage": 4,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "burn",
+        "attackx3",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Fire",
+        "Wind"
+      ],
+      "resistance_values": [
+        20,
+        20
+      ],
+      "status_resistances": [
+        "Burn"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R3-N01",
+      "enemy_name": "R3-N01（Burn型）",
+      "enemy_rank": "Normal",
+      "region_id": "R3",
+      "region_name": "火山",
+      "role_name": "Burn型",
+      "role_description": "FireダメージとBurnを与える。",
+      "primary_attributes": [
+        "Fire"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 44,
+      "attack_min": 8,
+      "attack_max": 10,
+      "defend_amount": 7,
+      "buff_amount": 1,
+      "signature_action_name": "火傷撃",
+      "signature_action_description": "FireダメージとBurnを与える。",
+      "signature_action_key": "plain",
+      "signature_damage": 5,
+      "signature_hits": 1,
+      "signature_player_status": "Burn",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "burn",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Fire"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [
+        "Burn"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R3-N02",
+      "enemy_name": "R3-N02（連撃型）",
+      "enemy_rank": "Normal",
+      "region_id": "R3",
+      "region_name": "火山",
+      "role_name": "連撃型",
+      "role_description": "低威力の3～4Hit攻撃。",
+      "primary_attributes": [
+        "Wind"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 46,
+      "attack_min": 7,
+      "attack_max": 9,
+      "defend_amount": 7,
+      "buff_amount": 1,
+      "signature_action_name": "疾風連撃",
+      "signature_action_description": "低威力の3～4Hit攻撃。",
+      "signature_action_key": "plain",
+      "signature_damage": 7,
+      "signature_hits": 3,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "attackx3",
+        "defend",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Wind"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R3-N03",
+      "enemy_name": "R3-N03（回避型）",
+      "enemy_rank": "Normal",
+      "region_id": "R3",
+      "region_name": "火山",
+      "role_name": "回避型",
+      "role_description": "Blockを得て、次の攻撃を多段化する。",
+      "primary_attributes": [
+        "Wind"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 48,
+      "attack_min": 8,
+      "attack_max": 10,
+      "defend_amount": 7,
+      "buff_amount": 1,
+      "signature_action_name": "風纏い",
+      "signature_action_description": "Blockを得て、次の攻撃を多段化する。",
+      "signature_action_key": "plain",
+      "signature_damage": 7,
+      "signature_hits": 2,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 5,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "defend",
+        "attackx2",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Wind"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R3-N04",
+      "enemy_name": "R3-N04（Burn爆破型）",
+      "enemy_rank": "Normal",
+      "region_id": "R3",
+      "region_name": "火山",
+      "role_name": "Burn爆破型",
+      "role_description": "Burn量に応じて追加ダメージ。",
+      "primary_attributes": [
+        "Fire"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 50,
+      "attack_min": 7,
+      "attack_max": 9,
+      "defend_amount": 7,
+      "buff_amount": 1,
+      "signature_action_name": "着火爆発",
+      "signature_action_description": "Burn量に応じて追加ダメージ。",
+      "signature_action_key": "status_scaling",
+      "signature_damage": 6,
+      "signature_hits": 1,
+      "signature_player_status": "Burn",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "Burn",
+      "signature_bonus_damage": 3,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "burn",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Fire"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [
+        "Burn"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R3-N05",
+      "enemy_name": "R3-N05（標的型）",
+      "enemy_rank": "Normal",
+      "region_id": "R3",
+      "region_name": "火山",
+      "role_name": "標的型",
+      "role_description": "Markedを付与し、Marked中の相手へ集中攻撃。",
+      "primary_attributes": [
+        "Wind"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 52,
+      "attack_min": 8,
+      "attack_max": 10,
+      "defend_amount": 7,
+      "buff_amount": 1,
+      "signature_action_name": "風印",
+      "signature_action_description": "Markedを付与し、Marked中の相手へ集中攻撃。",
+      "signature_action_key": "status_scaling",
+      "signature_damage": 6,
+      "signature_hits": 1,
+      "signature_player_status": "Marked",
+      "signature_player_status_value": 1,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "Marked",
+      "signature_bonus_damage": 4,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "marked",
+        "attackx2",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Wind"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R3-N06",
+      "enemy_name": "R3-N06（自爆型）",
+      "enemy_rank": "Normal",
+      "region_id": "R3",
+      "region_name": "火山",
+      "role_name": "自爆型",
+      "role_description": "Charge後に大爆発し、自身も倒れる。",
+      "primary_attributes": [
+        "Fire"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 54,
+      "attack_min": 7,
+      "attack_max": 9,
+      "defend_amount": 7,
+      "buff_amount": 1,
+      "signature_action_name": "臨界爆発",
+      "signature_action_description": "Charge後に大爆発し、自身も倒れる。",
+      "signature_action_key": "self_destruct",
+      "signature_damage": 18,
+      "signature_hits": 1,
+      "signature_player_status": "Burn",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "charge",
+        "charge",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Fire"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [
+        "Burn"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R3-N07",
+      "enemy_name": "R3-N07（加速支援型）",
+      "enemy_rank": "Normal",
+      "region_id": "R3",
+      "region_name": "火山",
+      "role_name": "加速支援型",
+      "role_description": "味方のStrengthを上げ、攻撃圧を加速する。",
+      "primary_attributes": [
+        "Fire",
+        "Wind"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 56,
+      "attack_min": 8,
+      "attack_max": 10,
+      "defend_amount": 7,
+      "buff_amount": 1,
+      "signature_action_name": "熱風の号令",
+      "signature_action_description": "味方のStrengthを上げ、攻撃圧を加速する。",
+      "signature_action_key": "ally_buff",
+      "signature_damage": 0,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "Strength",
+      "signature_self_status_value": 1,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "buff",
+        "signature",
+        "attackx2"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Fire",
+        "Wind"
+      ],
+      "resistance_values": [
+        10,
+        10
+      ],
+      "status_resistances": [
+        "Burn"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    }
+  ],
+  "profile": "campaign_stage1_approved",
+  "schema_version": 1
+}

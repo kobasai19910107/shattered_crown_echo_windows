@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "boss_id": "R1-B01",
+  "reference_step": "STEP13",
+  "guard_centers_canvas": {
+    "shoulder_front": [
+      289,
+      271
+    ],
+    "shoulder_far": [
+      301,
+      271
+    ],
+    "hip_front": [
+      477,
+      274
+    ],
+    "hip_far": [
+      476,
+      274
+    ],
+    "neck_base": [
+      255,
+      233
+    ]
+  },
+  "guards": {
+    "shoulder_front": "shoulder_front.png",
+    "shoulder_far": "shoulder_far.png",
+    "hip_front": "hip_front.png",
+    "hip_far": "hip_far.png",
+    "neck_base": "neck_base.png"
+  },
+  "pivot_hint": {
+    "fore_near": [
+      281,
+      266
+    ],
+    "fore_far": [
+      301,
+      271
+    ],
+    "hind_near": [
+      473,
+      270
+    ],
+    "hind_far": [
+      475,
+      270
+    ],
+    "neck": [
+      250,
+      229
+    ],
+    "head": [
+      220,
+      202
+    ]
+  },
+  "quality_notes": [
+    "Source-sheet-derived painted parts retain anatomy mismatches",
+    "Guards conceal small seams only; these do not replace hand-painted fill",
+    "Godot 4 runtime inspection required before acceptance"
+  ]
+}

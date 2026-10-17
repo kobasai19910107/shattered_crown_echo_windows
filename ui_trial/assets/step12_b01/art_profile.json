@@ -1,0 +1,48 @@
+{
+  "boss_id": "R1-B01",
+  "purpose": "Art direction + 13-layer rig technical acceptance",
+  "source_rig": "res://ui_trial/assets/step11_b01/rig.json",
+  "paint_target": "concept_reference.jpg (art reference only, background and labels baked)",
+  "rig_revision": "v1.2.0-hierarchy",
+  "phase_count": 1,
+  "palette": {
+    "base": "#1E2330",
+    "armor": "#4D505D",
+    "bone": "#D9C9B8",
+    "seam_shadow": "#14141F",
+    "crimson": "#C33F4D",
+    "ember": "#FF8469"
+  },
+  "repaint_requirements": [
+    "Transparent, no lettering, no baked shadows",
+    "Joint overlap padding: 12-20 source pixels at each attachment",
+    "Maintain same image coordinate system and 2x PNG export convention",
+    "Head and jaw pivot coincide anatomically with source rig.json",
+    "Top horns and jaw follow head, head follows neck, neck follows torso",
+    "For web: texture atlasing and compressed textures must be validated on Safari"
+  ],
+  "expected_parts": [
+    "tail",
+    "hind_far",
+    "fore_far",
+    "spines_back",
+    "torso",
+    "hind_near",
+    "fore_near",
+    "neck",
+    "horn_far",
+    "head",
+    "jaw",
+    "horn_near",
+    "crimson_aura"
+  ],
+  "test_poses": [
+    "idle",
+    "windup",
+    "charge",
+    "hit",
+    "roar"
+  ],
+  "ready_for_final_art": false,
+  "note": "Do NOT claim image-gen key visual is a separable rig."
+}

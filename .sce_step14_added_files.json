@@ -1,0 +1,14 @@
+{
+  "ui_trial/actors/boss_b01_rig_step14.gd": "6d7c0ef5031db2acd3e132946b2c1d3e4a79ccca883fdc92b3e552d780003f12",
+  "ui_trial/assets/step14_b01/calibration.json": "e4427e59af2b9a2d53c50748667c6c961e258737e540728a9c25b349d59307e4",
+  "ui_trial/assets/step14_b01/hip_far.png": "572f8bbec36ef98fd99f37549c7b285d7f96d28791c099519319c594346a8ddf",
+  "ui_trial/assets/step14_b01/hip_front.png": "301b068cfbe1cc6f19824f2cc82e6a11b37ed7a75ceef5cad6e142eb30ab4d54",
+  "ui_trial/assets/step14_b01/jaw_soft.png": "4f310ad5a9fca4fae4e5bd829ec2fb81d4aa390926c3bda7afcb750440da77a6",
+  "ui_trial/assets/step14_b01/neck_base.png": "dbd4993a8c3aacf01618b467fa233e6a080bc5a422bcccc3ffa1273a64050d47",
+  "ui_trial/assets/step14_b01/shoulder_far.png": "f607c3eed764143ec1b4af7edd6bcad1cf5a7ba15e250c8df590229986eb0543",
+  "ui_trial/assets/step14_b01/shoulder_front.png": "ff0071a930791108c109c4205202bc5cb502645e08e72dddb8dbb5dfb9d00c94",
+  "ui_trial/battle_ui_step14.gd": "772362d96e8ebb1ca46ef7c1d85d7f841b6d3d4bab5bd6097c7b7131a3c75dda",
+  "ui_trial/battle_ui_step14.tscn": "045304ff80dca877630422fddf65a9a95515fb4bc4b69e38b2d3c394c11f5dae",
+  "ui_trial/boss_lab_step14.gd": "f50d6485042079eea202c46632db69d333ad6e7e86bc9b3bc8557fd3ba80032e",
+  "ui_trial/boss_lab_step14.tscn": "45e691e8003d66c53ac35d37be35a541dadb211887e55eb43acdbb26aaf033f5"
+}

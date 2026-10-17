@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "boss_id": "R1-B01",
+  "source_art_file": "STEP17_generated_art_reference.png",
+  "source_role": "AI-generated single consistent reference board (not hand-painted game sprite masters)",
+  "produced": "13 alpha PNG crops scaled to existing STEP11 rig canvas/pivots",
+  "quality_status": "cohesive palette preview; some anatomy, hidden sides and joint overlaps still need artist repaint",
+  "parts": [
+    {
+      "name": "tail",
+      "size": [
+        372,
+        364
+      ],
+      "pivot": [
+        510.0,
+        245.0
+      ],
+      "z": -8
+    },
+    {
+      "name": "hind_far",
+      "size": [
+        202,
+        340
+      ],
+      "pivot": [
+        475.0,
+        270.0
+      ],
+      "z": -5
+    },
+    {
+      "name": "fore_far",
+      "size": [
+        203,
+        357
+      ],
+      "pivot": [
+        301.0,
+        271.0
+      ],
+      "z": -5
+    },
+    {
+      "name": "spines_back",
+      "size": [
+        504,
+        358
+      ],
+      "pivot": [
+        364.0,
+        195.0
+      ],
+      "z": -4
+    },
+    {
+      "name": "torso",
+      "size": [
+        675,
+        364
+      ],
+      "pivot": [
+        349.0,
+        240.0
+      ],
+      "z": 0
+    },
+    {
+      "name": "hind_near",
+      "size": [
+        237,
+        343
+      ],
+      "pivot": [
+        473.0,
+        270.0
+      ],
+      "z": 3
+    },
+    {
+      "name": "fore_near",
+      "size": [
+        207,
+        350
+      ],
+      "pivot": [
+        281.0,
+        266.0
+      ],
+      "z": 4
+    },
+    {
+      "name": "neck",
+      "size": [
+        236,
+        230
+      ],
+      "pivot": [
+        250.0,
+        229.0
+      ],
+      "z": 2
+    },
+    {
+      "name": "horn_far",
+      "size": [
+        184,
+        288
+      ],
+      "pivot": [
+        250.0,
+        178.0
+      ],
+      "z": 2
+    },
+    {
+      "name": "head",
+      "size": [
+        327,
+        256
+      ],
+      "pivot": [
+        220.0,
+        202.0
+      ],
+      "z": 6
+    },
+    {
+      "name": "jaw",
+      "size": [
+        289,
+        135
+      ],
+      "pivot": [
+        225.0,
+        237.0
+      ],
+      "z": 7
+    },
+    {
+      "name": "horn_near",
+      "size": [
+        150,
+        255
+      ],
+      "pivot": [
+        172.0,
+        180.0
+      ],
+      "z": 9
+    },
+    {
+      "name": "crimson_aura",
+      "size": [
+        542,
+        246
+      ],
+      "pivot": [
+        353.0,
+        195.0
+      ],
+      "z": 10
+    }
+  ],
+  "adjustments": {
+    "torso": "second head suppressed using feathered alpha to separate neck",
+    "neck": "duplicate facial detail hidden",
+    "jaw": "upper eye/forehead masked",
+    "tail": "visual-only translation -78,+42 in 680x450 design units"
+  }
+}

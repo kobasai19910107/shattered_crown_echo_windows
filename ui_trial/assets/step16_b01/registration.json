@@ -1,0 +1,161 @@
+{
+  "schema": 1,
+  "enemy_id": "R1-B01",
+  "requires": [
+    "step13_b01",
+    "step14_b01",
+    "step15"
+  ],
+  "design_space": [
+    680,
+    450
+  ],
+  "base_origin": [
+    340,
+    390
+  ],
+  "base_scale": 0.86,
+  "asset_origin": "ST13 painted parent textures, not independently repainted boss",
+  "caps": [
+    {
+      "name": "neck_to_chest",
+      "parent": "torso",
+      "source": "torso",
+      "center": [
+        255,
+        238
+      ],
+      "rx": 39,
+      "ry": 28,
+      "z": 3,
+      "opacity": 0.77,
+      "pixel_size": [
+        156,
+        112
+      ]
+    },
+    {
+      "name": "near_shoulder",
+      "parent": "torso",
+      "source": "torso",
+      "center": [
+        288,
+        278
+      ],
+      "rx": 39,
+      "ry": 31,
+      "z": 5,
+      "opacity": 0.89,
+      "pixel_size": [
+        156,
+        124
+      ]
+    },
+    {
+      "name": "near_hip",
+      "parent": "torso",
+      "source": "torso",
+      "center": [
+        475,
+        281
+      ],
+      "rx": 40,
+      "ry": 31,
+      "z": 5,
+      "opacity": 0.89,
+      "pixel_size": [
+        160,
+        124
+      ]
+    },
+    {
+      "name": "far_shoulder",
+      "parent": "torso",
+      "source": "torso",
+      "center": [
+        300,
+        278
+      ],
+      "rx": 36,
+      "ry": 27,
+      "z": -2,
+      "opacity": 0.7,
+      "pixel_size": [
+        144,
+        108
+      ]
+    },
+    {
+      "name": "far_hip",
+      "parent": "torso",
+      "source": "torso",
+      "center": [
+        476,
+        281
+      ],
+      "rx": 38,
+      "ry": 30,
+      "z": -2,
+      "opacity": 0.7,
+      "pixel_size": [
+        152,
+        120
+      ]
+    },
+    {
+      "name": "jaw_hinge",
+      "parent": "head",
+      "source": "head",
+      "center": [
+        228,
+        239
+      ],
+      "rx": 24,
+      "ry": 18,
+      "z": 8,
+      "opacity": 0.7,
+      "pixel_size": [
+        96,
+        72
+      ]
+    },
+    {
+      "name": "tail_socket",
+      "parent": "torso",
+      "source": "torso",
+      "center": [
+        509,
+        239
+      ],
+      "rx": 29,
+      "ry": 23,
+      "z": 4,
+      "opacity": 0.68,
+      "pixel_size": [
+        116,
+        92
+      ]
+    }
+  ],
+  "leg_grounding": {
+    "fore_near": [
+      10,
+      105
+    ],
+    "fore_far": [
+      -8,
+      105
+    ],
+    "hind_near": [
+      12,
+      103
+    ],
+    "hind_far": [
+      10,
+      102
+    ],
+    "compensation_in_place": 0.7,
+    "compensation_during_charge": 0.25
+  },
+  "notes": "Texture-matched seam patches, not final hand-painted creature parts. No Battle Core or enemy metadata changes."
+}

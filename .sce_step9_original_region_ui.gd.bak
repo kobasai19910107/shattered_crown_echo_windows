@@ -1,0 +1,584 @@
+class_name Region1RunUI
+extends VBoxContainer
+
+var host
+var run = Region1RunController.new()
+var content: VBoxContainer
+var header: Label
+var seed: SpinBox
+var selected_retained: Array = []
+var animation_busy: bool = false
+var syncing: bool = false
+var legacy_equipment_expanded: bool = false
+var hub_selected_uid: String = ""
+var hub_library_tab: int = 0
+var hub_details_open: bool=false
+var hub_page: String="home"
+var solo_selected_stage: int=0 # 0 = automatic next uncleared stage (or final cleared stage)
+var hub_library: HubEquipmentPanel
+var hub_status: Label
+var hub_notice: Label
+var departure: Button
+# SCE_STEP7_CAMPAIGN_INTEGRATION
+var sce7_prefer_new_ui: bool = true
+var sce7_view: Control
+var page_scroll: ScrollContainer
+
+func refresh_legacy_equipment() -> void:
+    if not is_instance_valid(hub_library) or not hub_library.is_inside_tree() or hub_library.tabs.get_tab_count()<5:return
+    var box: VBoxContainer=hub_library.tabs.get_child(4).get_child(0)
+    for child in box.get_children():box.remove_child(child);child.queue_free()
+    var ids: Array=run.state.inventory.keys();ids.sort()
+    for uid in ids:
+        paragraph(("【装備中】" if run.state.loadout.values().has(uid) else "")+item_text(run.state.inventory[uid]),box)
+        var row=HFlowContainer.new();box.add_child(row);button("装備",run.equip.bind(str(uid)),row)
+        paragraph("加工・分解は「鍛冶屋」タブから行えます。",box)
+    paragraph("特殊効果：Rare以上の通常ドロップに付与。鍛冶屋で特殊効果を装備ごと最大3回再抽選（候補2択＋現状維持）。Gemは今後実装。Passive Treeは廃止。",box)
+
+func refresh_hub_chrome() -> void:
+    if is_instance_valid(hub_status):hub_status.text="拠点 %dG　素材 %d　全編進行 %d/24 Boss"%[int(run.state.base_gold),int(run.state.materials),_total_progress(run.state.get("region_progress",[]))]
+    if is_instance_valid(hub_notice):hub_notice.text=run.notice;hub_notice.visible=run.notice!=""
+    if is_instance_valid(departure):
+        var region: int=int(run.state.get("active_region",0))
+        var bosses: int=int(run.state.region_progress[region]) if run.state.has("region_progress") else int(run.state.bosses)
+        var selected_stage: int = solo_selected_stage if solo_selected_stage > 0 else mini(bosses + 1, 4)
+        departure.disabled=run.state.loadout.size()!=6 or selected_stage > mini(bosses + 1,4) or run.save_blocked or not run.state.forge_pending.is_empty()
+
+func build(owner_node) -> void:
+    host=owner_node
+    name="Region 1"
+    size_flags_vertical=Control.SIZE_EXPAND_FILL
+    page_scroll=ScrollContainer.new()
+    page_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+    page_scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
+    add_child(page_scroll)
+    content=VBoxContainer.new()
+    content.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    content.size_flags_vertical=Control.SIZE_EXPAND_FILL
+    content.add_theme_constant_override("separation",6)
+    add_child(content)
+    header=Label.new()
+    header.add_theme_font_size_override("font_size",22)
+    content.add_child(header)
+    seed=SpinBox.new()
+    seed.min_value=1
+    seed.max_value=999999999
+    seed.value=20261008
+    seed.prefix="ラン Seed "
+    content.add_child(seed)
+    if FileAccess.file_exists(run.save_path) or (run is CampaignController and FileAccess.file_exists(run.legacy_save_path)): run.load_saved()
+    # Do not auto-create a campaign save before the title selection. Existing
+    # generated equipment can still be claimed once from the hub after New Game.
+    render()
+    if str(run.state.phase)=="battle": present_battle()
+
+func locked() -> bool:
+    return str(run.state.phase)!="hub"
+
+func button(text: String, action: Callable, parent: Node = null) -> Button:
+    var b=Button.new()
+    b.text=text
+    b.custom_minimum_size.y=38
+    b.pressed.connect(func():
+        if animation_busy or host.generation_job!=null: return
+        action.call()
+        render())
+    (content if parent==null else parent).add_child(b)
+    return b
+
+func paragraph(text: String, parent: Node = null) -> void:
+    var label=Label.new()
+    label.text=text
+    label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+    (content if parent==null else parent).add_child(label)
+
+func item_text(item: Dictionary) -> String:
+    if item.is_empty(): return "売却済み"
+    return "%s / %s / %s / HP %d\n固定 %s　ランダム %s\n%s" % [str(item.slot),str(item.rarity),str(item.get("name",item.equipment_id)),int(item.get("effective_hp",item.base_hp)),str(item.fixed_cards),str(item.random_cards),EquipmentSpecialEffectPolicy.brief(item)]
+
+func render() -> void:
+    var remembered_filters: Dictionary={}
+    var remembered_forge_filters: Dictionary={}
+    var remembered_scroll: float=0
+    var remembered_forge_scroll: float=0
+    var remembered_forge_uid: String=""
+    if is_instance_valid(hub_library) and hub_library.is_inside_tree():
+        hub_selected_uid=hub_library.selected_uid
+        if hub_library.tabs.current_tab in [0,1]:hub_library_tab=hub_library.tabs.current_tab
+        remembered_filters=hub_library.filters.duplicate(true)
+        remembered_scroll=hub_library.inventory_list.get_v_scroll_bar().value
+        var forge: HubForgePanel=hub_library.tabs.get_child(2)
+        remembered_forge_filters=forge.filters.duplicate(true);remembered_forge_scroll=forge.inventory_list.get_v_scroll_bar().value;remembered_forge_uid=forge.selected_uid
+    if seed.get_parent()!=content:seed.reparent(content)
+    for child in content.get_children():
+        if child!=header and child!=seed:
+            content.remove_child(child)
+            child.queue_free()
+    var state: Dictionary=run.state
+    var in_hub: bool=str(state.phase)=="hub"
+    page_scroll.visible=not in_hub
+    var destination: Node=self if in_hub else page_scroll
+    if content.get_parent()!=destination:content.reparent(destination)
+    var region_index: int=int(state.get("active_region",0))
+    var boss_count: int=int(state.region_progress[region_index]) if state.has("region_progress") else int(state.bosses)
+    header.text="SHATTERED CROWN ECHO — Region %d　%d/4" % [region_index+1,boss_count]
+    seed.visible=in_hub and hub_page=="solo"
+    departure=null
+    var phase_label: String={"hub":"拠点","route":"道の選択","battle":"戦闘","reward":"報酬","service":"施設","defeat":"敗北"}.get(str(state.phase),str(state.phase))
+    if not in_hub:
+        paragraph("%s　拠点 %dG　鍛冶素材 %d" % [phase_label,int(state.base_gold),int(state.materials)])
+        if run.notice!="":paragraph(run.notice)
+    else:
+        hub_status=Label.new();content.add_child(hub_status)
+        hub_notice=Label.new();hub_notice.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;content.add_child(hub_notice)
+    if str(state.phase)=="hub":
+        # A forge choice must be resolved before leaving the forge screen.
+        if not state.forge_pending.is_empty():hub_page="forge"
+        _build_hub_navigation(state)
+        match hub_page:
+            "home":
+                _build_hub_home(state)
+            "equipment", "forge":
+                _build_hub_library(state,remembered_filters,remembered_scroll,remembered_forge_filters,remembered_forge_scroll,remembered_forge_uid)
+            "merchant":
+                _build_hub_merchant()
+            "solo":
+                _build_hub_solo(state,region_index)
+            _:
+                hub_page="home"
+                _build_hub_home(state)
+        refresh_hub_chrome()
+    else:
+        var active: Dictionary=state.run
+        paragraph("HP %d/%d　Run Gold %dG　素材 %d　部屋 %d　戦利品 %d　確保枠 %d" % [int(active.hp),int(active.max_hp),int(active.gold),int(active.materials),int(active.rooms),active.bag.size(),int(active.body_cap)])
+        if str(state.phase)=="route":
+            for i in range(active.routes.size()):
+                var route_label: String={"battle":"通常戦","elite":"Elite戦","boss":"Boss戦","event":"イベント","shop":"旅の施設","chest":"宝箱","rest":"休憩"}.get(str(active.routes[i]),str(active.routes[i]))
+                button("%d. %s" % [i+1,route_label],func():
+                    if run.choose_route(i) and str(run.state.phase)=="battle": present_battle())
+        elif str(state.phase)=="battle":
+            button("新UIで戦闘を再開",_sce7_present_new)
+            button("従来UIで戦闘を再開",_sce7_present_legacy)
+        elif str(state.phase)=="reward":
+            paragraph("装備を1個獲得するか、スキップしてください。候補にマウスを合わせると詳細を表示します。")
+            var offer_row=HBoxContainer.new()
+            offer_row.name="SoloRewardEquipmentPreview"
+            offer_row.add_theme_constant_override("separation",14)
+            offer_row.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+            content.add_child(offer_row)
+            var candidates=VBoxContainer.new()
+            candidates.name="RewardCandidates"
+            candidates.custom_minimum_size.x=380
+            candidates.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+            offer_row.add_child(candidates)
+            var preview=EquipmentOfferHoverPanel.new()
+            offer_row.add_child(preview)
+            for i in range(active.rewards.size()):
+                var item: Dictionary=active.rewards[i]
+                var choice=button(EquipmentOfferHoverPanel.offer_button_text(item,i),run.take_reward.bind(i),candidates)
+                choice.custom_minimum_size.y=82
+                choice.mouse_entered.connect(preview.show_item.bind(item.duplicate(true)))
+                choice.focus_entered.connect(preview.show_item.bind(item.duplicate(true)))
+            button("スキップ",run.take_reward.bind(-1),candidates)
+        elif str(state.phase)=="service":
+            if str(active.kind)=="shop":
+                var npc: String=str(active.get("shop_npc","merchant"))
+                if npc=="priest":
+                    paragraph("僧侶 — HP回復・次の戦闘への支援")
+                    button("35%回復 90G",run.service.bind("heal")).disabled=int(active.gold)<90 or int(active.hp)>=int(active.max_hp)
+                    button("全回復 220G",run.service.bind("full_heal")).disabled=int(active.gold)<220 or int(active.hp)>=int(active.max_hp)
+                    button("次戦：最初のAttack +1　60G",run.service.bind("attack")).disabled=int(active.gold)<60 or active.support.has("attack")
+                    button("次戦：第1ターンBlock +4　60G",run.service.bind("block")).disabled=int(active.gold)<60 or active.support.has("block")
+                    button("次戦：第1ターンDraw +1　60G",run.service.bind("draw")).disabled=int(active.gold)<60 or active.support.has("draw")
+                else:
+                    # Old checkpoints with no NPC marker restore as merchant.
+                    paragraph("遺品商 — 装備・商品更新")
+                    var shop_row=HBoxContainer.new()
+                    shop_row.name="SoloMerchantEquipmentPreview"
+                    shop_row.add_theme_constant_override("separation",14)
+                    content.add_child(shop_row)
+                    var shop_choices=VBoxContainer.new()
+                    shop_choices.custom_minimum_size.x=380
+                    shop_choices.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+                    shop_row.add_child(shop_choices)
+                    var shop_preview=EquipmentOfferHoverPanel.new()
+                    shop_row.add_child(shop_preview)
+                    for i in range(active.stock.size()):
+                        var stock_item: Dictionary=active.stock[i]
+                        var buy=button("売り切れ" if stock_item.is_empty() else "280G："+EquipmentOfferHoverPanel.offer_button_text(stock_item,i),run.service.bind("buy",i),shop_choices)
+                        buy.disabled=stock_item.is_empty() or int(active.gold)<280
+                        if not stock_item.is_empty():
+                            buy.custom_minimum_size.y=82
+                            buy.mouse_entered.connect(shop_preview.show_item.bind(stock_item.duplicate(true)))
+                            buy.focus_entered.connect(shop_preview.show_item.bind(stock_item.duplicate(true)))
+                    button("商品更新 70G",run.service.bind("refresh"),shop_choices).disabled=int(active.gold)<70
+            elif str(active.kind)=="rest": button("35%回復して進む",run.service.bind("heal"))
+            elif str(active.kind)=="event":
+                button("80Gを得て進む",run.service.bind("gold"))
+                button("素材2を得て進む",run.service.bind("material"))
+                button("20%回復して進む",run.service.bind("heal"))
+            button("先へ進む",run.service.bind("leave"))
+        elif str(state.phase)=="defeat":
+            paragraph("敗北：Run Goldは失われます。確保枠まで戦利品を選択してください。")
+            var snapshot: Dictionary=active.get("battle",{})
+            var saved_logs: Array=snapshot.get("playtest_stats",{}).get("diagnostic_events",[]).duplicate(true)
+            if saved_logs.is_empty(): saved_logs=snapshot.get("logs",[]).duplicate(true)
+            button("敗北時の戦闘ログを表示",func():BattleLogDialog.show_log(self,saved_logs,"敗北時の戦闘ログ（保存済み）"))
+            for i in range(active.bag.size()):
+                var choose=CheckButton.new()
+                choose.text=item_text(active.bag[i])
+                choose.button_pressed=selected_retained.has(i)
+                choose.toggled.connect(func(on: bool):
+                    if on and not selected_retained.has(i): selected_retained.append(i)
+                    elif not on: selected_retained.erase(i))
+                content.add_child(choose)
+            button("選択品を確保して帰還",func():
+                if run.resolve_defeat(selected_retained): selected_retained.clear())
+        paragraph("進行は操作ごとに保存されます。ゲームを閉じてもここから再開できます。")
+
+# Pure UI navigation: switching pages never updates the saved campaign state.
+func open_hub_page(page: String) -> void:
+    if page not in ["home","equipment","forge","merchant","solo"]:return
+    if str(run.state.phase)!="hub":return
+    if not run.state.forge_pending.is_empty() and page!="forge":return
+    hub_page=page
+    if page=="equipment" and hub_library_tab>1:hub_library_tab=0
+    render()
+
+func _hub_button(title: String,page: String,parent: Node) -> Button:
+    var b=button(title,func():hub_page=page,parent)
+    b.name="HubNav_"+page
+    b.toggle_mode=true
+    b.set_pressed_no_signal(hub_page==page)
+    b.disabled=not run.state.forge_pending.is_empty() and page!="forge"
+    b.custom_minimum_size=Vector2(164,44)
+    return b
+
+func _build_hub_navigation(state: Dictionary) -> void:
+    var nav=HFlowContainer.new()
+    nav.name="HubMainNavigation"
+    nav.add_theme_constant_override("h_separation",8)
+    content.add_child(nav)
+    for entry in [["拠点ホーム","home"],["装備・倉庫","equipment"],["鍛冶屋","forge"],["商人","merchant"],["ソロ出発","solo"]]:
+        _hub_button(str(entry[0]),str(entry[1]),nav)
+    var online=button("2人協力ロビー",func():host._on_online_open(),nav)
+    online.name="HubNav_coop"
+    online.custom_minimum_size=Vector2(164,44)
+    online.disabled=not state.forge_pending.is_empty()
+    var subtitle=Label.new()
+    subtitle.name="HubPageTitle"
+    subtitle.text={"home":"拠点ホーム","equipment":"装備・倉庫","forge":"鍛冶屋","merchant":"商人","solo":"ダンジョン出発"}.get(hub_page,"拠点ホーム")
+    subtitle.add_theme_font_size_override("font_size",24)
+    content.add_child(subtitle)
+
+func _hub_home_destination(text: String,description: String,page: String,parent: Node) -> void:
+    var frame=PanelContainer.new()
+    frame.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    frame.custom_minimum_size.y=118
+    parent.add_child(frame)
+    var inner=VBoxContainer.new()
+    inner.add_theme_constant_override("separation",6)
+    frame.add_child(inner)
+    var go=button(text,func():hub_page=page,inner)
+    go.custom_minimum_size.y=46
+    go.disabled=not run.state.forge_pending.is_empty() and page!="forge"
+    paragraph(description,inner)
+
+func _build_hub_home(state: Dictionary) -> void:
+    paragraph("各施設は専用画面で利用します。ソロと協力プレイの出発口も別です。")
+    if bool(state.get("campaign_complete",false)):
+        paragraph("全編クリア — Region 6の最終Bossを撃破しました。攻略履歴と装備は保存されています。")
+    var grid=GridContainer.new()
+    grid.name="HubHomeDestinations"
+    grid.columns=2
+    grid.add_theme_constant_override("h_separation",14)
+    grid.add_theme_constant_override("v_separation",12)
+    grid.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    content.add_child(grid)
+    _hub_home_destination("装備・倉庫を開く","装備6部位の確認・交換、所持装備と24枚デッキの比較","equipment",grid)
+    _hub_home_destination("鍛冶屋へ行く","装備強化・ソケット拡張・再抽選・分解","forge",grid)
+    _hub_home_destination("商人へ行く","商人専用画面。冒険中の遺品商とは区別","merchant",grid)
+    _hub_home_destination("ソロ冒険の準備","地域とSeedを選び、1人でダンジョンへ出発","solo",grid)
+    var coop_panel=PanelContainer.new()
+    content.add_child(coop_panel)
+    var coop_box=VBoxContainer.new();coop_panel.add_child(coop_box)
+    var coop=button("2人協力ロビーで集合・出発",func():host._on_online_open(),coop_box)
+    coop.name="HubHomeCoop"
+    coop.custom_minimum_size.y=46
+    coop.disabled=not state.forge_pending.is_empty()
+    paragraph("P1が部屋を作成し、P2がコードで参加。各自の装備・24枚デッキと準備完了を確認し、ロビーから協力冒険へ出発します。",coop_box)
+    var initial_claimed: bool=bool(state.get("initial_claimed",false))
+    if not initial_claimed:
+        var first=HBoxContainer.new();content.add_child(first)
+        button("初期6装備の生成画面",func():host._on_step8_open(),first)
+        var claim_label: String = "生成済み6装備を無料受取（1回限り）" if host.step8_items.size() == 6 else "初期6装備を自動生成・無料受取（1回限り）"
+        var claim_button: Button = button(claim_label,func():host._on_hub_claim_initial(),first)
+        claim_button.name = "HubInitialClaimButton"
+        claim_button.tooltip_text = "未生成の場合は6部位すべてCommonで自動生成し、24枚デッキのシナジーを確認してから受け取ります。"
+    button("タイトル画面へ戻る",func():host._show_title_screen())
+    var dev=button("開発用戦闘へ",func():host._refresh_ui();host.tab_container.current_tab=0)
+    dev.name="HubDeveloperBattle"
+
+func _build_hub_library(state: Dictionary,remembered_filters: Dictionary,remembered_scroll: float,remembered_forge_filters: Dictionary,remembered_forge_scroll: float,remembered_forge_uid: String) -> void:
+    if hub_page=="equipment":
+        paragraph("装備の確認・左右比較・交換と、所持品からの24枚デッキ提案を行います。強化・分解は鍛冶屋へ移動してください。")
+        var page_tabs=HFlowContainer.new();page_tabs.name="HubEquipmentViews";content.add_child(page_tabs)
+        for entry in [["装備倉庫",0],["24枚デッキ",1]]:
+            var index: int=int(entry[1])
+            var switcher=Button.new();switcher.text=str(entry[0]);switcher.name="EquipmentView_"+str(index)
+            switcher.toggle_mode=true;switcher.set_pressed_no_signal(hub_library_tab==index)
+            switcher.custom_minimum_size=Vector2(140,38)
+            page_tabs.add_child(switcher)
+            switcher.pressed.connect(_select_equipment_view.bind(index,page_tabs))
+    else:
+        paragraph("鍛冶屋：装備強化・ソケット拡張・ランダムカード再抽選・分解。加工結果は既存の保存処理を使用します。")
+    var library=HubEquipmentPanel.new();hub_library=library
+    content.add_child(library)
+    library.selected_uid=hub_selected_uid
+    library.change_guard=func():return animation_busy or host.generation_job!=null
+    library.equipment_changed.connect(func(uid: String):hub_selected_uid=uid;refresh_hub_chrome();refresh_legacy_equipment())
+    library.build(run)
+    if not remembered_filters.is_empty():
+        library.restore_filters(remembered_filters)
+        library.inventory_list.get_v_scroll_bar().set_deferred("value",remembered_scroll)
+    var restored_forge: HubForgePanel=library.tabs.get_child(2)
+    if not remembered_forge_filters.is_empty():
+        restored_forge.selected_uid=remembered_forge_uid
+        restored_forge.restore_filters(remembered_forge_filters)
+        restored_forge.inventory_list.get_v_scroll_bar().set_deferred("value",remembered_forge_scroll)
+    # Keep the legacy list for compatibility with existing callbacks, but do not show
+    # it as a navigation page. Its operations are available in the equipment screen.
+    var legacy_scroll=ScrollContainer.new()
+    legacy_scroll.name="既存の装備操作"
+    legacy_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+    library.tabs.add_child(legacy_scroll)
+    var existing_actions=VBoxContainer.new()
+    existing_actions.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    legacy_scroll.add_child(existing_actions)
+    var ids: Array=state.inventory.keys()
+    ids.sort()
+    for uid in ids:
+        var item: Dictionary=state.inventory[uid]
+        paragraph(("【装備中】" if state.loadout.values().has(uid) else "")+item_text(item),existing_actions)
+        var row=HFlowContainer.new();existing_actions.add_child(row)
+        button("装備",run.equip.bind(str(uid)),row)
+        paragraph("加工・分解は「鍛冶屋」画面から行えます。",existing_actions)
+    paragraph("特殊効果：Rare以上の通常ドロップに付与。鍛冶屋で特殊効果を装備ごと最大3回再抽選（候補2択＋現状維持）。Gemは今後実装。Passive Treeは廃止。",existing_actions)
+    library.tabs.tabs_visible=false
+    library.tabs.current_tab=2 if hub_page=="forge" or not state.forge_pending.is_empty() else clampi(hub_library_tab,0,1)
+
+func _select_equipment_view(index: int,bar: HFlowContainer) -> void:
+    hub_library_tab=index
+    if is_instance_valid(hub_library):hub_library.tabs.current_tab=index
+    for child in bar.get_children():
+        if child is Button:child.set_pressed_no_signal(child.name=="EquipmentView_"+str(index))
+
+func _build_hub_merchant() -> void:
+    paragraph("拠点の商人 — 装備購入・所持装備の売却（拠点Goldを使用）")
+    if not run.ensure_hub_shop():
+        paragraph(run.notice if run.notice!="" else "商品在庫を読み込めませんでした。既存のセーブは変更していません。")
+        return
+    var stock: Array=run.state.get("hub_stock",[])
+    paragraph("拠点Gold %dG　商品更新 100G　※装備中の品物は売却できません。購入品は倉庫へ入り、冒険中は装備変更できません。"%int(run.state.base_gold))
+    var tabs=TabContainer.new();tabs.name="HubMerchantTabs";tabs.custom_minimum_size.y=570;tabs.size_flags_vertical=Control.SIZE_EXPAND_FILL;content.add_child(tabs)
+    var buy_area=HBoxContainer.new();buy_area.name="商品購入";buy_area.add_theme_constant_override("separation",12);tabs.add_child(buy_area)
+    var listings=VBoxContainer.new();listings.custom_minimum_size.x=390;listings.size_flags_horizontal=Control.SIZE_EXPAND_FILL;buy_area.add_child(listings)
+    var hover=EquipmentOfferHoverPanel.new();buy_area.add_child(hover)
+    for i in range(stock.size()):
+        var item: Dictionary=stock[i]
+        if item.is_empty():
+            var sold=button("商品%d　売り切れ"%(i+1),func():pass,listings);sold.disabled=true
+            continue
+        var price: int=run.hub_buy_price(item)
+        var buy=button("%dG　%s"%[price,EquipmentOfferHoverPanel.offer_button_text(item,i)],_confirm_hub_buy.bind(i),listings)
+        buy.name="HubBuy_%d"%i
+        buy.custom_minimum_size.y=78
+        buy.disabled=int(run.state.base_gold)<price
+        buy.tooltip_text="カーソルを合わせるとカード4枚と特殊効果を表示します。"
+        buy.mouse_entered.connect(hover.show_item.bind(item.duplicate(true)))
+        buy.focus_entered.connect(hover.show_item.bind(item.duplicate(true)))
+    var refresh=button("商品を入れ替える　100G",run.refresh_hub_shop,listings)
+    refresh.name="HubMerchantRefresh";refresh.disabled=int(run.state.base_gold)<100
+    paragraph("※更新すると売り切れを含む現在の商品は入れ替わります。",listings)
+    var sale_scroll=ScrollContainer.new();sale_scroll.name="装備売却";tabs.add_child(sale_scroll)
+    var sale_box=VBoxContainer.new();sale_box.name="HubMerchantSaleList";sale_box.size_flags_horizontal=Control.SIZE_EXPAND_FILL;sale_scroll.add_child(sale_box)
+    paragraph("装備中・鍛冶屋で再抽選中の装備は売れません。売却時は確認画面を表示します。",sale_box)
+    var ids: Array=run.state.inventory.keys();ids.sort()
+    var sale_count: int=0
+    for raw_uid in ids:
+        var uid: String=str(raw_uid)
+        if run.state.loadout.values().has(uid):continue
+        var owned: Dictionary=run.state.inventory[uid]
+        sale_count+=1
+        var price: int=run.hub_sell_price(owned)
+        var line=button("+%dG　%s / %s / HP%d　[%s]"%[price,HubInventoryQuery.item_name(owned),str(owned.get("rarity","")),int(owned.get("effective_hp",owned.get("base_hp",0))),uid],_confirm_hub_sell.bind(uid),sale_box)
+        line.name="HubSell_"+uid
+        line.tooltip_text=EquipmentSpecialEffectPolicy.summary(owned)+"\n固定: "+str(owned.get("fixed_cards",[]))+"　ランダム: "+str(owned.get("random_cards",[]))
+    if sale_count==0:paragraph("売却可能な装備がありません。",sale_box)
+
+func _confirm_hub_buy(index: int) -> void:
+    if index<0 or index>=run.state.get("hub_stock",[]).size():return
+    var item: Dictionary=run.state.hub_stock[index]
+    if item.is_empty():return
+    var popup=ConfirmationDialog.new();popup.title="装備の購入確認"
+    popup.dialog_text="%sを%dGで購入して倉庫へ追加しますか？"%[HubInventoryQuery.item_name(item),run.hub_buy_price(item)]
+    add_child(popup)
+    popup.confirmed.connect(func():
+        run.buy_hub_item(index,str(item.get("instance_id","")))
+        render())
+    popup.popup_hide.connect(popup.queue_free)
+    popup.popup_centered()
+
+func _confirm_hub_sell(uid: String) -> void:
+    if not run.state.inventory.has(uid) or run.state.loadout.values().has(uid):return
+    var item: Dictionary=run.state.inventory[uid]
+    var popup=ConfirmationDialog.new();popup.title="装備の売却確認"
+    popup.dialog_text="%sを%dGで売却しますか？ この操作は元に戻せません。"%[HubInventoryQuery.item_name(item),run.hub_sell_price(item)]
+    add_child(popup)
+    popup.confirmed.connect(func():
+        run.sell_hub_item(uid)
+        render())
+    popup.popup_hide.connect(popup.queue_free)
+    popup.popup_centered()
+
+func _build_hub_solo(state: Dictionary,region_index: int) -> void:
+    paragraph("ここからは1人用ダンジョンに出発します。2人で冒険する場合は『2人協力ロビー』を使用してください。")
+    var regions=HFlowContainer.new();regions.name="SoloRegionSelector";content.add_child(regions)
+    for i in range(6):
+        var progress: int=int(state.region_progress[i])
+        var choose_region: Callable=func():
+            if run.select_region(i):
+                solo_selected_stage=0
+        var region_button=button("%s　%d/4" % [RegionCatalog.title(i),progress],choose_region,regions)
+        region_button.tooltip_text="攻略済み・再挑戦可能" if progress==4 else "地域を選択"
+        region_button.disabled=(i>0 and int(state.region_progress[i-1])<4) or not state.forge_pending.is_empty()
+    # All cleared bosses are replayable. Only the *next* uncleared boss is
+    # selectable; stages further ahead remain locked. Selection is UI-only.
+    var cleared: int=int(state.region_progress[region_index])
+    var chosen_stage: int=solo_selected_stage if solo_selected_stage>0 else mini(cleared+1,4)
+    var stage_heading=Label.new();stage_heading.text="挑戦するステージ（クリア済みも再挑戦可能）"
+    content.add_child(stage_heading)
+    var stages=HFlowContainer.new();stages.name="SoloStageSelector";content.add_child(stages)
+    for stage in range(1,5):
+        var label: String="B%02d" % stage
+        if stage<=cleared: label+=" クリア済・再挑戦"
+        elif stage==cleared+1: label+=" 次の攻略目標"
+        else: label+=" 未解放"
+        var stage_button=Button.new()
+        stage_button.text=label
+        stage_button.name="SoloStage_B%02d"%stage
+        stage_button.toggle_mode=true
+        stage_button.set_pressed_no_signal(chosen_stage==stage)
+        stage_button.disabled=stage>mini(cleared+1,4)
+        stages.add_child(stage_button)
+        stage_button.pressed.connect(_select_solo_stage.bind(stage))
+    paragraph("地域の道中を進み、指定したB%02dと戦います。" % chosen_stage)
+    if chosen_stage<=cleared:
+        paragraph("再挑戦：攻略記録を巻き戻さずにクリア済みBossと再戦できます。報酬は通常のランと同様です。")
+    var summary=VBoxContainer.new();summary.name="SoloLoadoutSummary";content.add_child(summary)
+    paragraph("出発時の装備（ラン中は変更不可）",summary)
+    for slot in HubDeckAnalyzer.SLOTS:
+        var uid: String=str(state.loadout.get(slot,""))
+        var item: Dictionary=state.inventory.get(uid,{})
+        paragraph("%s：%s"%[HubEquipmentPanel.SLOT_NAMES[slot],HubInventoryQuery.item_name(item) if not item.is_empty() else "未装備"],summary)
+    var analysis: Dictionary=HubDeckAnalyzer.new().analyze(run.items_from_state())
+    paragraph("デッキ %d/24枚　最大HP %d"%[int(analysis.card_count),int(analysis.hp)],summary)
+    var controls=HBoxContainer.new();content.add_child(controls)
+    seed.visible=true
+    seed.reparent(controls)
+    seed.custom_minimum_size.x=210
+    var leave_for_stage: Callable=func():
+        if run.begin(int(seed.value),chosen_stage):
+            solo_selected_stage=0
+    departure=button("▶ Region %d - B%02dへ出発（Run Gold 100G）"%[region_index+1,chosen_stage],leave_for_stage,controls)
+    departure.name="SoloDepartureButton"
+    departure.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    departure.disabled=state.loadout.size()!=6 or chosen_stage>mini(cleared+1,4) or run.save_blocked or not state.forge_pending.is_empty()
+    if state.loadout.size()!=6:paragraph("出発するには6部位の装備が必要です。『装備・倉庫』で確認してください。")
+
+func _select_solo_stage(stage: int) -> void:
+    if str(run.state.phase)!="hub": return
+    var region: int=int(run.state.get("active_region",0))
+    var cleared: int=int(run.state.region_progress[region])
+    if stage<1 or stage>mini(cleared+1,4): return
+    solo_selected_stage=stage
+    render()
+
+func present_battle() -> void:
+    if sce7_prefer_new_ui and _sce7_present_new():
+        return
+    if str(run.state.phase)!="battle" or run.battle==null: return
+    host.battle=run.battle
+    host.selected_hand_index=-1
+    host.current_battle_deck_ids.assign(run.state.run.deck)
+    host.current_loadout_snapshot=run.state.run.items.duplicate(true)
+    host.current_enemy_preset=run.battle.get_active_enemy_preset()
+    host._rebuild_enemy_buttons()
+    host.tab_container.current_tab=0
+    host._refresh_ui()
+
+# STEP7: visual-only alternative to the original solo battle Tab.
+# Same run.battle instance, same CampaignController checkpoint and reward logic.
+func _sce7_present_new() -> bool:
+    if str(run.state.phase)!="battle" or run.battle==null: return false
+    var scene: PackedScene=load("res://ui_trial/battle_ui_step8.tscn")
+    if scene==null: return false
+    if not is_instance_valid(sce7_view):
+        sce7_view=scene.instantiate()
+        sce7_view.name="CampaignBattleVisualStep7"
+        sce7_view.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+        sce7_view.size_flags_vertical=Control.SIZE_EXPAND_FILL
+        host.tab_container.add_child(sce7_view)
+    host.battle=run.battle
+    host.selected_hand_index=-1
+    host.current_battle_deck_ids.assign(run.state.run.deck)
+    host.current_loadout_snapshot=run.state.run.items.duplicate(true)
+    host.current_enemy_preset=run.battle.get_active_enemy_preset()
+    sce7_view.bind_campaign_battle(run.battle, str(run.state.run.kind),
+        Callable(self,"_sce7_action_done"), Callable(self,"_sce7_present_legacy"), Callable(self,"_sce7_present_route"))
+    sce7_prefer_new_ui=true
+    host.tab_container.current_tab=sce7_view.get_index()
+    return true
+
+func _sce7_present_legacy() -> void:
+    sce7_prefer_new_ui=false
+    present_battle()
+
+func _sce7_present_route() -> void:
+    host.tab_container.current_tab=get_index()
+    render()
+
+func _sce7_action_done() -> void:
+    # Persist only through existing campaign checkpoint; never calculate rewards here.
+    if str(run.state.phase)!="battle" or run.battle==null:return
+    if host.battle!=run.battle:host.battle=run.battle
+    sync_battle()
+
+func sync_battle() -> void:
+    if syncing or str(run.state.phase)!="battle" or host.battle!=run.battle: return
+    syncing=true
+    if JSON.stringify(run.battle.export_region1_state())!=JSON.stringify(run.state.run.battle):
+        run.checkpoint()
+        if str(run.state.phase)=="battle": host.battle=run.battle
+        else:
+            render()
+            host.tab_container.current_tab=get_index()
+    syncing=false
+
+func animate_battle(_hp_loss: int = 0, _damage: int = 0) -> void:
+    if animation_busy: return
+    animation_busy=true
+    var surface: Control=host.hand_box
+    var tween=create_tween()
+    tween.tween_property(surface,"modulate",Color(0.65,0.82,1.0),0.10)
+    tween.tween_property(surface,"modulate",Color.WHITE,0.12)
+    tween.finished.connect(func(): animation_busy=false)
+    # Damage/resource numbers are rendered from before/after state by BattlePresentation.
+
+func _total_progress(progress: Array) -> int:
+    var total: int=0
+    for count in progress: total+=int(count)
+    return total
+
+
+

@@ -1,0 +1,16 @@
+Shattered Crown Echo STEP 26 v2 — Godot Control coordinate conversion fix
+
+Affected scenes: ui_trial/boss_lab_step15.tscn through boss_lab_step20.tscn.
+
+Cause: In Godot 4.7.2, Control has no Node2D.to_local() method.
+Fix: Convert Sprite2D's global point to stage-local coordinates using
+  stage.get_global_transform().affine_inverse() * sprite.to_global(corner)
+
+Changed: six ui_trial/boss_lab_step15.gd ... step20.gd scripts only.
+Unchanged: battle rules, card data, enemy data, assets, save-related code,
+other visual scripts and main UI.
+
+To use full project: extract this ZIP to a NEW folder, import project.godot,
+open ui_trial/boss_lab_step20.tscn, press F6.
+Godot executable was not available in the packaging environment; actual runtime
+must be validated on the user's PC.

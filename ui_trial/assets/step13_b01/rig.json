@@ -1,0 +1,240 @@
+{
+  "schema": 2,
+  "boss_id": "R1-B01",
+  "reference_name": "破城の角獣",
+  "art_role": "突進型・四足の鋼角獣",
+  "canvas": [
+    680,
+    450
+  ],
+  "origin": [
+    340,
+    390
+  ],
+  "parts": [
+    {
+      "name": "tail",
+      "asset": "res://ui_trial/assets/step13_b01/tail.png",
+      "z": -8,
+      "pivot": [
+        510.0,
+        245.0
+      ],
+      "center": [
+        579.5,
+        191.5
+      ],
+      "pixel_size": [
+        372,
+        364
+      ]
+    },
+    {
+      "name": "hind_far",
+      "asset": "res://ui_trial/assets/step13_b01/hind_far.png",
+      "z": -5,
+      "pivot": [
+        475.0,
+        270.0
+      ],
+      "center": [
+        493.0,
+        327.5
+      ],
+      "pixel_size": [
+        202,
+        340
+      ]
+    },
+    {
+      "name": "fore_far",
+      "asset": "res://ui_trial/assets/step13_b01/fore_far.png",
+      "z": -5,
+      "pivot": [
+        301.0,
+        271.0
+      ],
+      "center": [
+        291.25,
+        326.25
+      ],
+      "pixel_size": [
+        203,
+        357
+      ]
+    },
+    {
+      "name": "spines_back",
+      "asset": "res://ui_trial/assets/step13_b01/spines_back.png",
+      "z": -4,
+      "pivot": [
+        364.0,
+        195.0
+      ],
+      "center": [
+        371.5,
+        156.0
+      ],
+      "pixel_size": [
+        504,
+        358
+      ]
+    },
+    {
+      "name": "torso",
+      "asset": "res://ui_trial/assets/step13_b01/torso.png",
+      "z": 0,
+      "pivot": [
+        349.0,
+        240.0
+      ],
+      "center": [
+        370.25,
+        238.0
+      ],
+      "pixel_size": [
+        675,
+        364
+      ]
+    },
+    {
+      "name": "hind_near",
+      "asset": "res://ui_trial/assets/step13_b01/hind_near.png",
+      "z": 3,
+      "pivot": [
+        473.0,
+        270.0
+      ],
+      "center": [
+        493.25,
+        327.25
+      ],
+      "pixel_size": [
+        237,
+        343
+      ]
+    },
+    {
+      "name": "fore_near",
+      "asset": "res://ui_trial/assets/step13_b01/fore_near.png",
+      "z": 4,
+      "pivot": [
+        281.0,
+        266.0
+      ],
+      "center": [
+        296.75,
+        326.0
+      ],
+      "pixel_size": [
+        207,
+        350
+      ]
+    },
+    {
+      "name": "neck",
+      "asset": "res://ui_trial/assets/step13_b01/neck.png",
+      "z": 2,
+      "pivot": [
+        250.0,
+        229.0
+      ],
+      "center": [
+        241.5,
+        242.0
+      ],
+      "pixel_size": [
+        236,
+        230
+      ]
+    },
+    {
+      "name": "horn_far",
+      "asset": "res://ui_trial/assets/step13_b01/horn_far.png",
+      "z": 2,
+      "pivot": [
+        250.0,
+        178.0
+      ],
+      "center": [
+        257.5,
+        129.0
+      ],
+      "pixel_size": [
+        184,
+        288
+      ]
+    },
+    {
+      "name": "head",
+      "asset": "res://ui_trial/assets/step13_b01/head.png",
+      "z": 6,
+      "pivot": [
+        220.0,
+        202.0
+      ],
+      "center": [
+        191.75,
+        201.5
+      ],
+      "pixel_size": [
+        327,
+        256
+      ]
+    },
+    {
+      "name": "jaw",
+      "asset": "res://ui_trial/assets/step13_b01/jaw.png",
+      "z": 7,
+      "pivot": [
+        225.0,
+        237.0
+      ],
+      "center": [
+        189.25,
+        250.25
+      ],
+      "pixel_size": [
+        289,
+        135
+      ]
+    },
+    {
+      "name": "horn_near",
+      "asset": "res://ui_trial/assets/step13_b01/horn_near.png",
+      "z": 9,
+      "pivot": [
+        172.0,
+        180.0
+      ],
+      "center": [
+        171.5,
+        135.25
+      ],
+      "pixel_size": [
+        150,
+        255
+      ]
+    },
+    {
+      "name": "crimson_aura",
+      "asset": "res://ui_trial/assets/step13_b01/crimson_aura.png",
+      "z": 10,
+      "pivot": [
+        353.0,
+        195.0
+      ],
+      "center": [
+        358.5,
+        158.5
+      ],
+      "pixel_size": [
+        542,
+        246
+      ]
+    }
+  ],
+  "model_status": "STEP13: illustrative source-sheet crops separated via masks; real transparent PNG per existing rig geometry; anatomical registration needs in-engine validation",
+  "phase_count": 1,
+  "asset_provenance": "AI concept presentation art; approximate cutouts, manually aligned to STEP11 pixel footprints"
+}

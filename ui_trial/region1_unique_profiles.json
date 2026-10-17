@@ -1,0 +1,552 @@
+{
+  "schema": 1,
+  "source": "Region1 enemy role concept sprites - not official enemy names",
+  "enemies": {
+    "R1-N01": {
+      "id": "R1-N01",
+      "kind": "basic",
+      "tier": "mob",
+      "concept_name": "骸骨の斥候",
+      "visual_role": "細身の短剣と円盾",
+      "accent": "#9dc5d8",
+      "offsets": {
+        "body": {
+          "offset": [
+            0.0,
+            -115.0
+          ],
+          "width": 162,
+          "height": 234
+        },
+        "head": {
+          "offset": [
+            -1.5,
+            -280.5
+          ],
+          "width": 105,
+          "height": 125
+        },
+        "weapon": {
+          "offset": [
+            69.5,
+            -221.5
+          ],
+          "width": 103,
+          "height": 285
+        }
+      },
+      "assets": {
+        "body": "res://ui_trial/assets/region1_unique/R1-N01/body.png",
+        "head": "res://ui_trial/assets/region1_unique/R1-N01/head.png",
+        "weapon": "res://ui_trial/assets/region1_unique/R1-N01/weapon.png"
+      }
+    },
+    "R1-N02": {
+      "id": "R1-N02",
+      "kind": "guard",
+      "tier": "mob",
+      "concept_name": "城塞の守り手",
+      "visual_role": "大盾を構える防御型",
+      "accent": "#d1aa76",
+      "offsets": {
+        "body": {
+          "offset": [
+            1.0,
+            -116.0
+          ],
+          "width": 196,
+          "height": 236
+        },
+        "head": {
+          "offset": [
+            1.0,
+            -284.5
+          ],
+          "width": 110,
+          "height": 137
+        },
+        "weapon": {
+          "offset": [
+            82.5,
+            -166.0
+          ],
+          "width": 97,
+          "height": 224
+        }
+      },
+      "assets": {
+        "body": "res://ui_trial/assets/region1_unique/R1-N02/body.png",
+        "head": "res://ui_trial/assets/region1_unique/R1-N02/head.png",
+        "weapon": "res://ui_trial/assets/region1_unique/R1-N02/weapon.png"
+      }
+    },
+    "R1-N03": {
+      "id": "R1-N03",
+      "kind": "heavy",
+      "tier": "mob",
+      "concept_name": "鉄牙の獣",
+      "visual_role": "突進する四足の重撃型",
+      "accent": "#ff674f",
+      "offsets": {
+        "body": {
+          "offset": [
+            8.0,
+            -119.0
+          ],
+          "width": 224,
+          "height": 240
+        },
+        "head": {
+          "offset": [
+            2.0,
+            -295.0
+          ],
+          "width": 190,
+          "height": 148
+        },
+        "weapon": {
+          "offset": [
+            91.0,
+            -235.5
+          ],
+          "width": 74,
+          "height": 123
+        }
+      },
+      "assets": {
+        "body": "res://ui_trial/assets/region1_unique/R1-N03/body.png",
+        "head": "res://ui_trial/assets/region1_unique/R1-N03/head.png",
+        "weapon": "res://ui_trial/assets/region1_unique/R1-N03/weapon.png"
+      }
+    },
+    "R1-N04": {
+      "id": "R1-N04",
+      "kind": "grow",
+      "tier": "mob",
+      "concept_name": "胞子の小精",
+      "visual_role": "成長する発光胞子",
+      "accent": "#a3e5ad",
+      "offsets": {
+        "body": {
+          "offset": [
+            3.5,
+            -106.0
+          ],
+          "width": 145,
+          "height": 228
+        },
+        "head": {
+          "offset": [
+            0.5,
+            -283.5
+          ],
+          "width": 159,
+          "height": 161
+        },
+        "weapon": {
+          "offset": [
+            94.0,
+            -188.0
+          ],
+          "width": 64,
+          "height": 242
+        }
+      },
+      "assets": {
+        "body": "res://ui_trial/assets/region1_unique/R1-N04/body.png",
+        "head": "res://ui_trial/assets/region1_unique/R1-N04/head.png",
+        "weapon": "res://ui_trial/assets/region1_unique/R1-N04/weapon.png"
+      }
+    },
+    "R1-N05": {
+      "id": "R1-N05",
+      "kind": "multi",
+      "tier": "mob",
+      "concept_name": "双刃の影鬼",
+      "visual_role": "2本の細い刃を持つ連撃型",
+      "accent": "#fa79bf",
+      "offsets": {
+        "body": {
+          "offset": [
+            -1.0,
+            -118.0
+          ],
+          "width": 244,
+          "height": 240
+        },
+        "head": {
+          "offset": [
+            4.0,
+            -294.5
+          ],
+          "width": 144,
+          "height": 145
+        },
+        "weapon": {
+          "offset": [
+            0.5,
+            -311.0
+          ],
+          "width": 275,
+          "height": 130
+        }
+      },
+      "assets": {
+        "body": "res://ui_trial/assets/region1_unique/R1-N05/body.png",
+        "head": "res://ui_trial/assets/region1_unique/R1-N05/head.png",
+        "weapon": "res://ui_trial/assets/region1_unique/R1-N05/weapon.png"
+      }
+    },
+    "R1-N06": {
+      "id": "R1-N06",
+      "kind": "thorn",
+      "tier": "mob",
+      "concept_name": "荊棘の古樹",
+      "visual_role": "棘と枝を持つ反撃型",
+      "accent": "#d5dd89",
+      "offsets": {
+        "body": {
+          "offset": [
+            6.5,
+            -120.0
+          ],
+          "width": 185,
+          "height": 262
+        },
+        "head": {
+          "offset": [
+            5.5,
+            -295.0
+          ],
+          "width": 167,
+          "height": 164
+        },
+        "weapon": {
+          "offset": [
+            101.5,
+            -232.5
+          ],
+          "width": 63,
+          "height": 271
+        }
+      },
+      "assets": {
+        "body": "res://ui_trial/assets/region1_unique/R1-N06/body.png",
+        "head": "res://ui_trial/assets/region1_unique/R1-N06/head.png",
+        "weapon": "res://ui_trial/assets/region1_unique/R1-N06/weapon.png"
+      }
+    },
+    "R1-N07": {
+      "id": "R1-N07",
+      "kind": "support",
+      "tier": "mob",
+      "concept_name": "灰色の祈祷師",
+      "visual_role": "味方を支援する僧形",
+      "accent": "#b08be8",
+      "offsets": {
+        "body": {
+          "offset": [
+            1.0,
+            -119.0
+          ],
+          "width": 194,
+          "height": 250
+        },
+        "head": {
+          "offset": [
+            2.0,
+            -284.0
+          ],
+          "width": 174,
+          "height": 154
+        },
+        "weapon": {
+          "offset": [
+            101.0,
+            -198.5
+          ],
+          "width": 102,
+          "height": 385
+        }
+      },
+      "assets": {
+        "body": "res://ui_trial/assets/region1_unique/R1-N07/body.png",
+        "head": "res://ui_trial/assets/region1_unique/R1-N07/head.png",
+        "weapon": "res://ui_trial/assets/region1_unique/R1-N07/weapon.png"
+      }
+    },
+    "R1-E01": {
+      "id": "R1-E01",
+      "kind": "elite_guard",
+      "tier": "elite",
+      "concept_name": "黒鉄の要塞騎士",
+      "visual_role": "厚い装甲と巨大盾",
+      "accent": "#91c9f0",
+      "offsets": {
+        "body": {
+          "offset": [
+            -1.0,
+            -115.0
+          ],
+          "width": 240,
+          "height": 238
+        },
+        "head": {
+          "offset": [
+            5.0,
+            -295.5
+          ],
+          "width": 164,
+          "height": 163
+        },
+        "weapon": {
+          "offset": [
+            83.0,
+            -167.0
+          ],
+          "width": 110,
+          "height": 216
+        }
+      },
+      "assets": {
+        "body": "res://ui_trial/assets/region1_unique/R1-E01/body.png",
+        "head": "res://ui_trial/assets/region1_unique/R1-E01/head.png",
+        "weapon": "res://ui_trial/assets/region1_unique/R1-E01/weapon.png"
+      }
+    },
+    "R1-E02": {
+      "id": "R1-E02",
+      "kind": "elite_rage",
+      "tier": "elite",
+      "concept_name": "血槍の狂戦士",
+      "visual_role": "大きな刃と赤いマント",
+      "accent": "#ff625f",
+      "offsets": {
+        "body": {
+          "offset": [
+            -1.0,
+            -115.0
+          ],
+          "width": 240,
+          "height": 238
+        },
+        "head": {
+          "offset": [
+            5.0,
+            -295.5
+          ],
+          "width": 164,
+          "height": 163
+        },
+        "weapon": {
+          "offset": [
+            5.0,
+            -194.5
+          ],
+          "width": 250,
+          "height": 397
+        }
+      },
+      "assets": {
+        "body": "res://ui_trial/assets/region1_unique/R1-E02/body.png",
+        "head": "res://ui_trial/assets/region1_unique/R1-E02/head.png",
+        "weapon": "res://ui_trial/assets/region1_unique/R1-E02/weapon.png"
+      }
+    },
+    "R1-E03": {
+      "id": "R1-E03",
+      "kind": "elite_counter",
+      "tier": "elite",
+      "concept_name": "荊棘の審判者",
+      "visual_role": "回転する棘と反撃槍",
+      "accent": "#d79bff",
+      "offsets": {
+        "body": {
+          "offset": [
+            -1.0,
+            -115.0
+          ],
+          "width": 240,
+          "height": 238
+        },
+        "head": {
+          "offset": [
+            5.0,
+            -295.5
+          ],
+          "width": 164,
+          "height": 163
+        },
+        "weapon": {
+          "offset": [
+            7.0,
+            -223.0
+          ],
+          "width": 258,
+          "height": 364
+        }
+      },
+      "assets": {
+        "body": "res://ui_trial/assets/region1_unique/R1-E03/body.png",
+        "head": "res://ui_trial/assets/region1_unique/R1-E03/head.png",
+        "weapon": "res://ui_trial/assets/region1_unique/R1-E03/weapon.png"
+      }
+    },
+    "R1-B01": {
+      "id": "R1-B01",
+      "kind": "boss_charge",
+      "tier": "boss",
+      "concept_name": "破城の角獣",
+      "visual_role": "鋼角による突進",
+      "accent": "#f25757",
+      "offsets": {
+        "body": {
+          "offset": [
+            5.0,
+            -111.5
+          ],
+          "width": 240,
+          "height": 235
+        },
+        "head": {
+          "offset": [
+            9.5,
+            -297.5
+          ],
+          "width": 245,
+          "height": 211
+        },
+        "weapon": {
+          "offset": [
+            117.5,
+            -251.5
+          ],
+          "width": 71,
+          "height": 187
+        }
+      },
+      "assets": {
+        "body": "res://ui_trial/assets/region1_unique/R1-B01/body.png",
+        "head": "res://ui_trial/assets/region1_unique/R1-B01/head.png",
+        "weapon": "res://ui_trial/assets/region1_unique/R1-B01/weapon.png"
+      }
+    },
+    "R1-B02": {
+      "id": "R1-B02",
+      "kind": "boss_guard",
+      "tier": "boss",
+      "concept_name": "古城の巨盾像",
+      "visual_role": "壁のような巨盾を持つ石像",
+      "accent": "#e6c588",
+      "offsets": {
+        "body": {
+          "offset": [
+            1.0,
+            -115.0
+          ],
+          "width": 226,
+          "height": 262
+        },
+        "head": {
+          "offset": [
+            6.5,
+            -312.5
+          ],
+          "width": 159,
+          "height": 203
+        },
+        "weapon": {
+          "offset": [
+            96.0,
+            -152.5
+          ],
+          "width": 130,
+          "height": 231
+        }
+      },
+      "assets": {
+        "body": "res://ui_trial/assets/region1_unique/R1-B02/body.png",
+        "head": "res://ui_trial/assets/region1_unique/R1-B02/head.png",
+        "weapon": "res://ui_trial/assets/region1_unique/R1-B02/weapon.png"
+      }
+    },
+    "R1-B03": {
+      "id": "R1-B03",
+      "kind": "boss_fortress",
+      "tier": "boss",
+      "concept_name": "城塞の甲冑王",
+      "visual_role": "広い肩装甲と要塞武器",
+      "accent": "#e99c67",
+      "offsets": {
+        "body": {
+          "offset": [
+            1.5,
+            -126.5
+          ],
+          "width": 269,
+          "height": 277
+        },
+        "head": {
+          "offset": [
+            -0.5,
+            -310.0
+          ],
+          "width": 165,
+          "height": 206
+        },
+        "weapon": {
+          "offset": [
+            104.0,
+            -199.5
+          ],
+          "width": 120,
+          "height": 359
+        }
+      },
+      "assets": {
+        "body": "res://ui_trial/assets/region1_unique/R1-B03/body.png",
+        "head": "res://ui_trial/assets/region1_unique/R1-B03/head.png",
+        "weapon": "res://ui_trial/assets/region1_unique/R1-B03/weapon.png"
+      }
+    },
+    "R1-B04": {
+      "id": "R1-B04",
+      "kind": "boss_master",
+      "tier": "boss",
+      "concept_name": "砕かれた冠の王",
+      "visual_role": "冠と二振りの儀式剣",
+      "accent": "#d45472",
+      "offsets": {
+        "body": {
+          "offset": [
+            4.0,
+            -113.0
+          ],
+          "width": 286,
+          "height": 242
+        },
+        "head": {
+          "offset": [
+            2.5,
+            -310.5
+          ],
+          "width": 167,
+          "height": 207
+        },
+        "weapon": {
+          "offset": [
+            6.0,
+            -210.0
+          ],
+          "width": 276,
+          "height": 390
+        }
+      },
+      "assets": {
+        "body": "res://ui_trial/assets/region1_unique/R1-B04/body.png",
+        "head": "res://ui_trial/assets/region1_unique/R1-B04/head.png",
+        "weapon": "res://ui_trial/assets/region1_unique/R1-B04/weapon.png"
+      }
+    }
+  }
+}

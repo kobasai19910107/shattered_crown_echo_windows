@@ -1,0 +1,45 @@
+{
+  "base": "STEP3",
+  "updates": {
+    "ui_trial/assets/head.png": {
+      "sha_before": "34f05e3efd09adc88bbecf5950ab49d74af1b1d6b566104b250dd0affbb0c88d",
+      "sha_after": "126c5028b368fa11fbcc63a9f7acf3934049bb4df42bef58b2bfe8b1aab4e98e"
+    },
+    "ui_trial/assets/bangs.png": {
+      "sha_before": "239cbcd144fdac25ea4be11b3a7b7b09c1dd7ebaefcd8ee58ea188caa5d045cd",
+      "sha_after": "e61615aaf6612b8e1d5ef093c6e2de880369b02285c837584ef10241fe944eaf"
+    },
+    "ui_trial/assets/back_hair.png": {
+      "sha_before": "523a7b7819e2988e23f8833d84492dae0a3cf0edabfecba5a2cd3c6167453aa3",
+      "sha_after": "95ac4074f3e7e5437d38bada71a2052989a7bb1a6482f649a33fa9b797b6e29e"
+    },
+    "ui_trial/assets/torso.png": {
+      "sha_before": "b53b14da05d59a062e27546daf52c47285bc8ae9346a88a33a0b39f23925c764",
+      "sha_after": "018086de6e2793bada6c366007f6d16fc37cedf2715c5dd36222bea980c47d2c"
+    },
+    "ui_trial/assets/arm.png": {
+      "sha_before": "93c14365a1406b14704d67bdc6e85776f1346e1e4e6f15f6083e55236f7d63c2",
+      "sha_after": "51756be3d98c807972c78fc5d6811fa2fdcd70fd54245150553847df3e2a1e40"
+    },
+    "ui_trial/assets/legs.png": {
+      "sha_before": "a42399976aee82594273710e2b2277fec8fbfd9ae4dc8ff699656eb7e8137596",
+      "sha_after": "3e23f60be79c3dad8aba4eb6ca86a6ced463f838aa7337c7bbc8061e35699460"
+    },
+    "ui_trial/assets/cape.png": {
+      "sha_before": "27779a3f9fff27d4dc5b6ef2f78ecbd40460f7581042042cfe31ac85dceecf93",
+      "sha_after": "abfeb1fed666fb0f878ca6f22f85ec7e8dcb2f69c257a8ac8db3a06fb10ad5ba"
+    },
+    "ui_trial/actors/weapon_visual.gd": {
+      "sha_before": "4448a060b4add186775aa2a0c1a41e0161404da694e558dec092eb5e84794592",
+      "sha_after": "a0260237103db01af7d7ec3bd77b34c1ea56a20d06d3a64ca8519fdc807d62f3"
+    }
+  },
+  "new_files": {
+    "ui_trial/assets/weapon_sword.png": "8650b4814bd03abd69063969f44e469b376831ad1fd94e0761a4aa0f1c3cf4b4",
+    "ui_trial/assets/weapon_rapier.png": "bd89ea3ea60928847c9d509cde4be72167b42bece555ec1dde6ac7e83dae6e6a",
+    "ui_trial/assets/weapon_dagger.png": "043117c83cd9664783a268bb7f492466a3e84d9bb41c5148b782744ed328f232",
+    "ui_trial/assets/weapon_greatsword.png": "4a888ae348712c9a8ff958088b07b443f4863a3068b71d8bc81cf8a32c281436",
+    "ui_trial/assets/weapon_magic_sword.png": "db0fd4d9a0bd7c6d319fd5207961b5952adc83b3396c84d5465a3a56c192ba2f",
+    "ui_trial/assets/weapon_katana.png": "fdcb013eedaf25d6a59503c746fdb7cc633805863b79a3b3ce1bb14f316edce4"
+  }
+}

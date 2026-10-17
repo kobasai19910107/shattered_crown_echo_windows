@@ -1,0 +1,921 @@
+{
+  "enemies": [
+    {
+      "enemy_id": "R5-B01",
+      "enemy_name": "R5-B01（回復Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R5",
+      "region_name": "神殿",
+      "role_name": "回復Boss",
+      "role_description": "大きく回復し、定期的に主要Debuffを浄化する。",
+      "primary_attributes": [
+        "Holy"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 194,
+      "attack_min": 12,
+      "attack_max": 16,
+      "defend_amount": 20,
+      "buff_amount": 2,
+      "signature_action_name": "大治癒",
+      "signature_action_description": "大きく回復し、定期的に主要Debuffを浄化する。",
+      "signature_action_key": "heal_cleanse",
+      "signature_damage": 0,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "Regen",
+      "signature_self_status_value": 2,
+      "signature_block": 0,
+      "signature_heal": 14,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "heal",
+        "cleanse",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [
+        "heal",
+        "cleanse",
+        "attack",
+        "signature",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "heal",
+        "cleanse",
+        "attack",
+        "signature",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Holy"
+      ],
+      "resistance_values": [
+        30
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R5-B02",
+      "enemy_name": "R5-B02（Mana Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R5",
+      "region_name": "神殿",
+      "role_name": "Mana Boss",
+      "role_description": "Mana減少とカードType監視を組み合わせてArcane大技を準備。",
+      "primary_attributes": [
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 206,
+      "attack_min": 12,
+      "attack_max": 16,
+      "defend_amount": 20,
+      "buff_amount": 2,
+      "signature_action_name": "魔力支配",
+      "signature_action_description": "Mana減少とカードType監視を組み合わせてArcane大技を準備。",
+      "signature_action_key": "mana_tax",
+      "signature_damage": 12,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "signature",
+        "attack",
+        "defend",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [
+        "signature",
+        "attack",
+        "defend",
+        "signature",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "signature",
+        "attack",
+        "defend",
+        "signature",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Arcane"
+      ],
+      "resistance_values": [
+        30
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R5-B03",
+      "enemy_name": "R5-B03（Barrier Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R5",
+      "region_name": "神殿",
+      "role_name": "Barrier Boss",
+      "role_description": "大量Block + StatusResist。結界を残すと攻撃が強化される。",
+      "primary_attributes": [
+        "Holy",
+        "Earth"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 218,
+      "attack_min": 12,
+      "attack_max": 16,
+      "defend_amount": 20,
+      "buff_amount": 2,
+      "signature_action_name": "大結界",
+      "signature_action_description": "大量Block + StatusResist。結界を残すと攻撃が強化される。",
+      "signature_action_key": "block_scaling",
+      "signature_damage": 11,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "StatusResist",
+      "signature_self_status_value": 2,
+      "signature_block": 18,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "barrier",
+        "defend",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [
+        "barrier",
+        "defend",
+        "signature",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "barrier",
+        "defend",
+        "signature",
+        "attack",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Holy",
+        "Earth"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R5-B04",
+      "enemy_name": "R5-B04（地域総合Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R5",
+      "region_name": "神殿",
+      "role_name": "地域総合Boss",
+      "role_description": "Heal・Barrier・Cost干渉をPhaseごとに組み合わせる。",
+      "primary_attributes": [
+        "Holy",
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 230,
+      "attack_min": 12,
+      "attack_max": 16,
+      "defend_amount": 20,
+      "buff_amount": 2,
+      "signature_action_name": "神聖術式",
+      "signature_action_description": "Heal・Barrier・Cost干渉をPhaseごとに組み合わせる。",
+      "signature_action_key": "region_master",
+      "signature_damage": 12,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "StatusResist",
+      "signature_self_status_value": 1,
+      "signature_block": 12,
+      "signature_heal": 8,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "barrier",
+        "heal",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [
+        "barrier",
+        "heal",
+        "signature",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "barrier",
+        "heal",
+        "signature",
+        "attack",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Holy",
+        "Arcane"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R5-E01",
+      "enemy_name": "R5-E01（聖騎士型）",
+      "enemy_rank": "Elite",
+      "region_id": "R5",
+      "region_name": "神殿",
+      "role_name": "聖騎士型",
+      "role_description": "Block + StatusResist。HP低下時には回復も行う。",
+      "primary_attributes": [
+        "Holy",
+        "Physical"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 108,
+      "attack_min": 11,
+      "attack_max": 14,
+      "defend_amount": 17,
+      "buff_amount": 2,
+      "signature_action_name": "聖盾",
+      "signature_action_description": "Block + StatusResist。HP低下時には回復も行う。",
+      "signature_action_key": "fortress",
+      "signature_damage": 9,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "StatusResist",
+      "signature_self_status_value": 1,
+      "signature_block": 12,
+      "signature_heal": 5,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "barrier",
+        "attack",
+        "heal",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Holy",
+        "Physical"
+      ],
+      "resistance_values": [
+        20,
+        20
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R5-E02",
+      "enemy_name": "R5-E02（Mana支配型）",
+      "enemy_rank": "Elite",
+      "region_id": "R5",
+      "region_name": "神殿",
+      "role_name": "Mana支配型",
+      "role_description": "Manaを圧迫し、高Costカード中心の戦術へ干渉する。",
+      "primary_attributes": [
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 114,
+      "attack_min": 11,
+      "attack_max": 14,
+      "defend_amount": 17,
+      "buff_amount": 2,
+      "signature_action_name": "封魔領域",
+      "signature_action_description": "Manaを圧迫し、高Costカード中心の戦術へ干渉する。",
+      "signature_action_key": "mana_tax",
+      "signature_damage": 8,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "signature",
+        "attack",
+        "defend",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Arcane"
+      ],
+      "resistance_values": [
+        20
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R5-E03",
+      "enemy_name": "R5-E03（神殿守護型）",
+      "enemy_rank": "Elite",
+      "region_id": "R5",
+      "region_name": "神殿",
+      "role_name": "神殿守護型",
+      "role_description": "BlockとStatusResistを交互に強化し、結界維持中に反撃する。",
+      "primary_attributes": [
+        "Holy",
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 120,
+      "attack_min": 11,
+      "attack_max": 14,
+      "defend_amount": 17,
+      "buff_amount": 2,
+      "signature_action_name": "二重結界",
+      "signature_action_description": "BlockとStatusResistを交互に強化し、結界維持中に反撃する。",
+      "signature_action_key": "block_scaling",
+      "signature_damage": 9,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "StatusResist",
+      "signature_self_status_value": 2,
+      "signature_block": 14,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "barrier",
+        "resist",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Holy",
+        "Arcane"
+      ],
+      "resistance_values": [
+        20,
+        20
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R5-N01",
+      "enemy_name": "R5-N01（回復型）",
+      "enemy_rank": "Normal",
+      "region_id": "R5",
+      "region_name": "神殿",
+      "role_name": "回復型",
+      "role_description": "HPが減った味方を回復する。",
+      "primary_attributes": [
+        "Holy"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 56,
+      "attack_min": 10,
+      "attack_max": 12,
+      "defend_amount": 9,
+      "buff_amount": 1,
+      "signature_action_name": "治癒の祈り",
+      "signature_action_description": "HPが減った味方を回復する。",
+      "signature_action_key": "heal_ally",
+      "signature_damage": 0,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 7,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "heal",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Holy"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R5-N02",
+      "enemy_name": "R5-N02（Cleanse型）",
+      "enemy_rank": "Normal",
+      "region_id": "R5",
+      "region_name": "神殿",
+      "role_name": "Cleanse型",
+      "role_description": "味方の主要な負の状態異常を解除する。",
+      "primary_attributes": [
+        "Holy"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 58,
+      "attack_min": 9,
+      "attack_max": 11,
+      "defend_amount": 9,
+      "buff_amount": 1,
+      "signature_action_name": "浄化",
+      "signature_action_description": "味方の主要な負の状態異常を解除する。",
+      "signature_action_key": "cleanse",
+      "signature_damage": 0,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "cleanse",
+        "defend",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Holy"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R5-N03",
+      "enemy_name": "R5-N03（防壁型）",
+      "enemy_rank": "Normal",
+      "region_id": "R5",
+      "region_name": "神殿",
+      "role_name": "防壁型",
+      "role_description": "BlockとStatusResistを同時に得る。",
+      "primary_attributes": [
+        "Holy"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 60,
+      "attack_min": 10,
+      "attack_max": 12,
+      "defend_amount": 9,
+      "buff_amount": 1,
+      "signature_action_name": "聖域防壁",
+      "signature_action_description": "BlockとStatusResistを同時に得る。",
+      "signature_action_key": "plain",
+      "signature_damage": 0,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "StatusResist",
+      "signature_self_status_value": 1,
+      "signature_block": 8,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "barrier",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Holy"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R5-N04",
+      "enemy_name": "R5-N04（Mana妨害型）",
+      "enemy_rank": "Normal",
+      "region_id": "R5",
+      "region_name": "神殿",
+      "role_name": "Mana妨害型",
+      "role_description": "次ターンのManaを減らして行動選択を制限する。",
+      "primary_attributes": [
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 62,
+      "attack_min": 9,
+      "attack_max": 11,
+      "defend_amount": 9,
+      "buff_amount": 1,
+      "signature_action_name": "魔力課税",
+      "signature_action_description": "次ターンのManaを減らして行動選択を制限する。",
+      "signature_action_key": "mana_tax",
+      "signature_damage": 0,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "attack",
+        "signature",
+        "defend"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Arcane"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R5-N05",
+      "enemy_name": "R5-N05（魔術攻撃型）",
+      "enemy_rank": "Normal",
+      "region_id": "R5",
+      "region_name": "神殿",
+      "role_name": "魔術攻撃型",
+      "role_description": "通常攻撃と強力なArcane攻撃を交互に使う。",
+      "primary_attributes": [
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 64,
+      "attack_min": 10,
+      "attack_max": 12,
+      "defend_amount": 9,
+      "buff_amount": 1,
+      "signature_action_name": "魔力弾",
+      "signature_action_description": "通常攻撃と強力なArcane攻撃を交互に使う。",
+      "signature_action_key": "plain",
+      "signature_damage": 8,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "attack",
+        "signature",
+        "defend"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Arcane"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R5-N06",
+      "enemy_name": "R5-N06（模倣型）",
+      "enemy_rank": "Normal",
+      "region_id": "R5",
+      "region_name": "神殿",
+      "role_name": "模倣型",
+      "role_description": "直前のAttack/Skill/Powerに応じて行動を変える。",
+      "primary_attributes": [
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 66,
+      "attack_min": 9,
+      "attack_max": 11,
+      "defend_amount": 9,
+      "buff_amount": 1,
+      "signature_action_name": "術式解析",
+      "signature_action_description": "直前のAttack/Skill/Powerに応じて行動を変える。",
+      "signature_action_key": "copy_type",
+      "signature_damage": 7,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "defend",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Arcane"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R5-N07",
+      "enemy_name": "R5-N07（支援型）",
+      "enemy_rank": "Normal",
+      "region_id": "R5",
+      "region_name": "神殿",
+      "role_name": "支援型",
+      "role_description": "味方へBlockとStrengthを付与し、必要なら回復する。",
+      "primary_attributes": [
+        "Holy",
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 68,
+      "attack_min": 10,
+      "attack_max": 12,
+      "defend_amount": 9,
+      "buff_amount": 1,
+      "signature_action_name": "祝福術式",
+      "signature_action_description": "味方へBlockとStrengthを付与し、必要なら回復する。",
+      "signature_action_key": "ally_buff",
+      "signature_damage": 0,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "Strength",
+      "signature_self_status_value": 1,
+      "signature_block": 0,
+      "signature_heal": 5,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "barrier",
+        "signature",
+        "heal"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Holy",
+        "Arcane"
+      ],
+      "resistance_values": [
+        10,
+        10
+      ],
+      "status_resistances": [],
+      "status_immunities": [],
+      "artwork_path": ""
+    }
+  ],
+  "profile": "campaign_stage1_approved",
+  "schema_version": 1
+}

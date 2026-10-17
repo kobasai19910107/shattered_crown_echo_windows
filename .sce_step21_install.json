@@ -1,0 +1,11 @@
+{
+  "step": 21,
+  "patched_sha256": "1fba5aec53ebe40398857c7380a7d1d80816f3326dddc2bca07211dd7e84c98c",
+  "original_sha256": "be9b7b48360f55517ef6409fb07ca09879c6288c02424d0ed719f59b6105b4cf",
+  "added": {
+    "ui_trial/battle_ui_step21.gd": "6f58885c96f2e0380cf907ee61a43593849e6b9369c00aeddceff137fb1c6f72",
+    "ui_trial/battle_ui_step21.tscn": "04318989322de9feb975834c4bdbc5202303dc34337d966924125bb1b855ced3",
+    "ui_trial/battle_ui_step21_lab.gd": "93ff8ff2ea04e1cca2efb0cbb59ee939a4cabb3bc6b2688423868219b25e2a1f",
+    "ui_trial/battle_ui_step21_lab.tscn": "8886d025f1ad37d3135e68432e51233e1ee0b3b8ce3b25ae6b5f16676f9ea68a"
+  }
+}

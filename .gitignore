@@ -1,0 +1,20 @@
+# Original Windows project is a separate source of truth.
+.godot/
+build/
+*.log
+*.pdb
+*.dll
+*.exe
+*.zip
+eos_client.cfg
+*.local.cfg
+
+# Local credentials and transient data
+.env
+.env.*
+*.pem
+*.p12
+*.pfx
+*.key
+*.secrets
+user_data/

@@ -1,0 +1,19 @@
+{
+  "ui_trial/actors/boss_b01_rig_step19.gd": "dd65f88206ba51db07c7651bde88eea9c1ef874cfcb22e96bc8eaf62c5f34163",
+  "ui_trial/assets/step19_b01/crimson_aura.png": "9ae6dc6ef7a0871785f97b9f2ed47fa21461dad7d0d703c0b5674c4368fa2ec5",
+  "ui_trial/assets/step19_b01/fore_far.png": "8fb89a37af2e6d663c38f7bf3935794d726ea314caafca785500444a63093bbf",
+  "ui_trial/assets/step19_b01/fore_near.png": "d5292fe64e3f74be2911f66319ffd4bfc2a48303d490c0ac558374ea7e0d5993",
+  "ui_trial/assets/step19_b01/geometry.json": "d4987aef73c78f6aa966341617a8d9bb17494b0bd2bd4000727a90f03876a4fe",
+  "ui_trial/assets/step19_b01/head.png": "3ee81410d9090d90f25c52e475d7bfa26ea1f7a7ec50073d1a91726efd6e21c1",
+  "ui_trial/assets/step19_b01/hind_far.png": "fdfe3925d05754a61757d2dd4e424f15f67a3c97b805417c993122904201f063",
+  "ui_trial/assets/step19_b01/hind_near.png": "b6c73cf13d10e62e1d57169d84b0ec556e5d73d87c168b3078ac210326a65425",
+  "ui_trial/assets/step19_b01/horn_far.png": "c8e96c887874cb2fe7e07c5da5b035232cb1ed49d34fb270bf6c1eb121c4c377",
+  "ui_trial/assets/step19_b01/horn_near.png": "dd143ff28c1992481769451f7e3de38b242fcb885360cf20736a01b275f85b77",
+  "ui_trial/assets/step19_b01/jaw.png": "cba7231ce0adb2940a434cb00e79edfff486c72e295265de4186497ad8febbb0",
+  "ui_trial/assets/step19_b01/neck.png": "3dbb38ace5248231343631b2b1ac0e01841d8dad20e8515b066a8fee9824af58",
+  "ui_trial/assets/step19_b01/spines_back.png": "aa4524689084f452daf5e77ce6eae6ec17a09942d95663892687727cb07b81b1",
+  "ui_trial/assets/step19_b01/tail.png": "720b80f02b6f049a8b647f07daa167741a96e23e4db7a4f545cfa3017724a4ee",
+  "ui_trial/assets/step19_b01/torso.png": "48dc3adb55f9bba6b40906875f07357f8667b38338d42c3f2d36350b6c48a4c4",
+  "ui_trial/boss_lab_step19.gd": "710660806809d8d8d6404546416b5bb401ef57dfa29686dd4191b94fe612e180",
+  "ui_trial/boss_lab_step19.tscn": "fddd827876496c2dd1d954e756b57a906965f2cb420dd583f114f77d61459b91"
+}

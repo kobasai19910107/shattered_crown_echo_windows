@@ -1,0 +1,11 @@
+{
+  "step": 7,
+  "modified": {
+    "scripts/region1_run_ui.gd": "9ea1a80a0a500c60eaec8e02f8a4728495149fde2929eafac5cb39cc2013e741"
+  },
+  "created": {
+    "ui_trial/battle_ui_step7.gd": "e16e92f0357bd64a85202a4753588faeece507ac60da0e3281e118f357bdafdf",
+    "ui_trial/battle_ui_step7.tscn": "a9d970cd857201718c455b20e945acf6b164ca29235cda3922a317279dc9c158"
+  },
+  "backup_sha256": "18efb3fff4cb6bb7dd9051b140cefd3e9235c7e8acbccb8448dd8b67f42df135"
+}

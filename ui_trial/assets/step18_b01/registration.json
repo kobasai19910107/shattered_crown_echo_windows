@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "boss_id": "R1-B01",
+  "overlays": [
+    {
+      "name": "neck_under",
+      "parent": "torso",
+      "center": [
+        250,
+        235
+      ],
+      "size": [
+        385,
+        260
+      ],
+      "z": 1,
+      "shape": "neck",
+      "shade": 0.85
+    },
+    {
+      "name": "shoulder_near",
+      "parent": "torso",
+      "center": [
+        292,
+        277
+      ],
+      "size": [
+        180,
+        164
+      ],
+      "z": 3,
+      "shape": "oval",
+      "shade": 0.75
+    },
+    {
+      "name": "shoulder_far",
+      "parent": "torso",
+      "center": [
+        310,
+        271
+      ],
+      "size": [
+        165,
+        153
+      ],
+      "z": -2,
+      "shape": "oval",
+      "shade": 0.61
+    },
+    {
+      "name": "hip_near",
+      "parent": "torso",
+      "center": [
+        471,
+        278
+      ],
+      "size": [
+        195,
+        170
+      ],
+      "z": 2,
+      "shape": "oval",
+      "shade": 0.69
+    },
+    {
+      "name": "hip_far",
+      "parent": "torso",
+      "center": [
+        483,
+        272
+      ],
+      "size": [
+        171,
+        156
+      ],
+      "z": -2,
+      "shape": "oval",
+      "shade": 0.59
+    },
+    {
+      "name": "tail_hinge",
+      "parent": "torso",
+      "center": [
+        523,
+        240
+      ],
+      "size": [
+        176,
+        143
+      ],
+      "z": -6,
+      "shape": "oval",
+      "shade": 0.79
+    },
+    {
+      "name": "jaw_hinge",
+      "parent": "head",
+      "center": [
+        219,
+        233
+      ],
+      "size": [
+        101,
+        84
+      ],
+      "z": 7,
+      "shape": "oval",
+      "shade": 0.52
+    }
+  ],
+  "replacements": {
+    "jaw": "jaw_clean.png",
+    "horn_near": "horn_clean.png",
+    "fore_near": "fore_near_clean.png",
+    "fore_far": "fore_far_clean.png",
+    "hind_near": "hind_near_clean.png",
+    "hind_far": "hind_far_clean.png"
+  },
+  "visibility": {
+    "horn_far": false,
+    "crimson_aura": false
+  },
+  "note": "The base 13 textures remain untouched and can be compared via toggle. Art is an improved prototype, not a production rig."
+}

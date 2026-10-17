@@ -1,0 +1,966 @@
+{
+  "enemies": [
+    {
+      "enemy_id": "R2-B01",
+      "enemy_name": "R2-B01（毒Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R2",
+      "region_name": "廃墟",
+      "role_name": "毒Boss",
+      "role_description": "プレイヤーのPoison量を参照して大ダメージを与える。",
+      "primary_attributes": [
+        "Poison"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 140,
+      "attack_min": 9,
+      "attack_max": 13,
+      "defend_amount": 14,
+      "buff_amount": 2,
+      "signature_action_name": "毒性爆発",
+      "signature_action_description": "プレイヤーのPoison量を参照して大ダメージを与える。",
+      "signature_action_key": "status_scaling",
+      "signature_damage": 8,
+      "signature_hits": 1,
+      "signature_player_status": "Poison",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "Poison",
+      "signature_bonus_damage": 2,
+      "signature_consume_condition": true,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "poison",
+        "poison",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [
+        "poison",
+        "poison",
+        "signature",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "poison",
+        "poison",
+        "signature",
+        "attack",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Poison"
+      ],
+      "resistance_values": [
+        30
+      ],
+      "status_resistances": [
+        "Poison"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R2-B02",
+      "enemy_name": "R2-B02（蓄勢連撃Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R2",
+      "region_name": "廃墟",
+      "role_name": "蓄勢連撃Boss",
+      "role_description": "Chargeを蓄え、強攻撃で消費し、2回攻撃へつなぐ。",
+      "primary_attributes": [
+        "Dark",
+        "Physical"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 152,
+      "attack_min": 9,
+      "attack_max": 13,
+      "defend_amount": 14,
+      "buff_amount": 2,
+      "signature_action_name": "蓄勢崩撃",
+      "signature_action_description": "Chargeを消費し、1スタックごとに特殊攻撃の基礎ダメージ+5。",
+      "signature_action_key": "charge_strike",
+      "signature_damage": 10,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "charge",
+        "attackx2",
+        "signature",
+        "buff"
+      ],
+      "ai_pattern_stage_2": [
+        "charge",
+        "attackx2",
+        "signature",
+        "buff",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "charge",
+        "attackx2",
+        "signature",
+        "buff",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Dark",
+        "Physical"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R2-B03",
+      "enemy_name": "R2-B03（召喚Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R2",
+      "region_name": "廃墟",
+      "role_name": "召喚Boss",
+      "role_description": "召喚→強化→再召喚のサイクルで戦場を埋める。",
+      "primary_attributes": [
+        "Dark",
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 164,
+      "attack_min": 9,
+      "attack_max": 13,
+      "defend_amount": 14,
+      "buff_amount": 2,
+      "signature_action_name": "死霊軍勢",
+      "signature_action_description": "召喚→強化→再召喚のサイクルで戦場を埋める。",
+      "signature_action_key": "summon",
+      "signature_damage": 0,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "res://data/enemies/v2_7/R2_N02.tres",
+      "summon_limit": 5,
+      "ai_pattern": [
+        "summon",
+        "buff",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [
+        "summon",
+        "buff",
+        "attack",
+        "signature",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "summon",
+        "buff",
+        "attack",
+        "signature",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Dark",
+        "Arcane"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R2-B04",
+      "enemy_name": "R2-B04（地域総合Boss）",
+      "enemy_rank": "Boss",
+      "region_id": "R2",
+      "region_name": "廃墟",
+      "role_name": "地域総合Boss",
+      "role_description": "Poison・Weak・Vulnerable・召喚をPhaseごとに組み合わせる。",
+      "primary_attributes": [
+        "Poison",
+        "Dark"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 176,
+      "attack_min": 9,
+      "attack_max": 13,
+      "defend_amount": 14,
+      "buff_amount": 2,
+      "signature_action_name": "腐王の儀式",
+      "signature_action_description": "Poison・Weak・Vulnerable・召喚をPhaseごとに組み合わせる。",
+      "signature_action_key": "region_master",
+      "signature_damage": 10,
+      "signature_hits": 1,
+      "signature_player_status": "Poison",
+      "signature_player_status_value": 2,
+      "signature_self_status": "Strength",
+      "signature_self_status_value": 1,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "res://data/enemies/v2_7/R2_N01.tres",
+      "summon_limit": 5,
+      "ai_pattern": [
+        "poison",
+        "weak",
+        "signature",
+        "summon"
+      ],
+      "ai_pattern_stage_2": [
+        "poison",
+        "weak",
+        "signature",
+        "summon",
+        "signature"
+      ],
+      "ai_pattern_stage_3": [
+        "signature",
+        "poison",
+        "weak",
+        "signature",
+        "summon",
+        "signature"
+      ],
+      "stage_hp_multipliers": [
+        1.0,
+        1.28,
+        1.6
+      ],
+      "stage_attack_bonuses": [
+        0,
+        2,
+        4
+      ],
+      "resistance_attributes": [
+        "Poison",
+        "Dark"
+      ],
+      "resistance_values": [
+        30,
+        30
+      ],
+      "status_resistances": [
+        "Poison",
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R2-E01",
+      "enemy_name": "R2-E01（疫病型）",
+      "enemy_rank": "Elite",
+      "region_id": "R2",
+      "region_name": "廃墟",
+      "role_name": "疫病型",
+      "role_description": "Poisonを急速に蓄積し、一定以上でWeakも付与する。",
+      "primary_attributes": [
+        "Poison"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 78,
+      "attack_min": 8,
+      "attack_max": 11,
+      "defend_amount": 11,
+      "buff_amount": 2,
+      "signature_action_name": "疫病霧",
+      "signature_action_description": "Poisonを急速に蓄積し、一定以上でWeakも付与する。",
+      "signature_action_key": "plague",
+      "signature_damage": 0,
+      "signature_hits": 1,
+      "signature_player_status": "Poison",
+      "signature_player_status_value": 3,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "poison",
+        "poison",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Poison"
+      ],
+      "resistance_values": [
+        20
+      ],
+      "status_resistances": [
+        "Poison"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R2-E02",
+      "enemy_name": "R2-E02（呪術型）",
+      "enemy_rank": "Elite",
+      "region_id": "R2",
+      "region_name": "廃墟",
+      "role_name": "呪術型",
+      "role_description": "WeakとVulnerableを交互に与え、呪われた相手への攻撃を強化。",
+      "primary_attributes": [
+        "Dark"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 84,
+      "attack_min": 8,
+      "attack_max": 11,
+      "defend_amount": 11,
+      "buff_amount": 2,
+      "signature_action_name": "二重呪詛",
+      "signature_action_description": "WeakとVulnerableを交互に与え、呪われた相手への攻撃を強化。",
+      "signature_action_key": "dual_curse",
+      "signature_damage": 8,
+      "signature_hits": 1,
+      "signature_player_status": "Weak",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "Weak",
+      "signature_bonus_damage": 4,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "weak",
+        "vulnerable",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Dark"
+      ],
+      "resistance_values": [
+        20
+      ],
+      "status_resistances": [
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R2-E03",
+      "enemy_name": "R2-E03（死霊術型）",
+      "enemy_rank": "Elite",
+      "region_id": "R2",
+      "region_name": "廃墟",
+      "role_name": "死霊術型",
+      "role_description": "亡者を召喚し、倒された召喚体を補充する。",
+      "primary_attributes": [
+        "Dark",
+        "Arcane"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 90,
+      "attack_min": 8,
+      "attack_max": 11,
+      "defend_amount": 11,
+      "buff_amount": 2,
+      "signature_action_name": "死者召喚",
+      "signature_action_description": "亡者を召喚し、倒された召喚体を補充する。",
+      "signature_action_key": "summon",
+      "signature_damage": 0,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "res://data/enemies/v2_7/R2_N02.tres",
+      "summon_limit": 4,
+      "ai_pattern": [
+        "summon",
+        "buff",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Dark",
+        "Arcane"
+      ],
+      "resistance_values": [
+        20,
+        20
+      ],
+      "status_resistances": [
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R2-N01",
+      "enemy_name": "R2-N01（毒蓄積型）",
+      "enemy_rank": "Normal",
+      "region_id": "R2",
+      "region_name": "廃墟",
+      "role_name": "毒蓄積型",
+      "role_description": "ダメージとPoisonを与える。",
+      "primary_attributes": [
+        "Poison"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 38,
+      "attack_min": 7,
+      "attack_max": 9,
+      "defend_amount": 6,
+      "buff_amount": 1,
+      "signature_action_name": "毒牙",
+      "signature_action_description": "ダメージとPoisonを与える。",
+      "signature_action_key": "plain",
+      "signature_damage": 4,
+      "signature_hits": 1,
+      "signature_player_status": "Poison",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "poison",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Poison"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [
+        "Poison"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R2-N02",
+      "enemy_name": "R2-N02（軽量連撃型）",
+      "enemy_rank": "Normal",
+      "region_id": "R2",
+      "region_name": "廃墟",
+      "role_name": "軽量連撃型",
+      "role_description": "小規模な2Hit攻撃と防御で攻防を切り替える。",
+      "primary_attributes": [
+        "Dark",
+        "Physical"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 40,
+      "attack_min": 6,
+      "attack_max": 8,
+      "defend_amount": 6,
+      "buff_amount": 1,
+      "signature_action_name": "二連刻み",
+      "signature_action_description": "3ダメージを基礎とする2Hit攻撃。",
+      "signature_action_key": "plain",
+      "signature_damage": 3,
+      "signature_hits": 2,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "attackx2",
+        "defend",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Dark",
+        "Physical"
+      ],
+      "resistance_values": [
+        10,
+        10
+      ],
+      "status_resistances": [
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R2-N03",
+      "enemy_name": "R2-N03（Weak型）",
+      "enemy_rank": "Normal",
+      "region_id": "R2",
+      "region_name": "廃墟",
+      "role_name": "Weak型",
+      "role_description": "Weakを与えてから攻撃する。",
+      "primary_attributes": [
+        "Dark"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 42,
+      "attack_min": 7,
+      "attack_max": 9,
+      "defend_amount": 6,
+      "buff_amount": 1,
+      "signature_action_name": "衰弱の呪い",
+      "signature_action_description": "Weakを与えてから攻撃する。",
+      "signature_action_key": "plain",
+      "signature_damage": 5,
+      "signature_hits": 1,
+      "signature_player_status": "Weak",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "weak",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Dark"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R2-N04",
+      "enemy_name": "R2-N04（Vulnerable型）",
+      "enemy_rank": "Normal",
+      "region_id": "R2",
+      "region_name": "廃墟",
+      "role_name": "Vulnerable型",
+      "role_description": "Vulnerableを付与し、次の攻撃を強化する。",
+      "primary_attributes": [
+        "Dark"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 44,
+      "attack_min": 6,
+      "attack_max": 8,
+      "defend_amount": 6,
+      "buff_amount": 1,
+      "signature_action_name": "破滅の印",
+      "signature_action_description": "Vulnerableを付与し、次の攻撃を強化する。",
+      "signature_action_key": "status_scaling",
+      "signature_damage": 6,
+      "signature_hits": 1,
+      "signature_player_status": "Vulnerable",
+      "signature_player_status_value": 1,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "Vulnerable",
+      "signature_bonus_damage": 4,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "vulnerable",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Dark"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R2-N05",
+      "enemy_name": "R2-N05（腐食型）",
+      "enemy_rank": "Normal",
+      "region_id": "R2",
+      "region_name": "廃墟",
+      "role_name": "腐食型",
+      "role_description": "Poisonを与え、プレイヤーのBlockを崩す。",
+      "primary_attributes": [
+        "Poison",
+        "Earth"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 46,
+      "attack_min": 7,
+      "attack_max": 9,
+      "defend_amount": 6,
+      "buff_amount": 1,
+      "signature_action_name": "腐食液",
+      "signature_action_description": "Poisonを与え、プレイヤーのBlockを崩す。",
+      "signature_action_key": "corrode",
+      "signature_damage": 4,
+      "signature_hits": 1,
+      "signature_player_status": "Poison",
+      "signature_player_status_value": 2,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "poison",
+        "signature",
+        "attack"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Poison",
+        "Earth"
+      ],
+      "resistance_values": [
+        10,
+        10
+      ],
+      "status_resistances": [
+        "Poison"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R2-N06",
+      "enemy_name": "R2-N06（吸収型）",
+      "enemy_rank": "Normal",
+      "region_id": "R2",
+      "region_name": "廃墟",
+      "role_name": "吸収型",
+      "role_description": "Poison状態の相手から生命を吸収する。",
+      "primary_attributes": [
+        "Poison",
+        "Dark"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 48,
+      "attack_min": 6,
+      "attack_max": 8,
+      "defend_amount": 6,
+      "buff_amount": 1,
+      "signature_action_name": "病蝕吸収",
+      "signature_action_description": "Poison状態の相手から生命を吸収する。",
+      "signature_action_key": "status_heal",
+      "signature_damage": 5,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 6,
+      "signature_condition_status": "Poison",
+      "signature_bonus_damage": 3,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "",
+      "summon_limit": 0,
+      "ai_pattern": [
+        "poison",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Poison",
+        "Dark"
+      ],
+      "resistance_values": [
+        10,
+        10
+      ],
+      "status_resistances": [
+        "Poison",
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    },
+    {
+      "enemy_id": "R2-N07",
+      "enemy_name": "R2-N07（召喚支援型）",
+      "enemy_rank": "Normal",
+      "region_id": "R2",
+      "region_name": "廃墟",
+      "role_name": "召喚支援型",
+      "role_description": "小型の亡者を召喚。既に場が埋まっていれば味方を強化する。",
+      "primary_attributes": [
+        "Dark"
+      ],
+      "secondary_attributes": [],
+      "max_hp": 50,
+      "attack_min": 7,
+      "attack_max": 9,
+      "defend_amount": 6,
+      "buff_amount": 1,
+      "signature_action_name": "亡者の呼び声",
+      "signature_action_description": "小型の亡者を召喚。既に場が埋まっていれば味方を強化する。",
+      "signature_action_key": "summon",
+      "signature_damage": 0,
+      "signature_hits": 1,
+      "signature_player_status": "",
+      "signature_player_status_value": 0,
+      "signature_self_status": "",
+      "signature_self_status_value": 0,
+      "signature_block": 0,
+      "signature_heal": 0,
+      "signature_condition_status": "",
+      "signature_bonus_damage": 0,
+      "signature_consume_condition": false,
+      "summon_enemy_path": "res://data/enemies/v2_7/R2_N02.tres",
+      "summon_limit": 4,
+      "ai_pattern": [
+        "summon",
+        "attack",
+        "signature"
+      ],
+      "ai_pattern_stage_2": [],
+      "ai_pattern_stage_3": [],
+      "stage_hp_multipliers": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stage_attack_bonuses": [
+        0,
+        0,
+        0
+      ],
+      "resistance_attributes": [
+        "Dark"
+      ],
+      "resistance_values": [
+        10
+      ],
+      "status_resistances": [
+        "Weak",
+        "Vulnerable"
+      ],
+      "status_immunities": [],
+      "artwork_path": ""
+    }
+  ],
+  "profile": "campaign_stage1_approved",
+  "schema_version": 1
+}

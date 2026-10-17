@@ -1,0 +1,9 @@
+{
+  "ui_trial/actors/boss_b01_rig_step12.gd": "65aafcbebd24844571e97e44529b0edefa70b64fbf2dbb16dfb00065347b0163",
+  "ui_trial/assets/step12_b01/art_profile.json": "2355f019cd2f3a44de0d19185f27d7ffe666f65bdf5ac429a3a1e33e625ec34a",
+  "ui_trial/assets/step12_b01/concept_reference.jpg": "83d693114090c719d87fbeda086db346bbb84a358ac2e47019d4b16c0f7722e5",
+  "ui_trial/battle_ui_step12.gd": "d2ef7ca62b9315ae7291ad664a5f83e3a2c6d3ed893dfb497bd75340174aed0c",
+  "ui_trial/battle_ui_step12.tscn": "af2821f28b21794c37ac2b08bad62e2ebb99a4682eba9c814560a16f8d51ce5e",
+  "ui_trial/boss_lab_step12.gd": "4911acef7be44d7cbb2af8e4b128137fa73c0fd3ec1861b3e8541d4793b36e40",
+  "ui_trial/boss_lab_step12.tscn": "199b4b5035c04b7d99263fad304d9d52c193130312abdd91056a35be89a2ad4e"
+}

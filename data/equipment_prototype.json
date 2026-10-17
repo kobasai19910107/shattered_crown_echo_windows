@@ -1,0 +1,503 @@
+{
+  "version": "v1.6-prototype",
+  "slots": [
+    {
+      "id": "main_weapon",
+      "label": "Main Weapon"
+    },
+    {
+      "id": "offhand",
+      "label": "Offhand"
+    },
+    {
+      "id": "head",
+      "label": "Head"
+    },
+    {
+      "id": "body",
+      "label": "Body"
+    },
+    {
+      "id": "hands",
+      "label": "Hands"
+    },
+    {
+      "id": "feet",
+      "label": "Feet"
+    }
+  ],
+  "fallback_cards": [
+    "BASIC_STRIKE",
+    "BASIC_STRIKE",
+    "BASIC_GUARD",
+    "BASIC_GUARD"
+  ],
+  "prototype_loadout": {
+    "main_weapon": "EQ_MW_SWORD_01",
+    "offhand": "EQ_OH_SHIELD_01",
+    "head": "EQ_HEAD_SCOUT_01",
+    "body": "EQ_BODY_FORTITUDE_01",
+    "hands": "EQ_HANDS_ASSAULT_01",
+    "feet": "EQ_FEET_TEMPO_01"
+  },
+  "items": {
+    "EQ_MW_SWORD_01": {
+      "id": "EQ_MW_SWORD_01",
+      "name": "Prototype Sword",
+      "slot": "main_weapon",
+      "cards": [
+        "C001",
+        "C002",
+        "C013",
+        "C014"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 6,
+      "rarity": "Rare",
+      "special_effects": [
+        {
+          "type": "battle_start_weapon_trait",
+          "trait": "剣勢",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_MW_RAPIER_01": {
+      "id": "EQ_MW_RAPIER_01",
+      "name": "Prototype Rapier",
+      "slot": "main_weapon",
+      "cards": [
+        "C003",
+        "C004",
+        "C015",
+        "C016"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 5,
+      "rarity": "Rare",
+      "special_effects": [
+        {
+          "type": "battle_start_weapon_trait",
+          "trait": "精密",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_MW_DAGGER_01": {
+      "id": "EQ_MW_DAGGER_01",
+      "name": "Prototype Dagger",
+      "slot": "main_weapon",
+      "cards": [
+        "C005",
+        "C006",
+        "C017",
+        "C018"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 5,
+      "rarity": "Rare",
+      "special_effects": [
+        {
+          "type": "battle_start_weapon_trait",
+          "trait": "連刃",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_MW_GREATSWORD_01": {
+      "id": "EQ_MW_GREATSWORD_01",
+      "name": "Prototype Greatsword",
+      "slot": "main_weapon",
+      "cards": [
+        "C007",
+        "C008",
+        "C019",
+        "C020"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 8,
+      "rarity": "Epic",
+      "special_effects": [
+        {
+          "type": "battle_start_weapon_trait",
+          "trait": "蓄勢",
+          "amount": 1
+        },
+        {
+          "type": "turn_start_block",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_MW_MAGIC_SWORD_01": {
+      "id": "EQ_MW_MAGIC_SWORD_01",
+      "name": "Prototype Magic Sword",
+      "slot": "main_weapon",
+      "cards": [
+        "C009",
+        "C010",
+        "C021",
+        "C022"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 6,
+      "rarity": "Epic",
+      "special_effects": [
+        {
+          "type": "battle_start_weapon_trait",
+          "trait": "魔導",
+          "amount": 1
+        },
+        {
+          "type": "turn_start_mana",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_MW_KATANA_01": {
+      "id": "EQ_MW_KATANA_01",
+      "name": "Prototype Katana",
+      "slot": "main_weapon",
+      "cards": [
+        "C011",
+        "C012",
+        "C023",
+        "C024"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 6,
+      "rarity": "Epic",
+      "special_effects": [
+        {
+          "type": "battle_start_weapon_trait",
+          "trait": "納刀",
+          "amount": 1
+        },
+        {
+          "type": "first_turn_draw",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_OH_SHIELD_01": {
+      "id": "EQ_OH_SHIELD_01",
+      "name": "Prototype Shield",
+      "slot": "offhand",
+      "cards": [
+        "C049",
+        "C055",
+        "C061",
+        "C062"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 8,
+      "rarity": "Common",
+      "special_effects": []
+    },
+    "EQ_OH_GRIMOIRE_01": {
+      "id": "EQ_OH_GRIMOIRE_01",
+      "name": "Prototype Grimoire",
+      "slot": "offhand",
+      "cards": [
+        "C097",
+        "C098",
+        "C105",
+        "C106"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 5,
+      "rarity": "Rare",
+      "special_effects": [
+        {
+          "type": "turn_start_mana",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_OH_SCABBARD_01": {
+      "id": "EQ_OH_SCABBARD_01",
+      "name": "Prototype Scabbard",
+      "slot": "offhand",
+      "cards": [
+        "C071",
+        "C072",
+        "C119",
+        "C120"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 6,
+      "rarity": "Epic",
+      "special_effects": [
+        {
+          "type": "battle_start_weapon_trait",
+          "trait": "納刀",
+          "amount": 1
+        },
+        {
+          "type": "first_turn_draw",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_OH_SIGIL_01": {
+      "id": "EQ_OH_SIGIL_01",
+      "name": "Prototype Holy Sigil",
+      "slot": "offhand",
+      "cards": [
+        "C061",
+        "C064",
+        "C069",
+        "C072"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 7,
+      "rarity": "Rare",
+      "special_effects": [
+        {
+          "type": "battle_start_attribute_trait",
+          "trait": "恩寵",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_OH_ORB_01": {
+      "id": "EQ_OH_ORB_01",
+      "name": "Prototype Orb",
+      "slot": "offhand",
+      "cards": [
+        "C057",
+        "C058",
+        "C105",
+        "C106"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 5,
+      "rarity": "Rare",
+      "special_effects": [
+        {
+          "type": "battle_start_attribute_trait",
+          "trait": "魔珠",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_HEAD_SCOUT_01": {
+      "id": "EQ_HEAD_SCOUT_01",
+      "name": "Prototype Scout Hood",
+      "slot": "head",
+      "cards": [
+        "C064",
+        "C099",
+        "C109",
+        "C120"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 6,
+      "rarity": "Common",
+      "special_effects": []
+    },
+    "EQ_HEAD_BULWARK_01": {
+      "id": "EQ_HEAD_BULWARK_01",
+      "name": "Prototype Bulwark Helm",
+      "slot": "head",
+      "cards": [
+        "C002",
+        "C055",
+        "C061",
+        "C111"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 8,
+      "rarity": "Rare",
+      "special_effects": [
+        {
+          "type": "turn_start_block",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_BODY_FORTITUDE_01": {
+      "id": "EQ_BODY_FORTITUDE_01",
+      "name": "Prototype Fortitude Armor",
+      "slot": "body",
+      "cards": [
+        "C049",
+        "C055",
+        "C056",
+        "C060"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 11,
+      "rarity": "Epic",
+      "special_effects": [
+        {
+          "type": "turn_start_block",
+          "amount": 1
+        },
+        {
+          "type": "battle_start_attribute_trait",
+          "trait": "堅牢",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_BODY_GRACE_01": {
+      "id": "EQ_BODY_GRACE_01",
+      "name": "Prototype Grace Robe",
+      "slot": "body",
+      "cards": [
+        "C061",
+        "C062",
+        "C069",
+        "C072"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 9,
+      "rarity": "Legendary",
+      "special_effects": [
+        {
+          "type": "battle_start_attribute_trait",
+          "trait": "恩寵",
+          "amount": 1
+        },
+        {
+          "type": "first_turn_draw",
+          "amount": 1
+        },
+        {
+          "type": "turn_start_mana",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_HANDS_ASSAULT_01": {
+      "id": "EQ_HANDS_ASSAULT_01",
+      "name": "Prototype Assault Gloves",
+      "slot": "hands",
+      "cards": [
+        "C001",
+        "C005",
+        "C007",
+        "C011"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 8,
+      "rarity": "Rare",
+      "special_effects": [
+        {
+          "type": "battle_start_attribute_trait",
+          "trait": "剛力",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_HANDS_PRECISION_01": {
+      "id": "EQ_HANDS_PRECISION_01",
+      "name": "Prototype Precision Gloves",
+      "slot": "hands",
+      "cards": [
+        "C003",
+        "C051",
+        "C063",
+        "C099"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 7,
+      "rarity": "Rare",
+      "special_effects": [
+        {
+          "type": "battle_start_weapon_trait",
+          "trait": "精密",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_FEET_TEMPO_01": {
+      "id": "EQ_FEET_TEMPO_01",
+      "name": "Prototype Tempo Boots",
+      "slot": "feet",
+      "cards": [
+        "C018",
+        "C029",
+        "C109",
+        "C120"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 9,
+      "rarity": "Rare",
+      "special_effects": [
+        {
+          "type": "battle_start_attribute_trait",
+          "trait": "疾風",
+          "amount": 1
+        }
+      ]
+    },
+    "EQ_FEET_ARCANE_01": {
+      "id": "EQ_FEET_ARCANE_01",
+      "name": "Prototype Arcane Boots",
+      "slot": "feet",
+      "cards": [
+        "C058",
+        "C102",
+        "C108",
+        "C118"
+      ],
+      "tag": "prototype",
+      "prototype_only": true,
+      "base_hp": 8,
+      "rarity": "Epic",
+      "special_effects": [
+        {
+          "type": "battle_start_attribute_trait",
+          "trait": "魔珠",
+          "amount": 1
+        },
+        {
+          "type": "turn_start_mana",
+          "amount": 1
+        }
+      ]
+    }
+  },
+  "fallback_hp_per_slot": 8,
+  "rarity_rules": {
+    "Common": {
+      "special_effect_slots": 0
+    },
+    "Rare": {
+      "special_effect_slots": 1
+    },
+    "Epic": {
+      "special_effect_slots": 2
+    },
+    "Legendary": {
+      "special_effect_slots": 3
+    }
+  },
+  "special_effect_catalog": {
+    "battle_start_weapon_trait": "Battle start: set the specified weapon trait ON.",
+    "battle_start_attribute_trait": "Battle start: gain attribute trait stacks.",
+    "turn_start_block": "Each player turn after 堅牢/恩寵: gain Block.",
+    "turn_start_mana": "Each player turn after Base Mana reset: gain Mana.",
+    "first_turn_draw": "Only on player turn 1: draw extra cards."
+  }
+}

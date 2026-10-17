@@ -1,0 +1,21 @@
+{
+  "ui_trial/actors/boss_b01_rig_step13.gd": "7fc33137231625e9eb4a72f6bf1103c4ad043967908b156c669541b3dcf82515",
+  "ui_trial/assets/step13_b01/crimson_aura.png": "97f91e87930de5c960a2feb10c6de102f0e6eb3365db069e5b098b83589cdf3a",
+  "ui_trial/assets/step13_b01/fore_far.png": "ae2ed00e4e620cd6325e002302c70103aa8ca2cbb4dcc729acaa06b062b5ac6c",
+  "ui_trial/assets/step13_b01/fore_near.png": "b7011d56cd2451c368ee2e22dea36ff8d749b90d14a7386f2d2fd5fe34c1a4cb",
+  "ui_trial/assets/step13_b01/head.png": "1cb016e8f9c3d8865c2520c060d7e4260c53ecae40e5dc34e3c3274713e33c68",
+  "ui_trial/assets/step13_b01/hind_far.png": "86c168d33b0af00e07a209cc9aa17188f301bfb81121412f42bfd203d0ff23f4",
+  "ui_trial/assets/step13_b01/hind_near.png": "9cf653ce30059d9509ef57ea5005a1937e6c3a23c6b18957bbc99a8dbfd51575",
+  "ui_trial/assets/step13_b01/horn_far.png": "71ee5a045ce5fad848053ed66edee0d7b7670d80e50a3f6f1a1bca5a50977edd",
+  "ui_trial/assets/step13_b01/horn_near.png": "b04f40326dae18f6c2228c14fa02011b657fb21dd5144c867e60f1f2071f5532",
+  "ui_trial/assets/step13_b01/jaw.png": "743f99134170973acad4fb2254fd26b0ebd741b9f3ecd8a633aa143923593228",
+  "ui_trial/assets/step13_b01/neck.png": "3aec9bc2a25e8aeaa7fc52dd380e3640b1a8d77b27aa6f494f574f8e6ce4f583",
+  "ui_trial/assets/step13_b01/rig.json": "ce676bd2820c655884a48b93fb171cc957ba095bbcd6e460e1ceb89efa5233c0",
+  "ui_trial/assets/step13_b01/spines_back.png": "d6f0ff04be7f7d4cac75115fe276766a891b1b920131de551898fdfc2c1f407b",
+  "ui_trial/assets/step13_b01/tail.png": "f82481b5447e2f90b5a3ca4872a9a87e3feea41b07c21e7442d92ad876a89de2",
+  "ui_trial/assets/step13_b01/torso.png": "f04a1dc356716db351d7a35fec0cf702bcc3d0f0bd282d44ef4117be582351cf",
+  "ui_trial/battle_ui_step13.gd": "1a63f8ca2cc9b269887a1a609cf61ad3e75e128655ccec16449d157d47b0eafd",
+  "ui_trial/battle_ui_step13.tscn": "10f09b27969b887cfedf86690e255b1a52425c408f5ece17b4a6ba6a83bf7850",
+  "ui_trial/boss_lab_step13.gd": "1c45c3eaa0af384da009ed4f755eecd76cd0e8e188931b88b26d3af9332851b4",
+  "ui_trial/boss_lab_step13.tscn": "1e9b509baaab005ec0cb2e955708a36f0cda1926ec2ad59f8ec62dd2b57a7a17"
+}

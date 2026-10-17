@@ -1,0 +1,25 @@
+; Engine configuration file.
+; v1.7.0 weapon-trait ON/OFF runtime candidate. Based on the v1.6.10 playtest UI.
+config_version=5
+
+[application]
+config/name="shattered_crown_echo STEP22 TEST (Web Solo)"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.7")
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=900
+window/size/window_width_override=1280
+window/size/window_height_override=900
+window/stretch/mode="canvas_items"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+
+[gui]
+theme/default_font_multichannel_signed_distance_field=true
+
+; Web migration: no EOS GDExtension/autoload. Windows source ZIP unchanged.
