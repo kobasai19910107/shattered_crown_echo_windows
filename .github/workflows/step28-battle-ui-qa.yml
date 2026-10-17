@@ -25,6 +25,12 @@ jobs:
           set -euo pipefail
           export HOME=/root
           godot --headless --path . --import
+      - name: Japanese font glyph smoke test
+        shell: bash
+        run: |
+          set -euo pipefail
+          export HOME=/root
+          godot --headless --path . --script res://tests/japanese_font_smoke.gd
       - name: STEP22 Battle Core presentation smoke test
         shell: bash
         run: |
